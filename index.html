@@ -31,14 +31,17 @@
   .reason { font-size: 12px; color: #888; margin-top: 2px; }
   .empty { color: #888; font-style: italic; padding: 16px 0; }
   .lowcount { font-size: 11px; color: #999; font-style: italic; margin-top: 16px; }
-  .tabs { margin-top: 4px; }
-  .tabs input.tab-input { display: none; }
-  .tabs label.tab-label { display: inline-block; padding: 6px 16px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #f0f0f0; color: #666; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }
-  .tabs input.tab-input:first-of-type:checked ~ label.tab-label:first-of-type,
-  .tabs input.tab-input:last-of-type:checked ~ label.tab-label:last-of-type { background: #14213d; color: #fff; }
-  .tabs .tab-panel { display: none; border-top: 2px solid #14213d; padding-top: 12px; }
-  .tabs input.tab-input:first-of-type:checked ~ .tab-panel:first-of-type,
-  .tabs input.tab-input:last-of-type:checked ~ .tab-panel:last-of-type { display: block; }
+  .toptabs { margin-top: 4px; }
+  .toptabs input.tab-input { display: none; }
+  .toptabs label.tab-label { display: inline-block; padding: 8px 20px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #eee; color: #666; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }
+  .toptabs input.tab-input:first-of-type:checked ~ label.tab-label:first-of-type,
+  .toptabs input.tab-input:last-of-type:checked ~ label.tab-label:last-of-type { background: #14213d; color: #fff; }
+  .toptabs .tab-panel { display: none; border-top: 3px solid #14213d; padding-top: 16px; }
+  .toptabs input.tab-input:first-of-type:checked ~ .tab-panel:first-of-type,
+  .toptabs input.tab-input:last-of-type:checked ~ .tab-panel:last-of-type { display: block; }
+  details.date-filter { background: transparent; border: none; padding: 0 0 0 4px; margin-bottom: 8px; }
+  details.date-filter summary { padding: 8px 0; font-size: 13px; }
+  details.date-filter .day-body { padding-left: 8px; border-top: none; }
   footer { margin-top: 30px; font-size: 11px; color: #aaa; text-align: center; }
 </style>
 </head>
@@ -46,21 +49,21 @@
   <h1>UAE AI Intelligence Radar</h1>
   <p class="subtitle">Daily archive, newest first. Regenerated automatically after each run.</p>
   
+  <div class="toptabs">
+    <input type="radio" name="toptabs" id="toptab-news" class="tab-input" checked>
+    <label for="toptab-news" class="tab-label">News</label>
+    <input type="radio" name="toptabs" id="toptab-jobs" class="tab-input">
+    <label for="toptab-jobs" class="tab-label">Jobs (94)</label>
+    <div class="tab-panel">
   <details open>
     <summary>
       <span class="date">2026-08-10</span>
-      <span class="summary-meta">raw: 593 &middot; deduped: 437 &middot; unseen: 193 &middot; relevant: 102</span>
+      <span class="summary-meta">raw: 1077 &middot; deduped: 804 &middot; unseen: 560 &middot; relevant: 356</span>
       
     </summary>
     <div class="day-body">
       <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
-      
-      <div class="tabs">
-        <input type="radio" name="tabs-20260810" id="tab-news-20260810" class="tab-input" checked>
-        <label for="tab-news-20260810" class="tab-label">News (77)</label>
-        <input type="radio" name="tabs-20260810" id="tab-jobs-20260810" class="tab-input">
-        <label for="tab-jobs-20260810" class="tab-label">Jobs (25)</label>
-        <div class="tab-panel" id="panel-news-20260810"><h3 class="section-high">High NOMOS Relevance</h3>
+      <h3 class="section-high">High NOMOS Relevance</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.computerweekly.com/news/366642372/UAE-targets-agentic-AI-to-power-half-of-government-operations" target="_blank" rel="noopener">UAE targets agentic AI to power half of government ...</a></div>
       <div class="item-meta">
@@ -267,6 +270,420 @@
       </div>
       <div class="why">RTA's AI monitoring of taxi driver conduct involves autonomous real-time decision-making affecting public safety and individual accountability.</div>
       <div class="reason">Autonomous surveillance/compliance system making decisions about individuals requires fairness, transparency, and audit frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/tiiuae_tii-innovation-technology-activity-7409141296168374272-ruZW" target="_blank" rel="noopener">UAE's AI Governance Framework: Sovereign AI Development</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: TII Chief Governance Officer or Head of AI Ethics &amp; Governance</span>
+      </div>
+      <div class="why">TII (Technology Innovation Institute) positioning sovereign AI development with agile governance, directly addressing policy-to-execution gap.</div>
+      <div class="reason">TII explicitly mentions governance framework for sovereign AI adoption; clear opening for verification/audit artifact services to operationalize their framework.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://kpmg.com/ae/en/insights/ai-and-technology/the-future-of-ai-governance.html" target="_blank" rel="noopener">The future of AI governance: the UAE Charter and global ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Federal Authority for Government Human Resources or Ministry of Justice</span>
+      </div>
+      <div class="why">KPMG analysis of UAE Charter for AI emphasizes trust, responsibility, and decision transparency—core audit and verification requirements.</div>
+      <div class="reason">UAE Charter for AI mandates verifiable governance around decision-making; NOMOS's audit and verification offering directly addresses this stated requirement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence/ai-resources" target="_blank" rel="noopener">AI resources | The Official Platform of the UAE Government</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Federal Authority for Government Human Resources or equivalent digital transformation office</span>
+      </div>
+      <div class="why">Official UAE government AI Adoption Guideline for government services indicates institutional commitment to operationalizing AI policy.</div>
+      <div class="reason">Government adoption guidelines require verifiable implementation; NOMOS's governance verification directly operationalizes these guidelines into machine-auditable artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.researchgate.net/publication/404012725_AI_Infrastructure_Readiness_in_UAE_Government_A_Strategic_Framework_for_Sovereign_AI_Adoption_Transformation_Strategic_Leadership_Public_Sector_AI" target="_blank" rel="noopener">(PDF) AI Infrastructure Readiness in UAE Government</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Federal Authority for Government Human Resources or Ministry of Justice policy division</span>
+      </div>
+      <div class="why">ResearchGate paper proposes tiered AI regulatory framework for UAE government similar to EU AI Act, identifying governance implementation gap.</div>
+      <div class="reason">Explicitly calls for tiered regulatory framework operationalization in government; NOMOS verification services directly address turning policy tiers into auditable, machine-executable rules.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.moj.gov.ae/en/artificial-intelligence.aspx" target="_blank" rel="noopener">Artificial Intelligence | Ministry of Justice, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Ministry of Justice AI Governance or Policy Division</span>
+      </div>
+      <div class="why">Ministry of Justice official AI page commits to strong governance and effective regulation with federal and local law integration.</div>
+      <div class="reason">Ministry of Justice explicitly mandates strong governance and regulation; this is the primary authority for verifiable compliance frameworks—direct pitch target.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.ft.com/content/9019cd51-2b55-4175-81a6-eafcf28609c3?syn-25a6b1a6=1" target="_blank" rel="noopener">UAE set to use AI to write laws in world first</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Ministry of Justice or UAE Cabinet Technology and Digital Transformation Office</span>
+      </div>
+      <div class="why">UAE plans to deploy AI to analyze legal impact on population and economy—requires verifiable, auditable decision-making systems.</div>
+      <div class="reason">Autonomous AI writing/analyzing laws requires machine-auditable governance artifacts; NOMOS verification is essential for accountability and transparency.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.globalgovernmentforum.com/uae-creates-dedicated-artificial-intelligence-and-data-authority-to-build-government-of-the-future/" target="_blank" rel="noopener">UAE creates dedicated AI and data authority to 'build ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: UAE AI and Data Authority Chief Governance Officer or Head of Compliance</span>
+      </div>
+      <div class="why">New dedicated UAE AI and Data Authority consolidating three government bodies signals institutional focus on governance and regulation.</div>
+      <div class="reason">New unified authority responsible for AI governance will need standardized verification and audit frameworks; direct entry point for NOMOS services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://uaecabinet.ae/en/news/under-directives-of-uae-president-and-in-world-first-mohammed-bin-rashid-reveals-new-uae-government-framework-to-deploy-agentic-ai-across-50-of-government-sectors-operations-within-two-years" target="_blank" rel="noopener">UAE government framework to deploy Agentic AI across 50 ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Cabinet AI Deployment Office or Federal Authority for Government Human Resources</span>
+      </div>
+      <div class="why">Mohammed bin Rashid announces framework to deploy agentic AI across 50% of government sectors within two years—requires governance verification at scale.</div>
+      <div class="reason">Massive autonomous AI deployment across half of government operations requires machine-auditable governance frameworks; NOMOS verification is critical for accountability and operational oversight.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dof.gov.ae/en-us/profile/Pages/AI-Policy.aspx" target="_blank" rel="noopener">AI Policy - DOF-Dubai Government</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Dubai Finance Department (DOF) — Chief Information Officer or AI Governance Officer</span>
+      </div>
+      <div class="why">Dubai Finance Department is implementing an ISO/IEC 42001:2023-aligned AI Management System, creating direct demand for governance artifacts and verification.</div>
+      <div class="reason">Explicit AI governance commitment to ISO standards; DOF needs auditable, machine-executable policy verification to meet certification requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dub.ai/en/ai-seal/" target="_blank" rel="noopener">Dubai AI Seal</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Dubai AI Seal / DIFC — Seal Operations Lead or Chief Governance Officer</span>
+      </div>
+      <div class="why">Dubai AI Seal is a verification system for AI industry/government entities, directly competitive/complementary to governance verification offerings.</div>
+      <div class="reason">Existing verification system creates opportunity to pitch deeper governance verification (policy-to-machine-executable artifacts) as complementary to industry seal.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mitsloanme.com/article/uae-plans-to-run-50-of-government-on-agentic-ai-within-two-years/" target="_blank" rel="noopener">UAE Plans to Run 50% of Government on Agentic AI Within ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Ministry of State for Artificial Intelligence / UAE Cabinet — Chief of AI Governance or Program Lead</span>
+      </div>
+      <div class="why">UAE plans to run 50% of government on agentic AI within 2 years with centralized oversight, requiring governance verification and accountability frameworks.</div>
+      <div class="reason">Explicit, time-bound agentic AI rollout across half of government operations; requires machine-executable policy, audit trails, and centralized decision oversight—core NOMOS offering.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.youtube.com/watch?v=SOzf7wLZLmU" target="_blank" rel="noopener">UAE Unveils Plan to Build AI-Run Government in 2 Years ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Ministry of State for Artificial Intelligence / UAE Cabinet — Chief of AI Governance or Program Lead</span>
+      </div>
+      <div class="why">UAE agentic AI integration plan targets 50% of public sector operations within 2 years, creating urgent need for governance verification infrastructure.</div>
+      <div class="reason">Same initiative as item 18 with explicit timeline; direct opportunity to pitch governance verification and auditable decision artifacts before implementation.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.cio.com/article/3812023/abu-dhabi-set-to-become-the-worlds-first-fully-ai-powered-government-by-2027.html" target="_blank" rel="noopener">Abu Dhabi set to become the world's first fully AI-Powered ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Abu Dhabi Government / Department of Government Support — Chief Information Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Abu Dhabi plans to become world's first fully AI-powered government by 2027, requiring end-to-end governance verification, policy enforcement, and decision oversight.</div>
+      <div class="reason">Explicit ambition to deploy AI across all government operations by 2027; requires governance verification, policy codification, and machine-executable oversight—direct product fit.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/EconomyMiddleEast/posts/abudhabi-pioneering-the-worlds-first-ai-enabled-government-by-2027the-emirate-is/834133669122900/" target="_blank" rel="noopener">#AbuDhabi pioneering the world's first #AI-enabled ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Abu Dhabi Government Chief Information Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Abu Dhabi's 2027 AI-native government target is a transformational mandate that will require governance, audit, and compliance infrastructure.</div>
+      <div class="reason">Explicit government commitment to operate major public services with AI by 2027 creates direct need for machine-executable governance and auditability of AI decision systems.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.instagram.com/p/DSd2gXjDfv7/" target="_blank" rel="noopener">The DHA is building new AI tools that help medics make ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Federal Government Chief Information Officer or Autonomous AI Integration Lead</span>
+      </div>
+      <div class="why">UAE federal government is actively integrating autonomous AI agents across public services, creating urgent need for governance and accountability frameworks.</div>
+      <div class="reason">Explicit deployment of agentic AI across federal government services directly demands machine-executable policies, audit trails, and governance verification to ensure accountability and compliance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.lumay.ai/blogs/best-ai-agent-development-companies-uae" target="_blank" rel="noopener">10 Best AI Agent Development Companies In UAE (2026 ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Federal Government Chief Digital Officer or Agentic AI Program Lead</span>
+      </div>
+      <div class="why">UAE mandate to run 50% of government services on agentic AI by 2028 is a transformational policy requiring machine-executable governance and compliance infrastructure.</div>
+      <div class="reason">Specific, measurable, government-mandated target for autonomous AI agent deployment creates direct need for auditable governance, policy verification, and decision accountability.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.ndtv.com/world-news/ai-to-run-50-of-uae-government-services-by-2028-in-global-first-11408375" target="_blank" rel="noopener">AI To Run 50% Of UAE Government Services By 2028 In ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Dubai Government Chief of Staff or Autonomous AI Implementation Lead</span>
+      </div>
+      <div class="why">UAE cabinet directive for 50% agentic AI delivery by 2028 is a binding institutional commitment requiring verifiable governance frameworks.</div>
+      <div class="reason">Cabinet-level mandate creates accountability requirement for autonomous AI system governance; NOMOS can position verification and auditable policy execution as critical to meeting the target.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.tangentia.com/uae/" target="_blank" rel="noopener">AI Automation Service provider | AI Agent Development ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Federal Government AI Governance Lead or responsible agency CIO (tax, citizen services)</span>
+      </div>
+      <div class="why">UAE's 50% agentic AI goal and live deployment of 4 AI agents for public services (tax audit, customer support) require governance, transparency, and audit mechanisms.</div>
+      <div class="reason">Concrete agentic AI implementations already live in government agencies require machine-executable governance, audit trails, and policy verification to ensure compliance and accountability.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.khaleejtimes.com/business/uae-50-agentic-ai-explained-what-means-who-affect" target="_blank" rel="noopener">UAE's 50% agentic AI goal explained: What it means and ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Cabinet Office or Federal Government AI Strategy Lead</span>
+      </div>
+      <div class="why">UAE mandate for 50% of federal government services to run on agentic AI by 2028 is a binding national commitment requiring governance and verification infrastructure.</div>
+      <div class="reason">Explicit government mandate creates direct governance verification need; NOMOS can position as critical to ensuring policy compliance and autonomous decision transparency across all mandated services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.enlit.world/library/dewa-to-embed-generative-ai-across-its-operations" target="_blank" rel="noopener">DEWA to embed generative AI across its operations</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Information Officer or AI/Digital Transformation Lead, DEWA</span>
+      </div>
+      <div class="why">DEWA announced a strategic plan to embed Microsoft Copilot enterprise-wide across operations and services.</div>
+      <div class="reason">Large-scale generative AI rollout across critical utility infrastructure requires governance, audit trails, and policy compliance verification—direct NOMOS use case.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dewa.gov.ae/en/about-us/media-publications/latest-news/2025/03/dewa-announces-roadmap" target="_blank" rel="noopener">DEWA announces roadmap to becoming world's first AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Executive Officer, Chief Digital Officer, or Head of AI Strategy, DEWA</span>
+      </div>
+      <div class="why">DEWA announced a roadmap to become the world's first AI-native utility, embedding AI across all core operations.</div>
+      <div class="reason">AI-native transformation of critical infrastructure requires auditable governance frameworks, policy codification, and compliance verification—core NOMOS offering.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/company/the-uae-artificial-intelligence-office/" target="_blank" rel="noopener">Artificial Intelligence Office (UAE)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Head of Office, Chief Policy Officer, or Head of Strategy, UAE Artificial Intelligence Office</span>
+      </div>
+      <div class="why">UAE has established a federal Artificial Intelligence Office overseeing national AI strategy and governance.</div>
+      <div class="reason">National AI governance body requires institutional policy frameworks, coordination mechanisms, and compliance verification—NOMOS can support policy codification and audit infrastructure.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.morganlewis.com/pubs/2026/06/uae-establishes-federal-authority-for-artificial-intelligence-and-data" target="_blank" rel="noopener">UAE Establishes Federal Authority for Artificial Intelligence ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Head of Authority, Chief Policy Officer, or Head of Governance, Federal Authority for Artificial Intelligence and Data</span>
+      </div>
+      <div class="why">UAE has established a Federal Authority for Artificial Intelligence and Data, creating formal regulatory governance structure.</div>
+      <div class="reason">New regulatory authority requires institutional policy frameworks, compliance verification mechanisms, and auditable governance infrastructure—direct fit for NOMOS services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dataguidance.com/news/uae-tdra-announces-establishment-national-ai-test-and" target="_blank" rel="noopener">UAE: TDRA announces establishment of national AI test ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Director or Head of Operations, National AI Test and Validation Lab, TDRA</span>
+      </div>
+      <div class="why">TDRA established a National AI Test and Validation Lab to certify AI models for security and compliance.</div>
+      <div class="reason">Regulatory validation infrastructure requires standardized, auditable certification processes and policy-aligned governance frameworks—core NOMOS opportunity.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.computerweekly.com/news/366645914/Are-UAE-enterprises-ready-for-agentic-AI" target="_blank" rel="noopener">Are UAE enterprises ready for agentic AI?</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Chief Policy Officer or Agentic AI Programme Lead at Department of Government Enablement or Executive Office</span>
+      </div>
+      <div class="why">UAE aims to transform 50% of government services and processes through agentic AI within two years, requiring redesigned policies.</div>
+      <div class="reason">Explicit mandate for transforming government services through agentic AI with policy redesign creates immediate need for governance verification and auditable policy-to-execution alignment.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://indianexpress.com/article/world/uae-to-deploy-agentic-ai-across-50-of-government-sectors-within-two-years-10653525/" target="_blank" rel="noopener">UAE to Deploy Agentic AI in 50% Government Sectors ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Chief Digital Officer or Agentic AI Strategy Lead at Cabinet/Executive Office</span>
+      </div>
+      <div class="why">UAE government plan to deploy agentic AI across 50% of government sectors within two years for improved efficiency and digital governance.</div>
+      <div class="reason">Large-scale autonomous government service transformation with explicit governance implications; governance verification and policy audit critical for accountability.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ciome.economictimes.indiatimes.com/news/strategy-and-management/uae-enterprises-race-to-catch-up-as-agentic-ai-moves-faster-than-governance/132656362" target="_blank" rel="noopener">UAE enterprises race to catch up as agentic AI moves ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Chief Risk Officer or Compliance Lead at enterprise organizations adopting agentic AI</span>
+      </div>
+      <div class="why">UAE enterprises racing to adopt agentic AI in response to government mandate, creating tension between fast deployment and governance readiness.</div>
+      <div class="reason">Enterprise-level agentic AI deployment driven by government mandate surfaces urgent gap in governance frameworks; direct demand signal for policy-to-execution verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.arabianbusiness.com/business/technology/dubai-to-support-295000-companies-with-agentic-ai-under-new-sheikh-hamdan-backed-plan" target="_blank" rel="noopener">Dubai to support 295000 companies with Agentic AI under ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Chief Strategy Officer or AI Programme Director at Dubai Government or DCCI</span>
+      </div>
+      <div class="why">Dubai launching Agentic AI transformation plan to support 295,000 companies with 100 AI assistants and 50 new AI firms under official backing.</div>
+      <div class="reason">Mass-market agentic AI deployment across 295k companies requires governance standards and verification to ensure policy compliance at scale; explicit opportunity for auditable governance frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/ArabianBusiness/posts/uae-to-deploy-agentic-ai-across-government-sheikh-mohammed-bin-rashid-has-announ/1492019145620852/" target="_blank" rel="noopener">UAE to deploy agentic AI across government. Sheikh ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Vice President of Digital Government or Executive Director of AI Transformation at Federal/Emirate Government</span>
+      </div>
+      <div class="why">UAE announced plan to operate 50% of government services on agentic AI within two years, one of the most ambitious government AI programmes globally.</div>
+      <div class="reason">Transformational agentic AI rollout across government half-services requires machine-executable, auditable policy artifacts to manage autonomous decision-making accountability.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tdra.gov.ae/-/media/TDRA-Media/Newsletters/Ext-Newsletter2024/Ext-NL-May/English-Out-May-24.ashx?c=NewsLetters&amp;t=TDRA+in+Brief+May+2024" target="_blank" rel="noopener">TDRA in Brief</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Executive Officer for Artificial Intelligence or equivalent at federal ministries (via TDRA or Cabinet Office)</span>
+      </div>
+      <div class="why">UAE Government created Chief Executive Officer for Artificial Intelligence role in ministries and federal entities.</div>
+      <div class="reason">New C-level AI governance role across federal entities signals institutional AI policy rollout; direct need for policy codification and audit frameworks</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/ai-to-deliver-rapid-testing-of-household-water-quality/" target="_blank" rel="noopener">AI to deliver rapid testing of household water quality</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Dubai Municipality — Head of Digital Transformation or Chief Technology Officer</span>
+      </div>
+      <div class="why">Dubai Municipality deploying AI for household water quality testing; government AI system with public health decision impact.</div>
+      <div class="reason">Named government entity (Dubai Municipality) deploying AI in regulated domain (public health); audit and accountability framework likely required.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/pioneering-awards/" target="_blank" rel="noopener">Pioneering Awards</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Municipality — Chief Data Officer or Chief Digital Officer</span>
+      </div>
+      <div class="why">Dubai Municipality pioneering award for AI and big data in decision-making; explicit government recognition of AI-driven institutional decisions.</div>
+      <div class="reason">Named government entity (Dubai Municipality) formally recognised for AI decision-making systems; strong signal of decision governance and audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/digital-dubai-showcases-its-pioneering-vision-for-ai-agents-and-data-capital-at-the-asia-pacific-cities-summit-and-mayors-forum" target="_blank" rel="noopener">Digital Dubai showcases its Pioneering Vision for AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Governance Lead, Digital Dubai (Smart Dubai)</span>
+      </div>
+      <div class="why">Digital Dubai is developing unified AI models and data governance frameworks for agentic systems across government services.</div>
+      <div class="reason">Explicit mention of AI agents for government services, data governance, and digital services integration—a direct use case for governance verification and policy-to-executable-artifact translation.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/digital-dubai-showcases-ai-driven-innovations-to-enhance-human-life-at-gitex-global-2025" target="_blank" rel="noopener">Digital Dubai Showcases AI-Driven Innovations to ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Governance Lead, Digital Dubai (Smart Dubai)</span>
+      </div>
+      <div class="why">Digital Dubai is deploying specialized AI agents for recruitment, procurement, contracts, finance, and committee work—autonomous government operations.</div>
+      <div class="reason">Multiple autonomous agents handling high-risk decision domains (procurement, contracts, finance) require governance verification, audit trails, and policy compliance certification—core NOMOS value.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dubaicustoms.gov.ae/en/mobile/pages/newsdetails.aspx?itemid=2129" target="_blank" rel="noopener">Dubai Customs launches 2030 artificial intelligence strategy</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Innovation Officer or AI Strategy Lead, Dubai Customs</span>
+      </div>
+      <div class="why">Dubai Customs launched comprehensive 2030 AI strategy with four pillars: smart foundation, powered channels, predictive risk assessment, and intelligent operations.</div>
+      <div class="reason">Named entity (Dubai Customs) with explicit AI strategy including predictive/autonomous decision-making (risk assessment); clear governance, policy compliance, and audit requirement for high-stakes customs operations.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2025/06/dewa-launches-ai-based-legislation-agent" target="_blank" rel="noopener">DEWA launches AI-based 'Legislation Agent' to bolster ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: DEWA Chief Digital Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">DEWA has deployed an agentic AI system ('Legislation Agent') for governance enhancement and operational efficiency.</div>
+      <div class="reason">Active deployment of agentic AI in government operations creates immediate need for governance verification, auditability, and policy-to-execution alignment.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2026/6/dewa-the-worlds-first-ai-native-utility" target="_blank" rel="noopener">DEWA, the world's first AI-native utility, organises ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: DEWA Chief Technology Officer or Agentic AI Program Lead</span>
+      </div>
+      <div class="why">DEWA positions itself as 'world's first AI-native utility' and is organizing an 'Agentic AI Retreat,' indicating operational commitment to autonomous systems.</div>
+      <div class="reason">Explicit organizational focus on agentic AI at scale requires governance verification, policy-to-execution traceability, and decision audit trails for mission-critical utility operations.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dubaipolice.gov.ae/app/home/aboutus" target="_blank" rel="noopener">About Us</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Police General Department of Artificial Intelligence (Head)</span>
+      </div>
+      <div class="why">Dubai Police has a dedicated General Department of Artificial Intelligence, indicating organizational structure for AI governance.</div>
+      <div class="reason">Dedicated AI governance department in law enforcement creates structural opening for governance verification services, especially for autonomous decision-making systems in policing.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/launching-competency-framework-to-anticipate-future-job-and-human-resources-needs" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: RTA Head of HR or Chief Technology Officer</span>
+      </div>
+      <div class="why">RTA establishing competency framework defining professional proficiency levels for AI and digital transformation roles.</div>
+      <div class="reason">RTA is formalizing governance structures (competency frameworks) for AI roles, indicating readiness for policy-to-execution verification and audit.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/signing-mou-to-launch-operational-trials-of-50-autonomous-taxis-in-2025" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: RTA Chief Technology Officer or Autonomous Vehicle Program Lead</span>
+      </div>
+      <div class="why">RTA signing MOU to deploy 50 autonomous taxis in 2025, integrating AI, big data, and automation for smart cities.</div>
+      <div class="reason">Named autonomous vehicle deployment with 2025 operational trials requires urgent governance, liability, and decision-auditing frameworks; direct fit for NOMOS verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://services.dha.gov.ae/sheryan/wps/portal/home/circulars" target="_blank" rel="noopener">Circulars</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief Information Officer or Chief Governance Officer, Dubai Health Authority</span>
+      </div>
+      <div class="why">Dubai Health Authority has published formal policy for AI use in healthcare, creating a clear governance framework.</div>
+      <div class="reason">Named policy document (CIR-2021-00000141) on AI in healthcare suggests DHA has governance requirements that may need machine-executable verification and audit trails.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://services.dha.gov.ae/sheryan/wps/portal/home/circular-details?circularRefNo=CIR-2021-00000141&amp;isPublicCircular=1&amp;fromHome=true" target="_blank" rel="noopener">Circular Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief Governance Officer or Regulatory Affairs Director, Dubai Health Authority</span>
+      </div>
+      <div class="why">Formal circular from DHA establishing external policy for AI in Dubai healthcare (Aug 2021).</div>
+      <div class="reason">Named regulatory instrument (CIR-2021-00000141) indicates formal governance requirement; DHA may need to audit/verify compliance across healthcare entities with machine-executable artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dha.gov.ae/en/media/news/993" target="_blank" rel="noopener">Dubai Health Authority highlights AI-powered 'Risk Radar ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Executive Officer of Artificial Intelligence, Dubai Health Authority</span>
+      </div>
+      <div class="why">DHA deployed 'Risk Radar' AI system to assess interaction patterns, with a named Executive Officer of AI role suggesting structured governance.</div>
+      <div class="reason">Named AI executive role at DHA indicates formal AI governance structure; organization deploying multiple AI systems (EJADA, Risk Radar) may need verification and audit automation.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/rta-launches-enterprise-platform-to-design-and-develop-ai-solutions" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Chief Information Officer or Chief Technology Officer, Roads &amp; Transport Authority</span>
+      </div>
+      <div class="why">RTA launched an enterprise platform for designing and developing AI and data solutions, indicating institutional AI capability-building.</div>
+      <div class="reason">New enterprise AI platform launch suggests RTA is building AI systems that will need governance, verification, and audit capability; timing indicates open window for governance solutions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/mou-with-pony-ai-to-launch-autonomous-vehicle-pilot-trials" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Chief Technology Officer or Autonomous Vehicles Program Lead, Roads &amp; Transport Authority</span>
+      </div>
+      <div class="why">RTA signed MoU with Pony.ai to launch autonomous vehicle pilot trials, indicating autonomous decision-making systems deployment.</div>
+      <div class="reason">Autonomous vehicle pilots require governance, safety verification, and audit trails; regulatory compliance for autonomous systems is a core NOMOS use case.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/ai-driven-urban-management-system-launched/" target="_blank" rel="noopener">AI-driven urban management system launched</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Chief Innovation Officer at Dubai Municipality</span>
+      </div>
+      <div class="why">Dubai Municipality launched 'Smart Municipality Eye', an AI and drone-based system for proactive urban management decision-making.</div>
+      <div class="reason">Autonomous/AI-driven system deployed for municipal decisions (urban management); governance verification and auditability critical for government deployment.</div>
     </div><h3>AI Deployment</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.mediaoffice.ae/en/future/artificial-intelligence" target="_blank" rel="noopener">Artificial Intelligence</a></div>
@@ -366,6 +783,222 @@
       </div>
       <div class="why">DEWA's Gas Turbine Intelligent Controller is a live autonomous operational AI system managing critical infrastructure.</div>
       <div class="reason">Autonomous control system exists but no mention of governance, audit, or compliance verification needs; engineering-focused announcement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.investindubai.gov.ae/en/industries/technology-ict/ai-iot-heart-government-investment" target="_blank" rel="noopener">AI and IoT at the heart of government investment</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Invest in Dubai / Dubai Roads and Transport Authority — AI/Digital Strategy Lead</span>
+      </div>
+      <div class="why">Dubai is deploying AI-driven transport solutions across government operations, creating potential audit/accountability requirements.</div>
+      <div class="reason">Active AI deployment in government transport but no mention of governance verification, policy compliance, or autonomous decision oversight.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dha.gov.ae/en/media/news/968" target="_blank" rel="noopener">Dubai Health Authority Launches Ambitious AI Training ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Dubai Health Authority Chief Information Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Dubai Health Authority is operationalizing AI training at scale (25% workforce adoption), signaling institutional readiness for AI governance infrastructure.</div>
+      <div class="reason">Active AI upskilling and workforce adoption suggests DHA may soon need governance frameworks; however, no autonomous decision-making system or audit requirement is explicitly mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/dubai-launches-worlds-first-ai-park-design-challenge/" target="_blank" rel="noopener">Dubai launches world's first AI park design challenge</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Dubai Municipality Chief Technology Officer or Public Health Services Lead</span>
+      </div>
+      <div class="why">Dubai Municipality deployed AI system for real-time bacterial contamination detection in water services, a safety-critical autonomous decision system.</div>
+      <div class="reason">Safety-critical AI system for public health requires audit trail and governance, but no specific compliance or verification mandate is mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://gulfnews.com/uae/government/dubai-municipality-appoints-ai-spokesperson-saeed-1.500573866" target="_blank" rel="noopener">Dubai Municipality appoints AI spokesperson 'Saeed'</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of Digital Transformation, Dubai Municipality</span>
+      </div>
+      <div class="why">Dubai Municipality launched an AI-powered public-facing chatbot, indicating government AI service automation at scale.</div>
+      <div class="reason">Virtual spokesperson likely requires governance framework for accuracy, accountability, and public trust—potential audit/verification need.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dewa.gov.ae/en/about-us/strategy-excellence/data-science-and-ai" target="_blank" rel="noopener">Data Science and Artificial Intelligence - Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Governance Lead, DEWA</span>
+      </div>
+      <div class="why">DEWA is embedding AI across core utility operations, indicating enterprise-wide AI governance requirements.</div>
+      <div class="reason">Utility services require regulatory compliance and operational auditability; AI integration across services needs governance framework.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dewa.gov.ae/en/about-us/media-publications/latest-news/2025/06/dewa-launches-two-new-ai-based-tools" target="_blank" rel="noopener">DEWA launches two new AI-based tools to support ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of AI, DEWA</span>
+      </div>
+      <div class="why">DEWA launched two new AI-based tools including a Business Requirements Document generator for streamlined institutional processes.</div>
+      <div class="reason">AI tooling for business process automation may require policy compliance and audit capability; governance framework would strengthen institutional trust.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://digital.dewa.gov.ae/" target="_blank" rel="noopener">Digital DEWA</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of Grid Operations, DEWA</span>
+      </div>
+      <div class="why">DEWA's digital platform focuses on machine learning deployment for grid operations optimization and productivity.</div>
+      <div class="reason">Critical infrastructure AI (grid operations) requires governance, safety assurance, and policy compliance; verification capability adds institutional value.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tdra.gov.ae/en/media/press-release/2024/tdra-provides-generative-ai-on-government-portals-aligned-with-dls-2" target="_blank" rel="noopener">TDRA Provides Generative AI on Government Portals ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of AI Initiatives, TDRA</span>
+      </div>
+      <div class="why">TDRA deployed a generative AI assistant on government portals for citizen engagement, indicating government-wide AI service rollout.</div>
+      <div class="reason">Public-facing AI assistant requires accuracy, fairness, and accountability governance; institutional policy verification supports public trust.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/dmcc-ai-centre_dmccaicentre-fraudprevention-ai-activity-7363520406479155201-Xqvl" target="_blank" rel="noopener">TDRA launches AI-powered Digital Fraud Hunter for UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of Digital Security, TDRA</span>
+      </div>
+      <div class="why">TDRA launched an AI-powered fraud detection tool for UAE, enabling automated security verification at scale.</div>
+      <div class="reason">Fraud detection AI requires governance for accuracy, bias prevention, and accountability; institutional policy framework strengthens public confidence.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.tutopiya.com/tools/blog/how-ai-can-help-schools-prepare-for-khda-inspections/" target="_blank" rel="noopener">How AI Can Help Schools Prepare for KHDA Inspections</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Compliance and Standards Division at KHDA</span>
+      </div>
+      <div class="why">AI tools being used by schools to automate assessment, reporting, and preparation for KHDA inspections.</div>
+      <div class="reason">AI-driven compliance automation with KHDA regulatory inspections suggests potential governance audit angle, but focus is operational efficiency not policy verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dmo.dof.gov.ae/en/dubai-overview/" target="_blank" rel="noopener">Dubai Overview</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Smart Dubai Office or Digital Services lead at Dubai Municipality</span>
+      </div>
+      <div class="why">Dubai deployed intelligent parking management and state-of-the-art digital payment solutions using AI and big data.</div>
+      <div class="reason">Operational AI systems in public services; governance and audit of decision-making logic could be relevant for ongoing system compliance</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dmo.dof.gov.ae/media/4zfpekdc/dubai-dmo-funding-limited-2102023.pdf" target="_blank" rel="noopener">Dubai DMO Funding Limited</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Audit lead at Dubai Department of Finance/DMO</span>
+      </div>
+      <div class="why">Dubai DMO funding document cites AI deployment in cybersecurity, customer service, data analysis, and decision-making processes.</div>
+      <div class="reason">Institutional AI use in critical decision-making; governance framework needed to audit and verify AI policy compliance across services</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dmo.dof.gov.ae/media/hniams3t/dubai-dof-sukuk-limite-29072020.pdf" target="_blank" rel="noopener">IMPORTANT NOTICE THIS BASE PROSPECTUS ... - Sukuk</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Dubai Department of Finance — Chief Digital Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Dubai Department of Finance official prospectus documents Emirates Digital Wallet and AI use in decision-making systems at a government entity.</div>
+      <div class="reason">Government AI deployment documented but prospectus is historical (2020) and lacks detail on governance or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/dubai-municipality-collaborates-with-microsoft-to-drive-digital-growth/" target="_blank" rel="noopener">Dubai Municipality collaborates with Microsoft to drive ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Dubai Municipality — Chief Digital Officer or Digital Transformation Lead</span>
+      </div>
+      <div class="why">Dubai Municipality partnering with Microsoft on cloud and AI for digital transformation; government-enterprise AI integration at scale.</div>
+      <div class="reason">Named government entity and cloud AI deployment, but announcement lacks detail on autonomous decision-making or governance verification needs.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tdra.gov.ae/en/initiatives/fraudhunter" target="_blank" rel="noopener">Digital FraudHunter - TDRA</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Head of AI Services or Chief Information Security Officer, TDRA</span>
+      </div>
+      <div class="why">TDRA's Digital FraudHunter is an AI system for early detection of fraudulent activity in digital contexts.</div>
+      <div class="reason">Automated decision-making system in high-risk domain (fraud detection); may require audit trails, policy compliance, and decision transparency—governance verification opportunity.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dewa.gov.ae/en/about-us/media-publications/latest-news/2025/04/dewa-and-microsoft-organise-an-event-on-utilising-ai-to-enhance-productivity" target="_blank" rel="noopener">DEWA and Microsoft organise an event on utilising AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: DEWA Chief Digital Officer or AI Operations Lead</span>
+      </div>
+      <div class="why">DEWA has expanded generative AI deployment across multiple operational areas including virtual agent systems.</div>
+      <div class="reason">Large-scale AI system deployment signals governance need, but focus is on productivity rather than high-stakes decision-making or audit.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2023/03/dewa-provides-its" target="_blank" rel="noopener">DEWA | Rammas supported by Artificial Intelligence.</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: DEWA Chief Digital Officer or Virtual Agent Program Manager</span>
+      </div>
+      <div class="why">DEWA deployed 'Rammas,' a virtual employee AI system, for customer and internal operations.</div>
+      <div class="reason">Virtual employee system deployment has governance implications, but snippet lacks detail on decision authority or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/rta+participates+in+ruya+careers+uae+2025+to+enhance+recruitment+of+young+emirati+talent" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: RTA Chief Technology Officer or Head of Talent Development</span>
+      </div>
+      <div class="why">RTA recruiting specialists in AI, data science, and infrastructure for operational capability building.</div>
+      <div class="reason">Major UAE government transport entity actively building AI capability; hiring signals potential deployment needs.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/50-local-and-international-speakers-in-dubai-international-project-management-forum" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: RTA Chief Technology Officer or Project Management Office</span>
+      </div>
+      <div class="why">RTA discussing AI and digital twins at project management forum, indicating strategic AI/automation deployment planning.</div>
+      <div class="reason">Forum participation suggests RTA is evaluating agentic AI (digital twins); governance requirements may follow deployment decisions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/workshop-for-strengthening-employees-digital-transformation-capabilities-to-support-operational-efficiency" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: RTA Head of Digital Transformation or Chief Technology Officer</span>
+      </div>
+      <div class="why">RTA delivering digital transformation workshop using AI technologies to strengthen employee capabilities and operational efficiency.</div>
+      <div class="reason">Institutional AI capability training suggests preparation for deployment; may require governance/audit frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dha.gov.ae/en/media/news/868" target="_blank" rel="noopener">DHA's EJADA artificial intelligence system fosters disease ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Executive Officer, Dubai Health Authority</span>
+      </div>
+      <div class="why">Dubai Health Authority deployed EJADA, an AI system for proactive disease prevention, indicating operational AI governance needs.</div>
+      <div class="reason">DHA is running a real AI system in healthcare but no indication they lack governance/audit capability or are seeking verification solutions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dha.gov.ae/en/media/news/901" target="_blank" rel="noopener">Dubai Health Authority Wins Three Prestigious Awards ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span>
+      </div>
+      <div class="why">EJADA AI system won awards for preventive care in chronic diseases, demonstrating established operational AI in regulated healthcare.</div>
+      <div class="reason">Operational AI system is mature and recognized, but no evidence of governance verification gaps or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dha.gov.ae/en/media/news/970" target="_blank" rel="noopener">Dubai Health Authority Strengthens Patient Data Security ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Information Security Officer, Dubai Health Authority</span>
+      </div>
+      <div class="why">DHA deployed NABIDH, an AI-driven analytics system for real-time data breach detection in healthcare, requiring security governance.</div>
+      <div class="reason">Security-critical AI system in healthcare indicates governance needs, but no specific audit or verification challenge articulated.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/saeed-ai-powered-digital-persona-launched/" target="_blank" rel="noopener">Saeed, AI-powered digital persona launched</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Communications Director at Dubai Municipality</span>
+      </div>
+      <div class="why">Dubai Municipality created 'Saeed', an AI-powered virtual spokesperson for automated public communications.</div>
+      <div class="reason">Autonomous agentic system (digital persona) making or mediating government communications; governance/brand safety/auditability concerns apply.</div>
     </div><h3>AI Governance</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.linkedin.com/pulse/from-vision-vigilance-implementing-ai-governance-uae-vimal-mani-ywoxf" target="_blank" rel="noopener">Implementing AI Governance in the UAE Banking Sector</a></div>
@@ -393,6 +1026,60 @@
       </div>
       <div class="why">Core42 (UAE-based) discussion of digital sovereignty and open-source infrastructure suggests institutional appetite for AI governance frameworks.</div>
       <div class="reason">Core42 is a named UAE AI player discussing sovereignty and governance; potential prospect but article lacks specifics on governance verification needs.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.modulos.ai/blog/uae-ai-regulations-guide/" target="_blank" rel="noopener">AI Governance in the UAE: Navigating Local… | Modulos Blog</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Dubai Municipality or Dubai Department of Government Human Resources</span>
+      </div>
+      <div class="why">Modulos analysis of UAE AI governance covering PDPL, Dubai frameworks, and global standards alignment shows active regulatory ecosystem.</div>
+      <div class="reason">Identifies existing governance frameworks (PDPL, Dubai local rules) that may require verification and audit operationalization.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.hsfkramer.com/insights/reports/ai-tracker/uae" target="_blank" rel="noopener">UAE | Herbert Smith Freehills Kramer | Global law firm</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Ministry of Justice or Federal Authority for Government Human Resources</span>
+      </div>
+      <div class="why">Herbert Smith Freehills notes UAE AI Ethics Guidelines and ongoing regulatory development, signaling institutional governance maturation.</div>
+      <div class="reason">Guidelines exist but lack enforcement/audit mechanisms; institutions adopting AI will need verification to ensure ethical compliance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/pulse/ai-digital-transformation-dewas-two-pillars-underpinning-q44vf" target="_blank" rel="noopener">AI and digital transformation: DEWA's two pillars ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Strategy Officer or Chief Digital Officer, DEWA</span>
+      </div>
+      <div class="why">DEWA articulated AI and digital transformation as core strategic pillars, indicating institutional commitment to AI-native operations.</div>
+      <div class="reason">Strategic commitment to AI requires governance architecture; opportunity for NOMOS to support policy-to-execution alignment.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://academy.tdra.gov.ae/" target="_blank" rel="noopener">DGOV | Academy: Home</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Head of DGOV Academy or Digital Strategy lead at TDRA</span>
+      </div>
+      <div class="why">DGOV Academy offers AI Pioneers Program, indicating structured UAE government approach to AI capability-building.</div>
+      <div class="reason">DGOV is responsible for UAE government digital transformation; an AI Pioneers Program suggests emerging governance maturity and potential need for policy-to-code translation</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dm.gov.ae/dubai-municipality-opens-registrations-for-summer-training-program-future-competencies-2023/" target="_blank" rel="noopener">Dubai Municipality opens registrations for summer training ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Dubai Municipality — Director of Training &amp; Development or Chief Information Officer</span>
+      </div>
+      <div class="why">Dubai Municipality establishing AI and information security summer training program; signals institutional AI capability-building and governance readiness.</div>
+      <div class="reason">Government entity training cohort in AI/security suggests emerging governance maturity, but no specific compliance mandate or audit requirement stated.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/in-collaboration-with-microsoft-digital-dubai-launches-ai-skills-program-to-empower-dubai-government-workforce" target="_blank" rel="noopener">In Collaboration with Microsoft Digital Dubai Launches AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Digital Dubai Chief AI Officer or Workforce Development Lead</span>
+      </div>
+      <div class="why">Digital Dubai is launching a structured AI skills program for government workforce in collaboration with Microsoft.</div>
+      <div class="reason">Institutional AI capability-building signals future governance needs, but focus is on training rather than policy-to-execution verification.</div>
     </div><h3>AI Infrastructure</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.instagram.com/tdrauae/?hl=en" target="_blank" rel="noopener">‎TDRA تدرا‎ (@tdrauae) · Abu Dhabi</a></div>
@@ -411,6 +1098,24 @@
       </div>
       <div class="why">Dubai.AI platform launch by Digital Dubai and DCAI creates centralized AI resource and governance touchpoint for Dubai's AI ecosystem.</div>
       <div class="reason">New AI platform infrastructure at government level could require governance/verification practices; however, snippet lacks detail on policy enforcement or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.uaepreferred.com/sectors/ai-investment-infrastructure" target="_blank" rel="noopener">UAE AI Investment &amp; Infrastructure</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: UAE Ministry of Artificial Intelligence (if it exists) or equivalent strategic authority</span>
+      </div>
+      <div class="why">$15.2 billion committed to UAE AI development indicates scale of infrastructure investment requiring operational governance.</div>
+      <div class="reason">Large-scale AI infrastructure investment typically requires governance frameworks and audit trails; no specific mechanism named.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://partnersportal.digitaldubai.ae/Services/Details/f064af92-05b0-43f9-ae85-5798285775e3" target="_blank" rel="noopener">Dubai Careers - Details - Partners Portal</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Digital Dubai Chief Technology Officer or AI Lab Director</span>
+      </div>
+      <div class="why">Dubai has established a first-of-its-kind government AI Lab to accelerate smart city transformation.</div>
+      <div class="reason">Central AI lab infrastructure creation suggests future standardization and governance requirements across city systems, but no current accountability mechanism evident.</div>
     </div><h3>AI Investment</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.digitimes.com/news/a20260807VL219/data-center-investment-electricity-development-data.html" target="_blank" rel="noopener">Abu Dhabi sovereign wealth fund Mubadala weighs US$6.3B investment in Japan AI data center</a></div>
@@ -420,6 +1125,60 @@
       </div>
       <div class="why">Abu Dhabi sovereign wealth fund Mubadala considering $6.3B AI data center investment in Japan, reflecting UAE's strategic AI infrastructure expansion.</div>
       <div class="reason">Confirms Mubadala's major AI infrastructure commitment, but foreign deployment; relevant only if coupled with parallel UAE domestic governance initiatives or if Mubadala seeks verification for domestic AI governance policies.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.uae-embassy.org/uae-us-cooperation/economic/artificial-intelligence" target="_blank" rel="noopener">The UAE-US AI &amp; Advanced Tech Partnership</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: UAE Ministry of Foreign Affairs or equivalent strategic technology office</span>
+      </div>
+      <div class="why">Official UAE-US AI partnership worth $1.4 trillion signals high-level political commitment to AI infrastructure and standards alignment.</div>
+      <div class="reason">Large bilateral AI partnership may create need for governance verification and policy operationalization, but partnership scope unclear.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.g42.ai/resources/news/abu-dhabi-launches-comprehensive-global-investment-strategy-artificial-intelligence" target="_blank" rel="noopener">Abu Dhabi Launches Comprehensive Global Investment ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: G42 Chief Governance Officer or Chief Compliance Officer</span>
+      </div>
+      <div class="why">G42 Abu Dhabi launching global AI investment strategy signals institutional commitment and possible need for governance frameworks.</div>
+      <div class="reason">G42 is a major UAE AI player; new investment strategy may require governance verification and compliance audit structures.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://fastcompanyme.com/news/abu-dhabi-unveils-ai-investment-firm-aims-100-billion-aum/" target="_blank" rel="noopener">Abu Dhabi unveils AI investment firm, aims $100 billion AUM</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Abu Dhabi AI Investment Firm Chief Risk Officer or Governance Lead</span>
+      </div>
+      <div class="why">Abu Dhabi AI investment firm targeting $100 billion AUM in infrastructure and core AI tech signals institutional scale requiring governance oversight.</div>
+      <div class="reason">Major investment vehicle may need governance verification and compliance frameworks; institutional investor relations likely to require audit trails.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dmo.dof.gov.ae/en/news-and-publications/latest-press-releases/dubai-ranks-no1-globally-for-greenfield-fdi-projects-for-fifth-consecutive-year-in-2025/" target="_blank" rel="noopener">Dubai Ranks No.1 Globally for Greenfield FDI Projects for ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Chief Investment Officer or Digital Strategy Lead at Dubai Department of Finance/DMO</span>
+      </div>
+      <div class="why">Dubai ranked No. 1 globally for greenfield AI FDI projects in 2025.</div>
+      <div class="reason">Significant AI investment inflow; Dubai government likely managing AI infrastructure and policy coherence; potential need for governance frameworks</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/103-job-opportunities-for-emiratis-at-ruya-careers-uae-2024" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: RTA Chief Technology Officer or Head of Digital Transformation</span>
+      </div>
+      <div class="why">RTA is hiring for AI and data science roles aligned with future technology requirements.</div>
+      <div class="reason">Named UAE government entity (RTA) expanding AI talent acquisition; potential entry point if hiring signals new autonomous/decision systems.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.rta.ae/wps/portal/rta/ae/home/news-and-media/all-news/NewsDetails/opening-applications-for-the-2026-2027-scholarship-programme-to-attract-emirati-talent" target="_blank" rel="noopener">Roads &amp; Transport Authority - News Details</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: RTA Chief Technology Officer or Head of Talent Strategy</span>
+      </div>
+      <div class="why">RTA 2026–2027 scholarship program targeting AI, analytics, cybersecurity, and autonomous systems talent.</div>
+      <div class="reason">RTA explicitly prioritizing autonomous systems talent acquisition; signals future agentic AI deployment requiring governance frameworks.</div>
     </div><h3>AI Startups</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.prnewswire.co.uk/news-releases/roboai-appoints-dr-jasem-al-mansory-as-chief-executive-officer-of-its-subsidiary-alif-holding-302840088.html" target="_blank" rel="noopener">Robo.ai Appoints Dr. Jasem Al-Mansory as Chief Executive Officer of Its Subsidiary Alif Holding</a></div>
@@ -447,6 +1206,15 @@
       </div>
       <div class="why">Robo.ai establishing UAE subsidiary with senior local executive leadership indicates significant AI enterprise deployment and governance structuring in Abu Dhabi.</div>
       <div class="reason">New C-suite appointment at UAE entity suggests governance/compliance setup underway, but no explicit policy or audit mandate mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tfsfventures.com/blog/how-autonomous-ai-agents-integrated-uae-federal-government-services-architecture" target="_blank" rel="noopener">How Autonomous AI Agents Are Being Integrated Across ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Startups</span> &middot; <span class="contact">contact: CTO or Governance Lead at G42, Core42, or LuMay AI</span>
+      </div>
+      <div class="why">Lists leading UAE-based AI agent development firms (G42, Core42, LuMay AI) who are executing government AI mandates and may need governance tooling.</div>
+      <div class="reason">Identifies key vendors in UAE AI ecosystem; these firms likely need governance frameworks to support their government contracts, but no specific procurement or governance requirement is detailed.</div>
     </div><h3>Agentic AI</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.instagram.com/uaeai/?hl=fr" target="_blank" rel="noopener">UAE Artificial Intelligence (@uaeai)</a></div>
@@ -537,36 +1305,322 @@
       </div>
       <div class="why">TDRA's statement on AI and data integration for future government signals policy-level commitment to executable governance in digital transformation.</div>
       <div class="reason">Government agency explicitly discussing AI-as-governance infrastructure, but snippet lacks detail on specific policy or audit mechanisms.</div>
-    </div><p class="lowcount">24 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p></div>
-        <div class="tab-panel" id="panel-jobs-20260810"><h3>Job Posting</h3>
-    <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/visiting-student-efficient-and-distributed-machine-learning-608530" target="_blank" rel="noopener">Visiting Student - Efficient and Distributed Machine Learning</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Provost or President at Mohamed bin Zayed University of Artificial Intelligence</span>
-      </div>
-      <div class="why">Vice Chancellor for AI and Digital Transformation role at MBZUAI indicates institutional focus on governance, compliance, and strategic AI deployment.</div>
-      <div class="reason">Senior academic governance role in AI suggests institutional maturity, but role is academic/research-focused rather than enterprise governance.</div>
     </div>
     <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-scientist-617187" target="_blank" rel="noopener">AI Scientist | Jobs in UAE by Michael Page | Apply Now</a></div>
+      <div class="item-title"><a href="https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence" target="_blank" rel="noopener">Artificial intelligence | The Official Platform of the UAE ...</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Chief Technology Officer or Chief Information Officer at hiring organization</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Federal Authority for Government Human Resources</span>
       </div>
-      <div class="why">AI Solutions Architect in Dubai signals enterprise demand for technical AI governance and business process integration.</div>
-      <div class="reason">Architecture role suggests organization is deploying AI at scale requiring governance controls, but no policy or regulatory trigger evident.</div>
+      <div class="why">Official UAE platform documenting government AI tools and applications indicates operational deployment requiring governance oversight.</div>
+      <div class="reason">Existing government AI deployments require verification and audit trails; no specific governance operationalization mechanism named.</div>
     </div>
     <div class="item">
-      <div class="item-title"><a href="https://ae.indeed.com/q-artificial-intelligence-l-sharjah-jobs.html" target="_blank" rel="noopener">Artificial Intelligence Jobs in Sharjah (with Salaries)</a></div>
+      <div class="item-title"><a href="https://www.dubaifuture.ae/ai-program-government-services/" target="_blank" rel="noopener">AI Program Government Services</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Future Foundation — Chief Technology Officer or AI Program Lead</span>
       </div>
-      <div class="why">Sharjah AI roles include explicit 'Agentic AI' specialist posting, suggesting active autonomous AI deployment.</div>
-      <div class="reason">Agentic AI role posting in UAE signals real deployment activity; however, without employer name, cannot assess governance/verification need.</div>
-    </div><p class="lowcount">22 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p></div>
+      <div class="why">Dubai Future Foundation is running an AI program explicitly aimed at transforming government services delivery.</div>
+      <div class="reason">Government AI initiative but lacks specificity on autonomous decision-making or governance verification needs.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/" target="_blank" rel="noopener">Digital Dubai Authority</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Digital Dubai Authority — Chief Executive Officer or Chief Technology Officer</span>
       </div>
+      <div class="why">Digital Dubai Authority manages 55+ smart government services on DubaiNow app, establishing foundational infrastructure for autonomous decision-making.</div>
+      <div class="reason">Large-scale government services platform but current focus appears to be service delivery, not autonomous decision governance or policy verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/initiatives/ai-lab" target="_blank" rel="noopener">Artificial Intelligence Strategy Dubai | AI Lab</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Digital Dubai / AI Lab — Director or Head of AI Strategy</span>
+      </div>
+      <div class="why">Digital Dubai's AI Lab is leading Dubai's AI Roadmap implementation, a strategic policy execution vehicle.</div>
+      <div class="reason">Policy leadership role but snippet does not indicate autonomous systems, regulatory compliance, or governance verification needs.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dubaifuture.ae/the-future-of-generative-ai-program/" target="_blank" rel="noopener">The Future of Generative AI Program</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Future Foundation — Program Director or Chief Technology Officer</span>
+      </div>
+      <div class="why">Dubai Future Foundation is running a program to enhance public services through generative AI, indicating policy execution and governance needs.</div>
+      <div class="reason">Government AI program but lacks detail on autonomous decision-making, policy codification, or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://govaisummitmea.com/" target="_blank" rel="noopener">3rd Government AI Summit – UAE – 3rd Government AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Government AI Summit MEA — Organizing Committee / Lead Institution</span>
+      </div>
+      <div class="why">3rd Government AI Summit in UAE brings together policy makers and implementers around AI governance in public sector.</div>
+      <div class="reason">Governance-focused conference but lacks specific buyer signal or implementation project; good networking opportunity but not a direct deal opening.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/company/digital-dubai/" target="_blank" rel="noopener">Digital Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Digital Dubai — Chief Executive Officer or Chief Technology Officer</span>
+      </div>
+      <div class="why">Digital Dubai is the authorized policy execution and digital transformation agency for Dubai, responsible for implementing AI strategies and governance.</div>
+      <div class="reason">Strategic policy implementation institution but generic organizational profile; good stakeholder but needs specific governance verification project trigger.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mediaoffice.abudhabi/en/topic/artificial-intelligence-and-advanced-technology-council/" target="_blank" rel="noopener">Artificial Intelligence and Advanced Technology Council</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Director of the Artificial Intelligence and Advanced Technology Council</span>
+      </div>
+      <div class="why">Abu Dhabi's top-level AI policy council directly shapes government strategy and investments in AI governance.</div>
+      <div class="reason">Policy-setting body with potential influence on AI governance frameworks, but no concrete audit or verification requirement mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://uaecabinet.ae/en/the-ministerial-development-council" target="_blank" rel="noopener">The Ministerial Council for Artificial Intelligence and ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Secretariat or Chief Policy Advisor, Ministerial Council for Artificial Intelligence and Development</span>
+      </div>
+      <div class="why">A Ministerial Council for AI and Development exists to coordinate AI policy and strategy across UAE government.</div>
+      <div class="reason">Inter-agency AI coordination body would benefit from policy harmonization and auditable governance frameworks across entities.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dge.gov.ae/en/about-dge/what-we-do" target="_blank" rel="noopener">What we do - Department of Government Enablement</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Technology Officer or AI Strategy Lead at Department of Government Enablement</span>
+      </div>
+      <div class="why">UAE's Department of Government Enablement is actively integrating intelligent systems and developing AI capabilities for government entities.</div>
+      <div class="reason">Government AI capability development mentioned but lacks specifics on autonomous decision-making or governance accountability requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tdra.gov.ae/en/media/press-release/2018/tra-hosts-the-first-ict-future-foresight-forum-in-the-uae" target="_blank" rel="noopener">TRA Hosts the First ICT Future Foresight Forum in the UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Head of Digital Services or Strategy at relevant UAE ministry/federal entity</span>
+      </div>
+      <div class="why">TRA ICT Future Foresight Forum 2018 set goal of 100% front-line public services via AI by 2031.</div>
+      <div class="reason">Stated commitment to AI-driven public service delivery requires policy governance and audit; time horizon suggests active planning</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dmpmedia.dm.gov.ae/uploads/2024/04/Dubai-2040-Urban-Master-Plan-2040-Executive-Summary-v1.pdf" target="_blank" rel="noopener">Dubai 2040: Structure Plan Executive Summary</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Municipality Strategy &amp; Planning Director</span>
+      </div>
+      <div class="why">Dubai's 2040 Urban Master Plan explicitly identifies AI as a strategic priority, signaling government commitment to AI integration across urban systems.</div>
+      <div class="reason">High-level strategic planning document may drive future AI governance requirements, but no specific autonomous decision-making systems or audit frameworks mentioned yet.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/knowledge-hub/publications/dubai-state-of-ai-report-2025" target="_blank" rel="noopener">Dubai State of AI Report 2025</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Policy &amp; Strategy Lead, Digital Dubai (Smart Dubai)</span>
+      </div>
+      <div class="why">Dubai State of AI Report 2025 is a first-of-its-kind assessment of AI adoption and policy landscape.</div>
+      <div class="reason">Report may identify governance gaps and policy requirements; potential indirect opportunity to align with emerging regulatory frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/digital-dubai-launches-ai-to-build-an-ai-ready-government-workforce" target="_blank" rel="noopener">Digital Dubai Launches 'AI+' to Build an AI-Ready ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Digital Officer or Workforce Transformation Lead, Digital Dubai (Smart Dubai)</span>
+      </div>
+      <div class="why">Digital Dubai launching AI+ workforce program to train 50,000 government employees—institutional AI capability shift.</div>
+      <div class="reason">Large-scale workforce transformation implies standardized AI policies and governance frameworks will be needed; potential downstream demand for verification and compliance tooling.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/dubai-ranks-second-globally-in-the-adoption-of-ai-and-intelligent-technology" target="_blank" rel="noopener">Dubai Ranks Second Globally in the Adoption of AI and ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Digital Officer, Digital Dubai (Smart Dubai)</span>
+      </div>
+      <div class="why">Dubai ranked second globally in AI and intelligent technology adoption, signaling strategic AI investment and governance maturity expectations.</div>
+      <div class="reason">High-profile AI leadership ranking creates pressure for demonstrable governance and compliance certification; positioning opportunity for NOMOS as verification partner.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tdra.gov.ae/en/media/press-release/2023/tdra-supports-fednet-with-ai-services" target="_blank" rel="noopener">TDRA Supports FedNet with AI Services</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Head of AI Services or Chief Technology Officer, TDRA</span>
+      </div>
+      <div class="why">TDRA provides pre-trained AI services to government entities via FedNet, centralizing AI capability delivery.</div>
+      <div class="reason">Centralized AI service delivery to federal entities implies standardized governance, audit, and compliance requirements; potential opening for NOMOS policy verification framework.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dgov.tdra.gov.ae/" target="_blank" rel="noopener">DGOV - Home</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Governance Officer, DGOV/TDRA</span>
+      </div>
+      <div class="why">Digital Government (DGOV) under TDRA coordinates digital transformation across all UAE government entities.</div>
+      <div class="reason">DGOV/TDRA is the federal digital infrastructure authority; likely to define AI governance standards and compliance requirements for government-wide deployments.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dubaicustoms.gov.ae/en/mobile/Pages/news.aspx?p=10" target="_blank" rel="noopener">News - Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Customs Chief Digital Officer or Strategy Lead</span>
+      </div>
+      <div class="why">Dubai Customs is launching a formal 2030 AI strategy as part of institutional digital transformation.</div>
+      <div class="reason">Government AI strategy adoption signals future governance/audit requirements, but snippet lacks detail on decision-making systems or accountability mechanisms.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2025/12/uae-leads-energy-and-ai-integration" target="_blank" rel="noopener">UAE leads energy and AI integration to build smart ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: UAE National AI Strategy Office or relevant sectoral lead</span>
+      </div>
+      <div class="why">UAE is formalizing AI integration across vital sectors as part of national AI strategy implementation.</div>
+      <div class="reason">National-level AI strategy adoption signals future need for sector-wide governance frameworks, but no specific autonomous decision-making or audit requirement mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2025/04/dewa-highlights-its-ai-advancements-across-its-operations-and-services-at-dubai-ai-week-2025" target="_blank" rel="noopener">DEWA highlights its AI advancements across its operations ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: DEWA Chief Digital Officer or Institutional AI Lead</span>
+      </div>
+      <div class="why">DEWA is showcasing AI advancements at Dubai AI Week as part of broader emirate-level AI adoption agenda.</div>
+      <div class="reason">Institutional showcase of AI capabilities may signal governance maturity assessment needs, but no specific audit or accountability requirement evident.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/advanced-technology" target="_blank" rel="noopener">Advanced Technology</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Digital Dubai Chief Technology Officer or Smart City Lead</span>
+      </div>
+      <div class="why">Dubai government is establishing AI infrastructure to drive smart city initiatives.</div>
+      <div class="reason">Smart city AI initiative signals need for cross-system governance, but snippet lacks detail on autonomous decision-making or audit scope.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/initiatives" target="_blank" rel="noopener">Dubai Smart City Initiatives</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Police Chief Technology Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Dubai Police leadership is calling for acceleration of smart transformation and expanded AI technology deployment.</div>
+      <div class="reason">High-ranking police executive directive on AI expansion indicates organizational commitment to technology adoption, creating future governance/audit needs in law enforcement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dubaipolice.gov.ae/app/home/media/news/news-details?id=y7so381j5hvaohywbvoc8cwx" target="_blank" rel="noopener">His Excellency Lieutenant General Abdullah Al Marri ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Police General Department of Artificial Intelligence</span>
+      </div>
+      <div class="why">Dubai Police is establishing an innovative security model driven by AI tools for public safety.</div>
+      <div class="reason">Institutional AI adoption in law enforcement requires governance framework, but current framing focuses on capability rather than audit or accountability.</div>
+    </div><h3>Regulation/Policy</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://uaelegislation.gov.ae/en/policy/details/uae-s-international-stance-on-artificial-intelligence-policy" target="_blank" rel="noopener">UAE's International Stance on Artificial Intelligence Policy</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: UAE Ministry of Foreign Affairs or Federal Authority for Government Human Resources</span>
+      </div>
+      <div class="why">Official UAE government statement on international AI policy stance indicates active role in multilateral AI governance frameworks.</div>
+      <div class="reason">UAE's international policy engagement suggests domestic governance frameworks need verification and audit mechanisms; official source indicates policy maturity.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.twobirds.com/en/capabilities/artificial-intelligence/ai-legal-services/ai-regulatory-horizon-tracker/uae" target="_blank" rel="noopener">AI Regulatory Horizon Tracker | UAE regulation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Ministry of Justice or Dubai Department of Government Human Resources</span>
+      </div>
+      <div class="why">Two Birds confirms UAE lacks standalone AI legislation but is proactive in sector-specific guidance, creating gap for governance operationalization.</div>
+      <div class="reason">Absence of dedicated AI law creates regulatory uncertainty; institutions adopting AI will need verification frameworks to ensure compliance with sector guidance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.lw.com/en/insights/ai-in-the-uae-understanding-the-regulatory-landscape-and-key-authorities" target="_blank" rel="noopener">AI in the UAE Understanding the Regulatory Landscape ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Federal Authority for Government Human Resources</span>
+      </div>
+      <div class="why">Linklaters details multi-tiered UAE AI governance structure with federal and local authority involvement, requiring coordination and audit.</div>
+      <div class="reason">Multi-tiered governance structure implies need for standardized verification and audit mechanisms to ensure consistency across federal/local implementations.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.modulos.ai/middle-east-ai-regulations/" target="_blank" rel="noopener">Middle East AI Compliance Guide | Modulos</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Ministry of Justice or equivalent regulatory coordination office</span>
+      </div>
+      <div class="why">Modulos identifies UAE's multi-layered governance (PDPL, UAE Charter, sector guidance) creating complexity requiring standardized verification.</div>
+      <div class="reason">Multiple governance layers across federal and sector levels create audit/verification burden; standardized operationalization would ease compliance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://regulations.ai/regulations/united-arab-emirates-summary" target="_blank" rel="noopener">United Arab Emirates AI Regulation Overview</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Federal Authority for Government Human Resources or Ministry of Artificial Intelligence (if exists)</span>
+      </div>
+      <div class="why">UAE National Strategy for AI 2031 provides foundational policy framework requiring operationalization and governance verification.</div>
+      <div class="reason">High-level strategy exists; institutions implementing against it will need governance verification to ensure strategic alignment.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.unesco.org/creativity/en/policy-monitoring-platform/minister-state-artificial-intelligence" target="_blank" rel="noopener">Minister of state for artificial intelligence - Policy Monitoring ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span>
+      </div>
+      <div class="why">UAE established the first-ever ministerial AI role in 2017, establishing strategic AI governance at the highest level.</div>
+      <div class="reason">Historical policy context showing UAE's AI governance maturity, but item itself is not a current governance initiative or implementation requirement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://en.wikipedia.org/wiki/Ministry_of_State_for_Artificial_Intelligence,_Digital_Economy_and_Remote_Work_Applications" target="_blank" rel="noopener">Ministry of State for Artificial Intelligence, Digital Economy ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Ministry of State for Artificial Intelligence, Digital Economy and Remote Work Applications — Minister or Chief of Staff</span>
+      </div>
+      <div class="why">Ministry of State for AI, Digital Economy and Remote Work Applications established in 2020 to drive UAE's AI positioning and governance.</div>
+      <div class="reason">Key policy institution but item is organizational background, not a specific governance verification or policy-execution project.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://staticcdn.mbzuai.ac.ae/mbzuaiwpprd01/2022/07/UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf" target="_blank" rel="noopener">UAE-National-Strategy-for-Artificial-Intelligence-2031.pdf</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span>
+      </div>
+      <div class="why">UAE National Strategy for Artificial Intelligence 2031 is the nation's AI policy roadmap, establishing governance expectations and compliance frameworks.</div>
+      <div class="reason">Strategic policy document but abstract; identifies opportunity but no named entity or specific implementation project requiring governance verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.unesco.org/creativity/en/policy-monitoring-platform/national-ai-strategy-2031-and-national-program-artificial-intelligence" target="_blank" rel="noopener">National ai strategy 2031 and the national program for ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span>
+      </div>
+      <div class="why">UAE is establishing responsible AI use frameworks and governance programs aligned with national AI strategy 2031.</div>
+      <div class="reason">Policy commitment to responsible AI but no indication of machine-executable verification, auditable artifacts, or policy codification needs.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://pixonix.ai/how-to-build-a-compliant-ai-platform-under-uae-tdra-requirements/" target="_blank" rel="noopener">How to Build a Compliant AI Platform Under UAE TDRA ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Head of Compliance or Chief Regulatory Officer, TDRA</span>
+      </div>
+      <div class="why">Third-party guidance on TDRA AI compliance requirements highlights emerging regulatory expectations for AI platforms in UAE.</div>
+      <div class="reason">TDRA compliance framework emerging; NOMOS can support enterprises in translating requirements into auditable, machine-executable governance artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://tdra.gov.ae/en/media/press-release/2023/tdra-launches-ai-initiatives-to-support-digital-government-enablers" target="_blank" rel="noopener">TDRA Launches AI Initiatives to Support Digital ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Head of AI Initiatives or Chief Policy Officer, TDRA</span>
+      </div>
+      <div class="why">TDRA launched AI initiatives to support digital government standards and compliance enablement.</div>
+      <div class="reason">Government-wide AI enablement requires policy standardization and verification; NOMOS can codify and audit compliance across agencies.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dha.gov.ae/uploads/082022/Health%20Data%20Classification%20Policy2022852434.pdf" target="_blank" rel="noopener">Subject: Developing Policies and Procedures</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief Information Officer, Dubai Health Authority</span>
+      </div>
+      <div class="why">DHA Health Data Classification Policy 2022 establishes data governance framework relevant to AI systems handling health information.</div>
+      <div class="reason">Data classification and health policy documents exist but no explicit evidence that DHA is seeking governance verification or audit automation.</div>
+    </div><p class="lowcount">89 lower-relevance items also collected but not shown here — full data in the archived JSON.</p>
     </div>
   </details>
   <details >
@@ -577,7 +1631,7 @@
     </summary>
     <div class="day-body">
       <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
-      <p class="empty">No new items today — everything collected was already shown in a previous run.</p>
+      <p class="empty">No new news today — everything collected was already shown in a previous run.</p>
     </div>
   </details>
   <details >
@@ -588,13 +1642,7 @@
     </summary>
     <div class="day-body">
       <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
-      
-      <div class="tabs">
-        <input type="radio" name="tabs-20260804" id="tab-news-20260804" class="tab-input" checked>
-        <label for="tab-news-20260804" class="tab-label">News (9)</label>
-        <input type="radio" name="tabs-20260804" id="tab-jobs-20260804" class="tab-input">
-        <label for="tab-jobs-20260804" class="tab-label">Jobs (3)</label>
-        <div class="tab-panel" id="panel-news-20260804"><h3 class="section-high">High NOMOS Relevance</h3>
+      <h3 class="section-high">High NOMOS Relevance</h3>
     <div class="item">
       <div class="item-title"><a href="https://uaecabinet.ae/en/news/under-directives-of-uae-president-and-in-world-first-mohammed-bin-rashid-reveals-new-uae-government-framework-to-deploy-agentic-ai-across-50-of-government-sectors-operations-within-two-years" target="_blank" rel="noopener">UAE government framework to deploy Agentic AI across 50% of government sectors, operations within two years</a></div>
       <div class="item-meta">
@@ -675,20 +1723,204 @@
       </div>
       <div class="why">Confirms DHA's AI push is real and already at meaningful internal scale.</div>
       <div class="reason">Useful context even though the DHA NABIDH artifact workstream is currently blocked.</div>
-    </div></div>
-        <div class="tab-panel" id="panel-jobs-20260804"><h3>Job Posting</h3>
+    </div>
+    </div>
+  </details></div>
+    <div class="tab-panel"><p class="dateflag">Every job ever collected, newest first, until seen — not reset daily.</p>
+      <details class="date-filter" open>
+        <summary><span class="date">2026-08-10</span> <span class="summary-meta">94 jobs</span></summary>
+        <div class="day-body"><h3 class="section-high">High NOMOS Relevance</h3>
     <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/jobs/title/intelligence" target="_blank" rel="noopener">Head of Artificial Intelligence &amp; Innovation</a></div>
+      <div class="item-title"><a href="https://ae.indeed.com/q-ai-governance-l-dubai-jobs.html" target="_blank" rel="noopener">Ai Governance jobs in Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Governance Officer, Chief Compliance Officer, or AI Ethics/Governance Lead at hiring employers</span>
+      </div>
+      <div class="why">189 AI governance roles in Dubai with salaries AED 25–35k/month signal formal governance function growth.</div>
+      <div class="reason">Direct signal: 189 AI governance job openings in Dubai indicate UAE enterprises are building dedicated governance teams; immediate sales pipeline for governance verification/compliance tooling.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/agentic-ai-solution-architect-at-teamware-solutions-4451519151?position=2&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=dpSoOjWNXFMYXaG82ja7NQ%3D%3D" target="_blank" rel="noopener">Agentic AI Solution Architect</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: VP Products, VP Sales, or Managing Director</span>
+      </div>
+      <div class="why">Agentic AI Solution Architect at Teamware Solutions (Dubai) explicitly targets autonomous AI system design.</div>
+      <div class="reason">Teamware is actively building agentic AI capabilities for enterprise deployment; as autonomous systems enter production (especially in regulated sectors), they will require governance verification, auditable policy enforcement, and compliance artifacts — core NOMOS offerings.</div>
+    </div><h3>AI Deployment</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/digital-transformation-manager-uae-national-only-cibg-wds-aa-corporate-investment-banking-group-at-mashreq-4451382840?position=4&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=j%2FP9fli1WufCwUcvoblxNQ%3D%3D" target="_blank" rel="noopener">Digital Transformation Manager UAE National Only.CIBG - WDS - AA.Corporate &amp; Investment Banking Group</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Unknown — identify hiring org before outreach</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of Transformation</span>
       </div>
-      <div class="why">A senior AI leadership title actively being hired for in Dubai right now — worth checking who the 'Confidential' listing resolves to.</div>
-      <div class="reason">Potential live decision-maker forming, but the hiring organisation is not yet identified.</div>
-    </div><p class="lowcount">2 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p></div>
+      <div class="why">Digital Transformation Manager at Mashreq (major UAE bank) signals active AI/digital modernization in regulated financial sector.</div>
+      <div class="reason">Banking transformation role at systemically important UAE bank; likely deploying AI systems under CBUAE oversight and may require governance verification for compliance.</div>
+    </div><h3>Agentic AI</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/agentic-ai-jobs/" target="_blank" rel="noopener">Agentic Ai Jobs in UAE (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Agentic AI</span>
       </div>
+      <div class="why">UAE agentic AI job openings suggest autonomous agent deployment, directly relevant to NOMOS's governance verification mandate.</div>
+      <div class="reason">Agentic AI category matches NOMOS focus, but aggregator page lacks named employers or specific autonomous system details.</div>
     </div>
-  </details>
-  <footer>Generated 10 Aug 2026, 19:15</footer>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/senior-agentic-ai-fde-at-teamware-solutions-4451502681?position=16&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=1%2Fm0Kr%2BDF9pcb13We5niTg%3D%3D" target="_blank" rel="noopener">Senior Agentic AI FDE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: VP Engineering or Chief Product Officer</span>
+      </div>
+      <div class="why">Senior Agentic AI FDE role at Teamware Solutions (Dubai) explicitly signals autonomous AI system development.</div>
+      <div class="reason">Agentic AI hiring indicates active autonomous system development; Teamware may face governance/verification requirements as systems mature or deploy to regulated entities.</div>
+    </div><h3>Job Posting</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/visiting-student-efficient-and-distributed-machine-learning-608530" target="_blank" rel="noopener">Visiting Student - Efficient and Distributed Machine Learning</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Provost or President at Mohamed bin Zayed University of Artificial Intelligence</span>
+      </div>
+      <div class="why">Vice Chancellor for AI and Digital Transformation role at MBZUAI indicates institutional focus on governance, compliance, and strategic AI deployment.</div>
+      <div class="reason">Senior academic governance role in AI suggests institutional maturity, but role is academic/research-focused rather than enterprise governance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-scientist-617187" target="_blank" rel="noopener">AI Scientist | Jobs in UAE by Michael Page | Apply Now</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Chief Technology Officer or Chief Information Officer at hiring organization</span>
+      </div>
+      <div class="why">AI Solutions Architect in Dubai signals enterprise demand for technical AI governance and business process integration.</div>
+      <div class="reason">Architecture role suggests organization is deploying AI at scale requiring governance controls, but no policy or regulatory trigger evident.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.indeed.com/q-artificial-intelligence-l-sharjah-jobs.html" target="_blank" rel="noopener">Artificial Intelligence Jobs in Sharjah (with Salaries)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Sharjah AI roles include explicit 'Agentic AI' specialist posting, suggesting active autonomous AI deployment.</div>
+      <div class="reason">Agentic AI role posting in UAE signals real deployment activity; however, without employer name, cannot assess governance/verification need.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/ai-ml-fresher-jobs/" target="_blank" rel="noopener">Ai Ml Fresher Jobs in UAE (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Emirates — Head of AI/Data or Chief Technology Officer</span>
+      </div>
+      <div class="why">Emirates airline AI platform hiring suggests autonomous or decision-support systems in an enterprise context.</div>
+      <div class="reason">Named organisation (Emirates) and AI platform role, but job board snippet lacks governance/audit specifics.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/ai-automation-jobs/" target="_blank" rel="noopener">Ai Automation Jobs in UAE (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">UAE AI automation roles including insurance sector; suggests AI-driven decision systems but no governance audit requirement evident.</div>
+      <div class="reason">Insurance sector AI automation may require regulatory oversight, but snippet lacks specific employer or governance mandate.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/artificial-intelligence-jobs-in-abu-dhabi/" target="_blank" rel="noopener">Artificial Intelligence Jobs in Abu Dhabi (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Abu Dhabi-specific AI hiring including platform architect roles; suggests enterprise/infrastructure AI but no governance mandate evident.</div>
+      <div class="reason">Abu Dhabi location and platform architecture role suggest enterprise AI deployment, but aggregator snippet lacks named employer or governance context.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/go-to-market-specialist-ai-and-agent-619130" target="_blank" rel="noopener">Go-To-Market Specialist AI And Agent | Job in Dubai, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Go-To-Market Specialist role for AI Agents in Dubai suggests active commercial deployment of agentic AI in the market.</div>
+      <div class="reason">Signals agentic AI deployment in UAE enterprises, but job posting alone doesn't indicate governance readiness or audit/compliance requirement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-engineer-617185" target="_blank" rel="noopener">AI Engineer | Jobs in UAE by Michael Page | Apply Now</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">AI Engineer role with explicit focus on 'advanced AI agent systems' indicates hands-on agentic AI deployment in UAE context.</div>
+      <div class="reason">Agentic AI is NOMOS's core domain, but a job posting is not actionable without knowing the hiring entity or whether governance is a priority.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/senior-ai-and-solutions-engineer-619912" target="_blank" rel="noopener">Senior AI And Solutions Engineer | Job in Dubai, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Senior AI/Solutions Engineer building AI agents and intelligent systems suggests enterprise-scale agentic AI deployment in Dubai.</div>
+      <div class="reason">Clear agentic AI context, but hiring signal alone doesn't confirm governance gaps or verification requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-engineer-agentic-ai-developer-619152" target="_blank" rel="noopener">AI Engineer / Agentic AI Developer | Job in Dubai, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Dedicated Agentic AI Developer role explicitly targeting enterprise-grade agentic AI solutions in Dubai.</div>
+      <div class="reason">Directly relevant to NOMOS domain (agentic AI), but job posting does not signal governance/audit readiness or compliance challenge.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/head-of-ai-and-automation-592177" target="_blank" rel="noopener">Head of AI and Automation | Job in UAE by Kershaw Leonard</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Head of AI and Automation role for building intelligent agents, copilots, and automation systems indicates C-level prioritization of agentic AI.</div>
+      <div class="reason">Leadership hire in agentic AI suggests organizational readiness for governance; however, no specific policy/audit requirement is evident.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.naukrigulf.com/inception-institute-of-artificial-intelligence-jobs" target="_blank" rel="noopener">Inception Institute Of Artificial Intelligence Jobs</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: IIAI Director or Research Leadership</span>
+      </div>
+      <div class="why">Inception Institute of Artificial Intelligence (IIAI) is a leading UAE AI research institute; job listings signal active R&amp;D and hiring.</div>
+      <div class="reason">IIAI is strategically important to UAE AI ecosystem, but job board listing does not indicate governance/verification demand.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.naukrigulf.com/agentic-ai-jobs-in-dubai" target="_blank" rel="noopener">Agentic Ai Jobs in Dubai - 60 Vacancies Aug 2026</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">60 agentic AI vacancies in Dubai/UAE suggest autonomous system deployments are underway.</div>
+      <div class="reason">Agentic AI hiring in Dubai signals emergence of autonomous decision-making systems that will require governance/auditability; worth tracking which employers to approach.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.indeed.com/q-ai-automation-l-dubai-jobs.html" target="_blank" rel="noopener">Ai Automation jobs in Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">363 AI automation roles in Dubai signal workflow automation and process-level AI deployment.</div>
+      <div class="reason">AI automation hiring scale suggests process automation systems that may require governance/auditability; worth identifying specific employers.</div>
+    </div><h3>Regulation/Policy</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/global-strategic-associate-lead-uae-at-achieve-regulatory-compliance-4451520226?position=21&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=5oS6ydrvkf%2Bl%2FwxqePjtKw%3D%3D" target="_blank" rel="noopener">Global Strategic Associate Lead, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Managing Director or Partner at Achieve Regulatory Compliance</span>
+      </div>
+      <div class="why">Achieve Regulatory Compliance is hiring a Strategic Associate Lead for UAE, suggesting active regulatory advisory work.</div>
+      <div class="reason">Regulatory compliance consultancy expanding UAE presence; potential entrypoint for AI governance compliance services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/head-of-public-policy-for-middle-east-and-africa-mea-at-snap-inc-4373906709?position=9&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=hautEXv9FRothPEvHH5Ccg%3D%3D" target="_blank" rel="noopener">Head of Public Policy for Middle East and Africa (MEA)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Head of Public Policy</span>
+      </div>
+      <div class="why">Head of Public Policy for MEA at Snap Inc. (Dubai) indicates tech company regulatory engagement in region.</div>
+      <div class="reason">Policy-focused role at major tech platform in Dubai; may signal increasing regulatory/compliance complexity Snap must navigate in UAE.</div>
+    </div><p class="lowcount">73 lower-relevance items also collected but not shown here — full data in the archived JSON.</p></div>
+      </details></div>
+  </div>
+  <footer>Generated 10 Aug 2026, 19:24</footer>
 </body>
 </html>

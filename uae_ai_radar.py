@@ -424,6 +424,51 @@ def compose_briefing(items: list) -> str:
     return "\n".join(lines)
 
 
+def compose_email_summary(items: list) -> str:
+    """Short digest for the inbox — full detail lives in the archived .md/.json
+    and the website, which is what compose_briefing() is for. This is deliberately
+    terse: an inbox isn't the right place for 250 dense entries."""
+    date_str = datetime.now().strftime("%d %B %Y")
+    high = [i for i in items if i.get("nomos_relevance") == "High"]
+    medium = [i for i in items if i.get("nomos_relevance") == "Medium"]
+    low = [i for i in items if i.get("nomos_relevance") == "Low"]
+    news_count = sum(1 for i in items if i.get("type") != "job_posting")
+    job_count = sum(1 for i in items if i.get("type") == "job_posting")
+
+    lines = [
+        f"UAE AI Intelligence — {date_str}",
+        "",
+        f"{len(items)} new items today ({news_count} news, {job_count} jobs) — "
+        f"{len(high)} High, {len(medium)} Medium, {len(low)} lower relevance.",
+        "",
+    ]
+
+    if not items:
+        lines.append("Nothing new today — everything collected was already shown in a previous run.")
+        return "\n".join(lines)
+
+    if high:
+        lines.append(f"HIGH RELEVANCE ({len(high)})")
+        for it in high:
+            lines.append(f"- {it['title']} — {it['why_it_matters']}")
+            lines.append(f"  {it['url']}")
+        lines.append("")
+
+    if medium:
+        lines.append(f"MEDIUM RELEVANCE ({len(medium)}) — titles only, full detail on the website:")
+        for it in medium:
+            lines.append(f"- {it['title']}")
+        lines.append("")
+
+    if low:
+        lines.append(f"{len(low)} lower-relevance items also collected — not listed here, see the website for the full archive.")
+        lines.append("")
+
+    lines.append("Full detail, jobs tab, and search: see index.html (local) or the hosted site once Vercel is live.")
+
+    return "\n".join(lines)
+
+
 # ============================================================
 # DELIVER
 # ============================================================
@@ -455,16 +500,47 @@ def archive_briefing(markdown_body: str):
 
 
 def archive_briefing_json(items: list, counts: dict, provenance: str = "automated", date_str: str = None):
+    """Merges into any existing archive for the same date instead of overwriting
+    it. Running the pipeline twice in one day (a retry, a manual re-test) used to
+    silently destroy the first run's data — real items were lost this way once
+    already. Dedup by URL; counts are summed, not replaced."""
     date_str = date_str or TODAY
     path = BRIEFINGS_DIR / f"{date_str}.json"
+
+    existing_items, existing_counts = [], {}
+    if path.exists():
+        try:
+            prior = json.loads(path.read_text())
+            existing_items = prior.get("items", []) or []
+            existing_counts = prior.get("counts", {}) or {}
+        except Exception as e:
+            log(f"WARNING: could not read existing archive to merge, overwriting: {e}")
+
+    seen_urls = set()
+    merged_items = []
+    for it in items + existing_items:
+        u = it.get("url", "")
+        if u and u in seen_urls:
+            continue
+        if u:
+            seen_urls.add(u)
+        merged_items.append(it)
+
+    merged_counts = {
+        k: (counts.get(k) or 0) + (existing_counts.get(k) or 0)
+        for k in set(counts) | set(existing_counts)
+        if k != "relevant"
+    }
+    merged_counts["relevant"] = len(merged_items)
+
     data = {
         "date": date_str,
         "provenance": provenance,
-        "counts": counts,
-        "items": items,
+        "counts": merged_counts,
+        "items": merged_items,
     }
     path.write_text(json.dumps(data, indent=2))
-    log(f"Archived structured data to {path}")
+    log(f"Archived structured data to {path} ({len(merged_items)} total after merge)")
 
 
 # ============================================================
@@ -501,11 +577,40 @@ def _item_html(it: dict) -> str:
     </div>"""
 
 
+def _render_group(group_items: list, empty_msg: str) -> str:
+    high = [i for i in group_items if i.get("nomos_relevance") == "High"]
+    medium = [i for i in group_items if i.get("nomos_relevance") == "Medium"]
+    low_count = sum(1 for i in group_items if i.get("nomos_relevance") == "Low")
+    by_cat = {}
+    for it in medium:
+        by_cat.setdefault(it.get("category", "Other"), []).append(it)
+
+    if not high and not by_cat and not low_count:
+        return f'<p class="empty">{empty_msg}</p>'
+
+    sections = []
+    if high:
+        sections.append('<h3 class="section-high">High NOMOS Relevance</h3>' + "".join(_item_html(i) for i in high))
+    for cat in sorted(by_cat):
+        sections.append(f'<h3>{_esc(cat)}</h3>' + "".join(_item_html(i) for i in by_cat[cat]))
+    if low_count:
+        sections.append(
+            f'<p class="lowcount">{low_count} lower-relevance item{"s" if low_count != 1 else ""} '
+            f'also collected but not shown here — full data in the archived JSON.</p>'
+        )
+    return "".join(sections)
+
+
 def _day_html(day: dict, open_attr: str) -> str:
+    """News only — jobs live in the separate persistent Jobs board, not nested
+    per-day, since a job posting shouldn't get buried under a new day's block
+    the moment it's no longer 'new'. News is naturally a daily feed; jobs are
+    naturally a standing board."""
     date_str = day.get("date", "unknown")
     provenance = day.get("provenance", "automated")
     counts = day.get("counts", {}) or {}
     items = day.get("items", []) or []
+    news_items = [i for i in items if i.get("type") != "job_posting"]
 
     provenance_badge = ""
     if provenance != "automated":
@@ -515,48 +620,7 @@ def _day_html(day: dict, open_attr: str) -> str:
         f"{k}: {v}" for k, v in counts.items() if v is not None
     )
 
-    def render_group(group_items: list) -> str:
-        high = [i for i in group_items if i.get("nomos_relevance") == "High"]
-        medium = [i for i in group_items if i.get("nomos_relevance") == "Medium"]
-        low_count = sum(1 for i in group_items if i.get("nomos_relevance") == "Low")
-        by_cat = {}
-        for it in medium:
-            by_cat.setdefault(it.get("category", "Other"), []).append(it)
-
-        if not high and not by_cat and not low_count:
-            return '<p class="empty">Nothing new in this group today.</p>'
-
-        sections = []
-        if high:
-            sections.append('<h3 class="section-high">High NOMOS Relevance</h3>' + "".join(_item_html(i) for i in high))
-        for cat in sorted(by_cat):
-            sections.append(f'<h3>{_esc(cat)}</h3>' + "".join(_item_html(i) for i in by_cat[cat]))
-        if low_count:
-            sections.append(
-                f'<p class="lowcount">{low_count} lower-relevance item{"s" if low_count != 1 else ""} '
-                f'also collected today but not shown here — full data in the archived JSON.</p>'
-            )
-        return "".join(sections)
-
-    if not items:
-        body = '<p class="empty">No new items today — everything collected was already shown in a previous run.</p>'
-    else:
-        # Split by `type` — set by our own collection code, not the LLM's freeform
-        # `category` field, which scatters job postings across unrelated news
-        # categories (AI Deployment, Government AI, etc.) rather than reliably
-        # tagging them "Job Posting". type is the only trustworthy news/jobs signal.
-        news_items = [i for i in items if i.get("type") != "job_posting"]
-        job_items = [i for i in items if i.get("type") == "job_posting"]
-        tab_id = re.sub(r"[^a-zA-Z0-9]", "", date_str)
-        body = f"""
-      <div class="tabs">
-        <input type="radio" name="tabs-{tab_id}" id="tab-news-{tab_id}" class="tab-input" checked>
-        <label for="tab-news-{tab_id}" class="tab-label">News ({len(news_items)})</label>
-        <input type="radio" name="tabs-{tab_id}" id="tab-jobs-{tab_id}" class="tab-input">
-        <label for="tab-jobs-{tab_id}" class="tab-label">Jobs ({len(job_items)})</label>
-        <div class="tab-panel" id="panel-news-{tab_id}">{render_group(news_items)}</div>
-        <div class="tab-panel" id="panel-jobs-{tab_id}">{render_group(job_items)}</div>
-      </div>"""
+    body = _render_group(news_items, "No new news today — everything collected was already shown in a previous run.")
 
     return f"""
   <details {open_attr}>
@@ -572,11 +636,60 @@ def _day_html(day: dict, open_attr: str) -> str:
   </details>"""
 
 
+def _jobs_board_html(days: list) -> str:
+    """Persistent, cross-day jobs board — every job ever collected, deduped by
+    URL, until it's explicitly worth pruning. Unlike news, a job posting stays
+    relevant as long as it's open, so it shouldn't disappear into a collapsed
+    day-block the day after it's first seen. Grouped by date — real
+    published_date where the source has one (LinkedIn, NewsAPI), otherwise the
+    date we first saw it — both to show *when*, and as the filter: collapsed
+    date sections double as a way to jump to/skip a given day without JS.
+    """
+    seen_urls = set()
+    by_date = {}
+    for day in days:  # days is newest-first
+        for it in (day.get("items") or []):
+            if it.get("type") != "job_posting":
+                continue
+            url = it.get("url", "")
+            if url and url in seen_urls:
+                continue
+            if url:
+                seen_urls.add(url)
+            display_date = it.get("published_date") or day.get("date", "unknown")
+            by_date.setdefault(display_date, []).append(it)
+
+    if not by_date:
+        return '<p class="empty">No jobs collected yet.</p>'
+
+    sections = []
+    for date_str in sorted(by_date, reverse=True):
+        jobs = by_date[date_str]
+        tab_id = re.sub(r"[^a-zA-Z0-9]", "", date_str)
+        sections.append(f"""
+      <details class="date-filter" open>
+        <summary><span class="date">{_esc(date_str)}</span> <span class="summary-meta">{len(jobs)} job{"s" if len(jobs) != 1 else ""}</span></summary>
+        <div class="day-body">{_render_group(jobs, "Nothing here.")}</div>
+      </details>""")
+    return "".join(sections)
+
+
 def render_index_html(days: list) -> str:
     if days:
-        blocks = [_day_html(d, "open" if i == 0 else "") for i, d in enumerate(days)]
+        news_blocks = [_day_html(d, "open" if i == 0 else "") for i, d in enumerate(days)]
+        jobs_block = _jobs_board_html(days)
+        total_jobs = len({it.get("url") for d in days for it in (d.get("items") or []) if it.get("type") == "job_posting"})
+        blocks = f"""
+  <div class="toptabs">
+    <input type="radio" name="toptabs" id="toptab-news" class="tab-input" checked>
+    <label for="toptab-news" class="tab-label">News</label>
+    <input type="radio" name="toptabs" id="toptab-jobs" class="tab-input">
+    <label for="toptab-jobs" class="tab-label">Jobs ({total_jobs})</label>
+    <div class="tab-panel">{"".join(news_blocks)}</div>
+    <div class="tab-panel"><p class="dateflag">Every job ever collected, newest first, until seen — not reset daily.</p>{jobs_block}</div>
+  </div>"""
     else:
-        blocks = ['<p class="empty">No briefings archived yet. Run the pipeline once (or add the seed test day) to populate this page.</p>']
+        blocks = '<p class="empty">No briefings archived yet. Run the pipeline once (or add the seed test day) to populate this page.</p>'
 
     generated = datetime.now().strftime("%d %b %Y, %H:%M")
 
@@ -613,14 +726,17 @@ def render_index_html(days: list) -> str:
   .reason {{ font-size: 12px; color: #888; margin-top: 2px; }}
   .empty {{ color: #888; font-style: italic; padding: 16px 0; }}
   .lowcount {{ font-size: 11px; color: #999; font-style: italic; margin-top: 16px; }}
-  .tabs {{ margin-top: 4px; }}
-  .tabs input.tab-input {{ display: none; }}
-  .tabs label.tab-label {{ display: inline-block; padding: 6px 16px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #f0f0f0; color: #666; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }}
-  .tabs input.tab-input:first-of-type:checked ~ label.tab-label:first-of-type,
-  .tabs input.tab-input:last-of-type:checked ~ label.tab-label:last-of-type {{ background: #14213d; color: #fff; }}
-  .tabs .tab-panel {{ display: none; border-top: 2px solid #14213d; padding-top: 12px; }}
-  .tabs input.tab-input:first-of-type:checked ~ .tab-panel:first-of-type,
-  .tabs input.tab-input:last-of-type:checked ~ .tab-panel:last-of-type {{ display: block; }}
+  .toptabs {{ margin-top: 4px; }}
+  .toptabs input.tab-input {{ display: none; }}
+  .toptabs label.tab-label {{ display: inline-block; padding: 8px 20px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #eee; color: #666; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }}
+  .toptabs input.tab-input:first-of-type:checked ~ label.tab-label:first-of-type,
+  .toptabs input.tab-input:last-of-type:checked ~ label.tab-label:last-of-type {{ background: #14213d; color: #fff; }}
+  .toptabs .tab-panel {{ display: none; border-top: 3px solid #14213d; padding-top: 16px; }}
+  .toptabs input.tab-input:first-of-type:checked ~ .tab-panel:first-of-type,
+  .toptabs input.tab-input:last-of-type:checked ~ .tab-panel:last-of-type {{ display: block; }}
+  details.date-filter {{ background: transparent; border: none; padding: 0 0 0 4px; margin-bottom: 8px; }}
+  details.date-filter summary {{ padding: 8px 0; font-size: 13px; }}
+  details.date-filter .day-body {{ padding-left: 8px; border-top: none; }}
   footer {{ margin-top: 30px; font-size: 11px; color: #aaa; text-align: center; }}
 </style>
 </head>
@@ -647,6 +763,39 @@ def build_index_html():
     out_path.write_text(html)
     log(f"Wrote {out_path} ({len(days)} day(s))")
     return out_path
+
+
+def push_to_github():
+    """Commits the regenerated site + archives and pushes, so the Vercel-hosted
+    copy actually updates daily instead of only reflecting the last manual push.
+    Non-fatal by design: a git/network failure here shouldn't take down email
+    delivery or the local site, which have already succeeded by this point."""
+    import subprocess
+
+    def run(*args):
+        return subprocess.run(args, cwd=HERE, capture_output=True, text=True)
+
+    if not (HERE / ".git").exists():
+        log("No .git directory — skipping push (repo not initialized here).")
+        return
+
+    try:
+        run("git", "add", "index.html", "briefings/", "seen_urls.json")
+        status = run("git", "status", "--porcelain")
+        if not status.stdout.strip():
+            log("No changes to push today.")
+            return
+        commit = run("git", "commit", "-m", f"Daily update — {TODAY}")
+        if commit.returncode != 0:
+            log(f"WARNING: git commit failed: {commit.stderr.strip()}")
+            return
+        push = run("git", "push")
+        if push.returncode != 0:
+            log(f"WARNING: git push failed: {push.stderr.strip()}")
+        else:
+            log("Pushed daily update to GitHub.")
+    except Exception as e:
+        log(f"WARNING: push_to_github failed: {e}")
 
 
 # ============================================================
@@ -686,8 +835,9 @@ def main():
         "unseen": len(unseen),
         "relevant": len(relevant),
     })
-    send_email(briefing)
+    send_email(compose_email_summary(relevant))
     build_index_html()
+    push_to_github()
 
     # Mark EVERYTHING collected today as seen (not just what was relevant) —
     # an irrelevant result shouldn't keep resurfacing for reclassification either.
