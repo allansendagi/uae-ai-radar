@@ -210,13 +210,22 @@ def collect_job_boards() -> list:
     )
     results = []
     for page in items:
+        term = page.get("searchQuery", {}).get("term", "")
+        # Root-cause fix, not a workaround: checked real results and confirmed
+        # entity-career-domain queries (tdra.gov.ae, dof.gov.ae, etc.) don't
+        # actually surface individual job listings — Google returns whatever
+        # ranks on those low-traffic gov domains (PR pages, awards, even a bond
+        # prospectus), not real postings. Dedicated job boards (bayt/gulftalent/
+        # naukrigulf/indeed) do return genuine job content. Tag each accordingly
+        # instead of mislabeling all of it "job_posting".
+        is_real_job_board = any(d in term for d in JOB_BOARD_DOMAINS)
         for r in page.get("organicResults", []):
             results.append({
-                "type": "job_posting",
+                "type": "job_posting" if is_real_job_board else "news",
                 "title": r.get("title", ""),
                 "url": r.get("url", ""),
                 "snippet": r.get("description", ""),
-                "source_query": page.get("searchQuery", {}).get("term", ""),
+                "source_query": term,
                 "published_date": None,  # Google organicResults carry no date field
             })
     log(f"  {len(results)} raw job-board/career-page results")
@@ -506,15 +515,16 @@ def _day_html(day: dict, open_attr: str) -> str:
         f"{k}: {v}" for k, v in counts.items() if v is not None
     )
 
-    if not items:
-        body = '<p class="empty">No new items today — everything collected was already shown in a previous run.</p>'
-    else:
-        high = [i for i in items if i.get("nomos_relevance") == "High"]
-        medium = [i for i in items if i.get("nomos_relevance") == "Medium"]
-        low_count = sum(1 for i in items if i.get("nomos_relevance") == "Low")
+    def render_group(group_items: list) -> str:
+        high = [i for i in group_items if i.get("nomos_relevance") == "High"]
+        medium = [i for i in group_items if i.get("nomos_relevance") == "Medium"]
+        low_count = sum(1 for i in group_items if i.get("nomos_relevance") == "Low")
         by_cat = {}
         for it in medium:
             by_cat.setdefault(it.get("category", "Other"), []).append(it)
+
+        if not high and not by_cat and not low_count:
+            return '<p class="empty">Nothing new in this group today.</p>'
 
         sections = []
         if high:
@@ -526,7 +536,27 @@ def _day_html(day: dict, open_attr: str) -> str:
                 f'<p class="lowcount">{low_count} lower-relevance item{"s" if low_count != 1 else ""} '
                 f'also collected today but not shown here — full data in the archived JSON.</p>'
             )
-        body = "".join(sections)
+        return "".join(sections)
+
+    if not items:
+        body = '<p class="empty">No new items today — everything collected was already shown in a previous run.</p>'
+    else:
+        # Split by `type` — set by our own collection code, not the LLM's freeform
+        # `category` field, which scatters job postings across unrelated news
+        # categories (AI Deployment, Government AI, etc.) rather than reliably
+        # tagging them "Job Posting". type is the only trustworthy news/jobs signal.
+        news_items = [i for i in items if i.get("type") != "job_posting"]
+        job_items = [i for i in items if i.get("type") == "job_posting"]
+        tab_id = re.sub(r"[^a-zA-Z0-9]", "", date_str)
+        body = f"""
+      <div class="tabs">
+        <input type="radio" name="tabs-{tab_id}" id="tab-news-{tab_id}" class="tab-input" checked>
+        <label for="tab-news-{tab_id}" class="tab-label">News ({len(news_items)})</label>
+        <input type="radio" name="tabs-{tab_id}" id="tab-jobs-{tab_id}" class="tab-input">
+        <label for="tab-jobs-{tab_id}" class="tab-label">Jobs ({len(job_items)})</label>
+        <div class="tab-panel" id="panel-news-{tab_id}">{render_group(news_items)}</div>
+        <div class="tab-panel" id="panel-jobs-{tab_id}">{render_group(job_items)}</div>
+      </div>"""
 
     return f"""
   <details {open_attr}>
@@ -583,6 +613,14 @@ def render_index_html(days: list) -> str:
   .reason {{ font-size: 12px; color: #888; margin-top: 2px; }}
   .empty {{ color: #888; font-style: italic; padding: 16px 0; }}
   .lowcount {{ font-size: 11px; color: #999; font-style: italic; margin-top: 16px; }}
+  .tabs {{ margin-top: 4px; }}
+  .tabs input.tab-input {{ display: none; }}
+  .tabs label.tab-label {{ display: inline-block; padding: 6px 16px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #f0f0f0; color: #666; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }}
+  .tabs input.tab-input:first-of-type:checked ~ label.tab-label:first-of-type,
+  .tabs input.tab-input:last-of-type:checked ~ label.tab-label:last-of-type {{ background: #14213d; color: #fff; }}
+  .tabs .tab-panel {{ display: none; border-top: 2px solid #14213d; padding-top: 12px; }}
+  .tabs input.tab-input:first-of-type:checked ~ .tab-panel:first-of-type,
+  .tabs input.tab-input:last-of-type:checked ~ .tab-panel:last-of-type {{ display: block; }}
   footer {{ margin-top: 30px; font-size: 11px; color: #aaa; text-align: center; }}
 </style>
 </head>

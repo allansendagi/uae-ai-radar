@@ -31,6 +31,14 @@
   .reason { font-size: 12px; color: #888; margin-top: 2px; }
   .empty { color: #888; font-style: italic; padding: 16px 0; }
   .lowcount { font-size: 11px; color: #999; font-style: italic; margin-top: 16px; }
+  .tabs { margin-top: 4px; }
+  .tabs input.tab-input { display: none; }
+  .tabs label.tab-label { display: inline-block; padding: 6px 16px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #f0f0f0; color: #666; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }
+  .tabs input.tab-input:first-of-type:checked ~ label.tab-label:first-of-type,
+  .tabs input.tab-input:last-of-type:checked ~ label.tab-label:last-of-type { background: #14213d; color: #fff; }
+  .tabs .tab-panel { display: none; border-top: 2px solid #14213d; padding-top: 12px; }
+  .tabs input.tab-input:first-of-type:checked ~ .tab-panel:first-of-type,
+  .tabs input.tab-input:last-of-type:checked ~ .tab-panel:last-of-type { display: block; }
   footer { margin-top: 30px; font-size: 11px; color: #aaa; text-align: center; }
 </style>
 </head>
@@ -46,7 +54,13 @@
     </summary>
     <div class="day-body">
       <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
-      <h3 class="section-high">High NOMOS Relevance</h3>
+      
+      <div class="tabs">
+        <input type="radio" name="tabs-20260810" id="tab-news-20260810" class="tab-input" checked>
+        <label for="tab-news-20260810" class="tab-label">News (185)</label>
+        <input type="radio" name="tabs-20260810" id="tab-jobs-20260810" class="tab-input">
+        <label for="tab-jobs-20260810" class="tab-label">Jobs (69)</label>
+        <div class="tab-panel" id="panel-news-20260810"><h3 class="section-high">High NOMOS Relevance</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.linkedin.com/posts/tiiuae_tii-innovation-technology-activity-7409141296168374272-ruZW" target="_blank" rel="noopener">UAE's AI Governance Framework: Sovereign AI Development</a></div>
       <div class="item-meta">
@@ -336,15 +350,6 @@
       <div class="reason">Named government entity (Dubai Municipality) formally recognised for AI decision-making systems; strong signal of decision governance and audit requirements.</div>
     </div>
     <div class="item">
-      <div class="item-title"><a href="https://ae.indeed.com/q-ai-governance-l-dubai-jobs.html" target="_blank" rel="noopener">Ai Governance jobs in Dubai</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#c0392b">High</span>
-        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Governance Officer, Chief Compliance Officer, or AI Ethics/Governance Lead at hiring employers</span>
-      </div>
-      <div class="why">189 AI governance roles in Dubai with salaries AED 25–35k/month signal formal governance function growth.</div>
-      <div class="reason">Direct signal: 189 AI governance job openings in Dubai indicate UAE enterprises are building dedicated governance teams; immediate sales pipeline for governance verification/compliance tooling.</div>
-    </div>
-    <div class="item">
       <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/digital-dubai-showcases-its-pioneering-vision-for-ai-agents-and-data-capital-at-the-asia-pacific-cities-summit-and-mayors-forum" target="_blank" rel="noopener">Digital Dubai showcases its Pioneering Vision for AI ...</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#c0392b">High</span>
@@ -469,15 +474,6 @@
       </div>
       <div class="why">Dubai Municipality launched 'Smart Municipality Eye', an AI and drone-based system for proactive urban management decision-making.</div>
       <div class="reason">Autonomous/AI-driven system deployed for municipal decisions (urban management); governance verification and auditability critical for government deployment.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/agentic-ai-solution-architect-at-teamware-solutions-4451519151?position=2&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=dpSoOjWNXFMYXaG82ja7NQ%3D%3D" target="_blank" rel="noopener">Agentic AI Solution Architect</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#c0392b">High</span>
-        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: VP Products, VP Sales, or Managing Director</span>
-      </div>
-      <div class="why">Agentic AI Solution Architect at Teamware Solutions (Dubai) explicitly targets autonomous AI system design.</div>
-      <div class="reason">Teamware is actively building agentic AI capabilities for enterprise deployment; as autonomous systems enter production (especially in regulated sectors), they will require governance verification, auditable policy enforcement, and compliance artifacts — core NOMOS offerings.</div>
     </div><h3>AI Deployment</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.investindubai.gov.ae/en/industries/technology-ict/ai-iot-heart-government-investment" target="_blank" rel="noopener">AI and IoT at the heart of government investment</a></div>
@@ -694,15 +690,6 @@
       </div>
       <div class="why">Dubai Municipality created 'Saeed', an AI-powered virtual spokesperson for automated public communications.</div>
       <div class="reason">Autonomous agentic system (digital persona) making or mediating government communications; governance/brand safety/auditability concerns apply.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/digital-transformation-manager-uae-national-only-cibg-wds-aa-corporate-investment-banking-group-at-mashreq-4451382840?position=4&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=j%2FP9fli1WufCwUcvoblxNQ%3D%3D" target="_blank" rel="noopener">Digital Transformation Manager UAE National Only.CIBG - WDS - AA.Corporate &amp; Investment Banking Group</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of Transformation</span>
-      </div>
-      <div class="why">Digital Transformation Manager at Mashreq (major UAE bank) signals active AI/digital modernization in regulated financial sector.</div>
-      <div class="reason">Banking transformation role at systemically important UAE bank; likely deploying AI systems under CBUAE oversight and may require governance verification for compliance.</div>
     </div><h3>AI Governance</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.modulos.ai/blog/uae-ai-regulations-guide/" target="_blank" rel="noopener">AI Governance in the UAE: Navigating Local… | Modulos Blog</a></div>
@@ -838,24 +825,6 @@
       </div>
       <div class="why">Lists leading UAE-based AI agent development firms (G42, Core42, LuMay AI) who are executing government AI mandates and may need governance tooling.</div>
       <div class="reason">Identifies key vendors in UAE AI ecosystem; these firms likely need governance frameworks to support their government contracts, but no specific procurement or governance requirement is detailed.</div>
-    </div><h3>Agentic AI</h3>
-    <div class="item">
-      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/agentic-ai-jobs/" target="_blank" rel="noopener">Agentic Ai Jobs in UAE (Aug 2026)</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Agentic AI</span>
-      </div>
-      <div class="why">UAE agentic AI job openings suggest autonomous agent deployment, directly relevant to NOMOS's governance verification mandate.</div>
-      <div class="reason">Agentic AI category matches NOMOS focus, but aggregator page lacks named employers or specific autonomous system details.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/senior-agentic-ai-fde-at-teamware-solutions-4451502681?position=16&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=1%2Fm0Kr%2BDF9pcb13We5niTg%3D%3D" target="_blank" rel="noopener">Senior Agentic AI FDE</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: VP Engineering or Chief Product Officer</span>
-      </div>
-      <div class="why">Senior Agentic AI FDE role at Teamware Solutions (Dubai) explicitly signals autonomous AI system development.</div>
-      <div class="reason">Agentic AI hiring indicates active autonomous system development; Teamware may face governance/verification requirements as systems mature or deploy to regulated entities.</div>
     </div><h3>Government AI</h3>
     <div class="item">
       <div class="item-title"><a href="https://u.ae/en/about-the-uae/digital-uae/digital-technology/artificial-intelligence" target="_blank" rel="noopener">Artificial intelligence | The Official Platform of the UAE ...</a></div>
@@ -1063,105 +1032,6 @@
       </div>
       <div class="why">Dubai Police is establishing an innovative security model driven by AI tools for public safety.</div>
       <div class="reason">Institutional AI adoption in law enforcement requires governance framework, but current framing focuses on capability rather than audit or accountability.</div>
-    </div><h3>Job Posting</h3>
-    <div class="item">
-      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/ai-ml-fresher-jobs/" target="_blank" rel="noopener">Ai Ml Fresher Jobs in UAE (Aug 2026)</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Emirates — Head of AI/Data or Chief Technology Officer</span>
-      </div>
-      <div class="why">Emirates airline AI platform hiring suggests autonomous or decision-support systems in an enterprise context.</div>
-      <div class="reason">Named organisation (Emirates) and AI platform role, but job board snippet lacks governance/audit specifics.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/ai-automation-jobs/" target="_blank" rel="noopener">Ai Automation Jobs in UAE (Aug 2026)</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">UAE AI automation roles including insurance sector; suggests AI-driven decision systems but no governance audit requirement evident.</div>
-      <div class="reason">Insurance sector AI automation may require regulatory oversight, but snippet lacks specific employer or governance mandate.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/artificial-intelligence-jobs-in-abu-dhabi/" target="_blank" rel="noopener">Artificial Intelligence Jobs in Abu Dhabi (Aug 2026)</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">Abu Dhabi-specific AI hiring including platform architect roles; suggests enterprise/infrastructure AI but no governance mandate evident.</div>
-      <div class="reason">Abu Dhabi location and platform architecture role suggest enterprise AI deployment, but aggregator snippet lacks named employer or governance context.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/go-to-market-specialist-ai-and-agent-619130" target="_blank" rel="noopener">Go-To-Market Specialist AI And Agent | Job in Dubai, UAE</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">Go-To-Market Specialist role for AI Agents in Dubai suggests active commercial deployment of agentic AI in the market.</div>
-      <div class="reason">Signals agentic AI deployment in UAE enterprises, but job posting alone doesn't indicate governance readiness or audit/compliance requirement.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-engineer-617185" target="_blank" rel="noopener">AI Engineer | Jobs in UAE by Michael Page | Apply Now</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">AI Engineer role with explicit focus on 'advanced AI agent systems' indicates hands-on agentic AI deployment in UAE context.</div>
-      <div class="reason">Agentic AI is NOMOS's core domain, but a job posting is not actionable without knowing the hiring entity or whether governance is a priority.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/senior-ai-and-solutions-engineer-619912" target="_blank" rel="noopener">Senior AI And Solutions Engineer | Job in Dubai, UAE</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">Senior AI/Solutions Engineer building AI agents and intelligent systems suggests enterprise-scale agentic AI deployment in Dubai.</div>
-      <div class="reason">Clear agentic AI context, but hiring signal alone doesn't confirm governance gaps or verification requirements.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-engineer-agentic-ai-developer-619152" target="_blank" rel="noopener">AI Engineer / Agentic AI Developer | Job in Dubai, UAE</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">Dedicated Agentic AI Developer role explicitly targeting enterprise-grade agentic AI solutions in Dubai.</div>
-      <div class="reason">Directly relevant to NOMOS domain (agentic AI), but job posting does not signal governance/audit readiness or compliance challenge.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/head-of-ai-and-automation-592177" target="_blank" rel="noopener">Head of AI and Automation | Job in UAE by Kershaw Leonard</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">Head of AI and Automation role for building intelligent agents, copilots, and automation systems indicates C-level prioritization of agentic AI.</div>
-      <div class="reason">Leadership hire in agentic AI suggests organizational readiness for governance; however, no specific policy/audit requirement is evident.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.naukrigulf.com/inception-institute-of-artificial-intelligence-jobs" target="_blank" rel="noopener">Inception Institute Of Artificial Intelligence Jobs</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span> &middot; <span class="contact">contact: IIAI Director or Research Leadership</span>
-      </div>
-      <div class="why">Inception Institute of Artificial Intelligence (IIAI) is a leading UAE AI research institute; job listings signal active R&amp;D and hiring.</div>
-      <div class="reason">IIAI is strategically important to UAE AI ecosystem, but job board listing does not indicate governance/verification demand.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://www.naukrigulf.com/agentic-ai-jobs-in-dubai" target="_blank" rel="noopener">Agentic Ai Jobs in Dubai - 60 Vacancies Aug 2026</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">60 agentic AI vacancies in Dubai/UAE suggest autonomous system deployments are underway.</div>
-      <div class="reason">Agentic AI hiring in Dubai signals emergence of autonomous decision-making systems that will require governance/auditability; worth tracking which employers to approach.</div>
-    </div>
-    <div class="item">
-      <div class="item-title"><a href="https://ae.indeed.com/q-ai-automation-l-dubai-jobs.html" target="_blank" rel="noopener">Ai Automation jobs in Dubai</a></div>
-      <div class="item-meta">
-        <span class="badge" style="background:#b8860b">Medium</span>
-        <span class="category">Job Posting</span>
-      </div>
-      <div class="why">363 AI automation roles in Dubai signal workflow automation and process-level AI deployment.</div>
-      <div class="reason">AI automation hiring scale suggests process automation systems that may require governance/auditability; worth identifying specific employers.</div>
     </div><h3>Regulation/Policy</h3>
     <div class="item">
       <div class="item-title"><a href="https://uaelegislation.gov.ae/en/policy/details/uae-s-international-stance-on-artificial-intelligence-policy" target="_blank" rel="noopener">UAE's International Stance on Artificial Intelligence Policy</a></div>
@@ -1270,7 +1140,152 @@
       </div>
       <div class="why">DHA Health Data Classification Policy 2022 establishes data governance framework relevant to AI systems handling health information.</div>
       <div class="reason">Data classification and health policy documents exist but no explicit evidence that DHA is seeking governance verification or audit automation.</div>
+    </div><p class="lowcount">65 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p></div>
+        <div class="tab-panel" id="panel-jobs-20260810"><h3 class="section-high">High NOMOS Relevance</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.indeed.com/q-ai-governance-l-dubai-jobs.html" target="_blank" rel="noopener">Ai Governance jobs in Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Governance Officer, Chief Compliance Officer, or AI Ethics/Governance Lead at hiring employers</span>
+      </div>
+      <div class="why">189 AI governance roles in Dubai with salaries AED 25–35k/month signal formal governance function growth.</div>
+      <div class="reason">Direct signal: 189 AI governance job openings in Dubai indicate UAE enterprises are building dedicated governance teams; immediate sales pipeline for governance verification/compliance tooling.</div>
     </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/agentic-ai-solution-architect-at-teamware-solutions-4451519151?position=2&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=dpSoOjWNXFMYXaG82ja7NQ%3D%3D" target="_blank" rel="noopener">Agentic AI Solution Architect</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: VP Products, VP Sales, or Managing Director</span>
+      </div>
+      <div class="why">Agentic AI Solution Architect at Teamware Solutions (Dubai) explicitly targets autonomous AI system design.</div>
+      <div class="reason">Teamware is actively building agentic AI capabilities for enterprise deployment; as autonomous systems enter production (especially in regulated sectors), they will require governance verification, auditable policy enforcement, and compliance artifacts — core NOMOS offerings.</div>
+    </div><h3>AI Deployment</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/digital-transformation-manager-uae-national-only-cibg-wds-aa-corporate-investment-banking-group-at-mashreq-4451382840?position=4&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=j%2FP9fli1WufCwUcvoblxNQ%3D%3D" target="_blank" rel="noopener">Digital Transformation Manager UAE National Only.CIBG - WDS - AA.Corporate &amp; Investment Banking Group</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of Transformation</span>
+      </div>
+      <div class="why">Digital Transformation Manager at Mashreq (major UAE bank) signals active AI/digital modernization in regulated financial sector.</div>
+      <div class="reason">Banking transformation role at systemically important UAE bank; likely deploying AI systems under CBUAE oversight and may require governance verification for compliance.</div>
+    </div><h3>Agentic AI</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/agentic-ai-jobs/" target="_blank" rel="noopener">Agentic Ai Jobs in UAE (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Agentic AI</span>
+      </div>
+      <div class="why">UAE agentic AI job openings suggest autonomous agent deployment, directly relevant to NOMOS's governance verification mandate.</div>
+      <div class="reason">Agentic AI category matches NOMOS focus, but aggregator page lacks named employers or specific autonomous system details.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/senior-agentic-ai-fde-at-teamware-solutions-4451502681?position=16&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=1%2Fm0Kr%2BDF9pcb13We5niTg%3D%3D" target="_blank" rel="noopener">Senior Agentic AI FDE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: VP Engineering or Chief Product Officer</span>
+      </div>
+      <div class="why">Senior Agentic AI FDE role at Teamware Solutions (Dubai) explicitly signals autonomous AI system development.</div>
+      <div class="reason">Agentic AI hiring indicates active autonomous system development; Teamware may face governance/verification requirements as systems mature or deploy to regulated entities.</div>
+    </div><h3>Job Posting</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/ai-ml-fresher-jobs/" target="_blank" rel="noopener">Ai Ml Fresher Jobs in UAE (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Emirates — Head of AI/Data or Chief Technology Officer</span>
+      </div>
+      <div class="why">Emirates airline AI platform hiring suggests autonomous or decision-support systems in an enterprise context.</div>
+      <div class="reason">Named organisation (Emirates) and AI platform role, but job board snippet lacks governance/audit specifics.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/ai-automation-jobs/" target="_blank" rel="noopener">Ai Automation Jobs in UAE (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">UAE AI automation roles including insurance sector; suggests AI-driven decision systems but no governance audit requirement evident.</div>
+      <div class="reason">Insurance sector AI automation may require regulatory oversight, but snippet lacks specific employer or governance mandate.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/uae/jobs/artificial-intelligence-jobs-in-abu-dhabi/" target="_blank" rel="noopener">Artificial Intelligence Jobs in Abu Dhabi (Aug 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Abu Dhabi-specific AI hiring including platform architect roles; suggests enterprise/infrastructure AI but no governance mandate evident.</div>
+      <div class="reason">Abu Dhabi location and platform architecture role suggest enterprise AI deployment, but aggregator snippet lacks named employer or governance context.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/go-to-market-specialist-ai-and-agent-619130" target="_blank" rel="noopener">Go-To-Market Specialist AI And Agent | Job in Dubai, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Go-To-Market Specialist role for AI Agents in Dubai suggests active commercial deployment of agentic AI in the market.</div>
+      <div class="reason">Signals agentic AI deployment in UAE enterprises, but job posting alone doesn't indicate governance readiness or audit/compliance requirement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-engineer-617185" target="_blank" rel="noopener">AI Engineer | Jobs in UAE by Michael Page | Apply Now</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">AI Engineer role with explicit focus on 'advanced AI agent systems' indicates hands-on agentic AI deployment in UAE context.</div>
+      <div class="reason">Agentic AI is NOMOS's core domain, but a job posting is not actionable without knowing the hiring entity or whether governance is a priority.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/senior-ai-and-solutions-engineer-619912" target="_blank" rel="noopener">Senior AI And Solutions Engineer | Job in Dubai, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Senior AI/Solutions Engineer building AI agents and intelligent systems suggests enterprise-scale agentic AI deployment in Dubai.</div>
+      <div class="reason">Clear agentic AI context, but hiring signal alone doesn't confirm governance gaps or verification requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/ai-engineer-agentic-ai-developer-619152" target="_blank" rel="noopener">AI Engineer / Agentic AI Developer | Job in Dubai, UAE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Dedicated Agentic AI Developer role explicitly targeting enterprise-grade agentic AI solutions in Dubai.</div>
+      <div class="reason">Directly relevant to NOMOS domain (agentic AI), but job posting does not signal governance/audit readiness or compliance challenge.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/head-of-ai-and-automation-592177" target="_blank" rel="noopener">Head of AI and Automation | Job in UAE by Kershaw Leonard</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Head of AI and Automation role for building intelligent agents, copilots, and automation systems indicates C-level prioritization of agentic AI.</div>
+      <div class="reason">Leadership hire in agentic AI suggests organizational readiness for governance; however, no specific policy/audit requirement is evident.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.naukrigulf.com/inception-institute-of-artificial-intelligence-jobs" target="_blank" rel="noopener">Inception Institute Of Artificial Intelligence Jobs</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: IIAI Director or Research Leadership</span>
+      </div>
+      <div class="why">Inception Institute of Artificial Intelligence (IIAI) is a leading UAE AI research institute; job listings signal active R&amp;D and hiring.</div>
+      <div class="reason">IIAI is strategically important to UAE AI ecosystem, but job board listing does not indicate governance/verification demand.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.naukrigulf.com/agentic-ai-jobs-in-dubai" target="_blank" rel="noopener">Agentic Ai Jobs in Dubai - 60 Vacancies Aug 2026</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">60 agentic AI vacancies in Dubai/UAE suggest autonomous system deployments are underway.</div>
+      <div class="reason">Agentic AI hiring in Dubai signals emergence of autonomous decision-making systems that will require governance/auditability; worth tracking which employers to approach.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://ae.indeed.com/q-ai-automation-l-dubai-jobs.html" target="_blank" rel="noopener">Ai Automation jobs in Dubai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">363 AI automation roles in Dubai signal workflow automation and process-level AI deployment.</div>
+      <div class="reason">AI automation hiring scale suggests process automation systems that may require governance/auditability; worth identifying specific employers.</div>
+    </div><h3>Regulation/Policy</h3>
     <div class="item">
       <div class="item-title"><a href="https://ae.linkedin.com/jobs/view/global-strategic-associate-lead-uae-at-achieve-regulatory-compliance-4451520226?position=21&amp;pageNum=0&amp;refId=R3y9YQNNrvEovZq2XgpLiA%3D%3D&amp;trackingId=5oS6ydrvkf%2Bl%2FwxqePjtKw%3D%3D" target="_blank" rel="noopener">Global Strategic Associate Lead, UAE</a></div>
       <div class="item-meta">
@@ -1288,7 +1303,8 @@
       </div>
       <div class="why">Head of Public Policy for MEA at Snap Inc. (Dubai) indicates tech company regulatory engagement in region.</div>
       <div class="reason">Policy-focused role at major tech platform in Dubai; may signal increasing regulatory/compliance complexity Snap must navigate in UAE.</div>
-    </div><p class="lowcount">116 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p>
+    </div><p class="lowcount">51 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p></div>
+      </div>
     </div>
   </details>
   <details >
@@ -1310,7 +1326,13 @@
     </summary>
     <div class="day-body">
       <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
-      <h3 class="section-high">High NOMOS Relevance</h3>
+      
+      <div class="tabs">
+        <input type="radio" name="tabs-20260804" id="tab-news-20260804" class="tab-input" checked>
+        <label for="tab-news-20260804" class="tab-label">News (9)</label>
+        <input type="radio" name="tabs-20260804" id="tab-jobs-20260804" class="tab-input">
+        <label for="tab-jobs-20260804" class="tab-label">Jobs (3)</label>
+        <div class="tab-panel" id="panel-news-20260804"><h3 class="section-high">High NOMOS Relevance</h3>
     <div class="item">
       <div class="item-title"><a href="https://uaecabinet.ae/en/news/under-directives-of-uae-president-and-in-world-first-mohammed-bin-rashid-reveals-new-uae-government-framework-to-deploy-agentic-ai-across-50-of-government-sectors-operations-within-two-years" target="_blank" rel="noopener">UAE government framework to deploy Agentic AI across 50% of government sectors, operations within two years</a></div>
       <div class="item-meta">
@@ -1391,7 +1413,8 @@
       </div>
       <div class="why">Confirms DHA's AI push is real and already at meaningful internal scale.</div>
       <div class="reason">Useful context even though the DHA NABIDH artifact workstream is currently blocked.</div>
-    </div><h3>Job Posting</h3>
+    </div></div>
+        <div class="tab-panel" id="panel-jobs-20260804"><h3>Job Posting</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.gulftalent.com/jobs/title/intelligence" target="_blank" rel="noopener">Head of Artificial Intelligence &amp; Innovation</a></div>
       <div class="item-meta">
@@ -1400,9 +1423,10 @@
       </div>
       <div class="why">A senior AI leadership title actively being hired for in Dubai right now — worth checking who the 'Confidential' listing resolves to.</div>
       <div class="reason">Potential live decision-maker forming, but the hiring organisation is not yet identified.</div>
-    </div><p class="lowcount">2 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p>
+    </div><p class="lowcount">2 lower-relevance items also collected today but not shown here — full data in the archived JSON.</p></div>
+      </div>
     </div>
   </details>
-  <footer>Generated 10 Aug 2026, 16:57</footer>
+  <footer>Generated 10 Aug 2026, 17:09</footer>
 </body>
 </html>
