@@ -1,0 +1,156 @@
+{
+  "date": "2026-08-04",
+  "provenance": "manual test pull, hand-classified — not an automated run (live Apify pull, classification done by hand instead of the Claude step to verify the pipeline before trusting the schedule)",
+  "counts": {
+    "raw": 185,
+    "deduped": null,
+    "unseen": null,
+    "relevant": 12
+  },
+  "items": [
+    {
+      "type": "news",
+      "title": "UAE government framework to deploy Agentic AI across 50% of government sectors, operations within two years",
+      "url": "https://uaecabinet.ae/en/news/under-directives-of-uae-president-and-in-world-first-mohammed-bin-rashid-reveals-new-uae-government-framework-to-deploy-agentic-ai-across-50-of-government-sectors-operations-within-two-years",
+      "snippet": "In 2017, the UAE became the first country in the world to appoint a Minister of State for Artificial Intelligence and launched the UAE Artificial Intelligence Strategy.",
+      "source_query": "UAE agentic AI",
+      "category": "Government AI Strategy",
+      "why_it_matters": "This is the mandate itself — Sheikh Mohammed bin Rashid's directive to move half of federal government sectors, services, and operations to agentic AI within two years, creating an unfunded governance problem at every entity it touches.",
+      "nomos_relevance": "High",
+      "nomos_reason": "Primary-source government directive that gives open-cold-outreach cover to any federal-adjacent entity not yet contacted.",
+      "suggested_contact": "Any untouched federal entity — Touch 1 opener"
+    },
+    {
+      "type": "news",
+      "title": "UAE creates dedicated AI and Data Authority to 'build government of the future'",
+      "url": "https://www.globalgovernmentforum.com/uae-creates-dedicated-artificial-intelligence-and-data-authority-to-build-government-of-the-future/",
+      "snippet": "The government of the United Arab Emirates (UAE) is to establish an Artificial Intelligence and Data Authority that will consolidate public sector AI oversight, chaired by Omar Sultan Al Olama.",
+      "source_query": "UAE artificial intelligence",
+      "category": "Government AI Strategy",
+      "why_it_matters": "A brand-new federal governance layer is being stood up right now, consolidating three government bodies' AI/data portfolios under one authority.",
+      "nomos_relevance": "High",
+      "nomos_reason": "New governance body will need artifact-level governance infrastructure above any single entity — worth tracking named appointments under it.",
+      "suggested_contact": "Watch for named appointments under the new authority"
+    },
+    {
+      "type": "news",
+      "title": "UAE Establishes Federal Authority for Artificial Intelligence and Data",
+      "url": "https://www.morganlewis.com/pubs/2026/06/uae-establishes-federal-authority-for-artificial-intelligence-and-data",
+      "snippet": "TDRA has to date been the primary federal body overseeing IoT deployment and data governance in connected device environments.",
+      "source_query": "TDRA AI",
+      "category": "Regulation/Policy",
+      "why_it_matters": "Confirms TDRA — a CAIO22 target entity — is being repositioned as AI/data governance shifts to the new federal authority, creating a live 'what applies to us now' question internally.",
+      "nomos_relevance": "High",
+      "nomos_reason": "A CAIO22 entity mid-restructure is a stronger Touch 1/2 moment than a generic cold open.",
+      "suggested_contact": "TDRA contact on CAIO22 list — status check before next touch"
+    },
+    {
+      "type": "news",
+      "title": "DEWA launches AI-based 'Legislation Agent' to bolster governance",
+      "url": "https://www.dewa.gov.ae/en/about-us/media-publications/latest-news/2025/06/dewa-launches-ai-based-legislation-agent",
+      "snippet": "The initiative is part of DEWA's ongoing efforts to employ AI technologies to enhance the efficiency of its operations and governance.",
+      "source_query": "DEWA AI",
+      "category": "Agentic AI",
+      "why_it_matters": "DEWA already has a named, production autonomous agent assisting legislative/regulatory interpretation decisions — not a pilot.",
+      "nomos_relevance": "High",
+      "nomos_reason": "Concrete existing autonomous decision system at a named CAIO22 entity — close to the sharpest possible Touch 2/3 hook.",
+      "suggested_contact": "Abdulla AlJaziri, DEWA"
+    },
+    {
+      "type": "news",
+      "title": "Abu Dhabi to be the world's first fully AI-native government across all digital services by 2027",
+      "url": "https://www.dge.gov.ae/en/news/adg-digital-strategy",
+      "snippet": "Deploy AED13 billion through 2025-2027.",
+      "source_query": "DGE AI",
+      "category": "Government AI Strategy",
+      "why_it_matters": "Large committed budget and timeline signal for AI-native government transformation, even though it's Abu Dhabi rather than Dubai.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Useful market-scale context, not a specific named opening yet.",
+      "suggested_contact": null
+    },
+    {
+      "type": "news",
+      "title": "RTA launches AI Strategy 2030 featuring 81 projects and initiatives",
+      "url": "https://www.tahawultech.com/news/rta-launches-ai-strategy-2030-featuring-81-projects-and-initiatives/",
+      "snippet": "Since 2017, RTA has implemented over 40 big data and AI use cases, including predictive maintenance for buses, sentiment analysis of passenger feedback.",
+      "source_query": "RTA AI",
+      "category": "Government AI Strategy",
+      "why_it_matters": "RTA already runs 40+ live AI/big-data use cases and just published an 81-project roadmap, giving specific named initiatives to reference instead of generalities.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Strong background material for a Touch 2, not itself a new opening.",
+      "suggested_contact": "Abdelaziz Alhammadi, RTA"
+    },
+    {
+      "type": "news",
+      "title": "Digital Dubai Launches 'AI+' to Build an AI-Ready Government Workforce",
+      "url": "https://prod.mediaoffice.ae/en/news/2026/april/15-04/digital-dubai-launches-ai-to-build-an-ai-ready-government-workforce",
+      "snippet": "Digital Dubai has launched the 'AI Workforce Transformation Program (AI+),' a strategic initiative to train 50,000 Dubai Government employees.",
+      "source_query": "Digital Dubai AI",
+      "category": "Government AI Strategy",
+      "why_it_matters": "Workforce-scale AI adoption push raises a governance question: who audits what 50,000 trained staff are now empowered to do with AI.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Relevant context for Digital Dubai, not yet a specific decision-point.",
+      "suggested_contact": "Ali Alkhajeh, Digital Dubai"
+    },
+    {
+      "type": "news",
+      "title": "Dubai Health Authority Launches Ambitious AI Training Programme — 'One Million AI Prompters'",
+      "url": "https://dha.gov.ae/en/media/news/968",
+      "snippet": "Al Khaja confirmed that more than 25% of DHA staff have already completed the 'One Million AI Prompters' programme.",
+      "source_query": "DHA AI",
+      "category": "Government AI Strategy",
+      "why_it_matters": "Confirms DHA's AI push is real and already at meaningful internal scale.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Useful context even though the DHA NABIDH artifact workstream is currently blocked.",
+      "suggested_contact": null
+    },
+    {
+      "type": "news",
+      "title": "New Dubai AI system to issue villa building permits in minutes with no human review",
+      "url": "https://www.khaleejtimes.com/uae/dubai-ai-system-villa-construction-permits",
+      "snippet": "The AI-powered system will read submitted architectural drawings and supporting documents, check them against the Dubai Building Code and issue permits.",
+      "source_query": "Dubai Municipality AI",
+      "category": "AI Deployment",
+      "why_it_matters": "A fully autonomous decision system issuing real regulatory approvals is about as concrete a 'who is accountable when this is wrong' case as exists.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Strong illustrative case, but Dubai Municipality contact not yet at Touch stage matching this specificity.",
+      "suggested_contact": "Dubai Municipality contact on CAIO22 list"
+    },
+    {
+      "type": "job_posting",
+      "title": "Head of Artificial Intelligence & Innovation",
+      "url": "https://www.gulftalent.com/jobs/title/intelligence",
+      "snippet": "Confidential Company — Dubai, UAE",
+      "source_query": "linkedin_jobs",
+      "category": "Job Posting",
+      "why_it_matters": "A senior AI leadership title actively being hired for in Dubai right now — worth checking who the 'Confidential' listing resolves to.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Potential live decision-maker forming, but the hiring organisation is not yet identified.",
+      "suggested_contact": "Unknown — identify hiring org before outreach"
+    },
+    {
+      "type": "job_posting",
+      "title": "Principal Lead, AI Platform And Solution",
+      "url": "https://www.gulftalent.com/uae/jobs/principal-lead-ai-platform-and-solution-619897",
+      "snippet": "To lead the strategic design, architecture, and enterprise build-out of the bank's AI & agentic platform capability — Abu Dhabi, UAE",
+      "source_query": "site:gulftalent.com AI Dubai OR UAE",
+      "category": "Job Posting",
+      "why_it_matters": "Confirms regulated-sector agentic platform builds are hiring at a senior level — same governance-gap pattern outside government.",
+      "nomos_relevance": "Low",
+      "nomos_reason": "Not a government target; relevant only if the pipeline expands beyond CAIO22-style entities.",
+      "suggested_contact": null
+    },
+    {
+      "type": "job_posting",
+      "title": "AI Engineer / Agentic AI Developer",
+      "url": "https://www.gulftalent.com/uae/jobs/ai-engineer-agentic-ai-developer-619152",
+      "snippet": "We are seeking experienced AI engineers / Agentic AI developers to design, develop, and deploy enterprise-grade AI solutions — Dubai, UAE",
+      "source_query": "site:gulftalent.com AI Dubai OR UAE",
+      "category": "Job Posting",
+      "why_it_matters": "A general market-maturity signal that agentic AI hiring has moved from research to enterprise deployment roles.",
+      "nomos_relevance": "Low",
+      "nomos_reason": "Market signal, not a specific lead.",
+      "suggested_contact": null
+    }
+  ]
+}

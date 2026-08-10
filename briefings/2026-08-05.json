@@ -1,0 +1,11 @@
+{
+  "date": "2026-08-05",
+  "provenance": "manual test fixture \u2014 verifies the empty-day rendering path",
+  "counts": {
+    "raw": 40,
+    "deduped": 22,
+    "unseen": 0,
+    "relevant": 0
+  },
+  "items": []
+}
