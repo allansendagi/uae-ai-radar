@@ -31,6 +31,18 @@
   .reason { font-size: 12px; color: #888; margin-top: 2px; }
   .empty { color: #888; font-style: italic; padding: 16px 0; }
   .lowcount { font-size: 11px; color: #999; font-style: italic; margin-top: 16px; }
+  .date-picker { font-size: 12px; color: #888; margin: 4px 0 16px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }
+  .date-pill { display: inline-block; padding: 3px 10px; border-radius: 12px; background: #f0f0f0; color: #14213d; text-decoration: none; font-size: 12px; font-weight: 600; }
+  .date-pill:hover { background: #14213d; color: #fff; }
+  details:target { outline: 2px solid #14213d; outline-offset: 4px; }
+  .markettabs { margin-bottom: 8px; }
+  .markettabs input.market-input { display: none; }
+  .markettabs label.market-label { display: inline-block; padding: 10px 28px; margin-right: 6px; border-radius: 8px 8px 0 0; background: #e8e4da; color: #555; font-size: 15px; font-weight: 800; letter-spacing: 0.02em; cursor: pointer; }
+  .markettabs input.market-input:first-of-type:checked ~ label.market-label:first-of-type,
+  .markettabs input.market-input:last-of-type:checked ~ label.market-label:last-of-type { background: #b8451f; color: #fff; }
+  .markettabs .market-panel { display: none; }
+  .markettabs input.market-input:first-of-type:checked ~ .market-panel:first-of-type,
+  .markettabs input.market-input:last-of-type:checked ~ .market-panel:last-of-type { display: block; }
   .toptabs { margin-top: 4px; }
   .toptabs input.tab-input { display: none; }
   .toptabs label.tab-label { display: inline-block; padding: 8px 20px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #eee; color: #666; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }
@@ -49,21 +61,101 @@
   <h1>UAE AI Intelligence Radar</h1>
   <p class="subtitle">Daily archive, newest first. Regenerated automatically after each run.</p>
   
+  <div class="markettabs">
+    <input type="radio" name="markettabs" id="markettab-uae" class="market-input" checked>
+    <label for="markettab-uae" class="market-label">UAE</label>
+    <input type="radio" name="markettabs" id="markettab-qatar" class="market-input">
+    <label for="markettab-qatar" class="market-label">Qatar</label>
+    <div class="market-panel">
   <div class="toptabs">
-    <input type="radio" name="toptabs" id="toptab-news" class="tab-input" checked>
-    <label for="toptab-news" class="tab-label">News</label>
-    <input type="radio" name="toptabs" id="toptab-jobs" class="tab-input">
-    <label for="toptab-jobs" class="tab-label">Jobs (113)</label>
+    <input type="radio" name="toptabs-uae" id="toptab-news-uae" class="tab-input" checked>
+    <label for="toptab-news-uae" class="tab-label">News</label>
+    <input type="radio" name="toptabs-uae" id="toptab-jobs-uae" class="tab-input">
+    <label for="toptab-jobs-uae" class="tab-label">Jobs (122)</label>
     <div class="tab-panel">
-  <details open>
+      <div class="date-picker">Jump to: <a href="#day-uae-20260811" class="date-pill">2026-08-11</a><a href="#day-uae-20260810" class="date-pill">2026-08-10</a><a href="#day-uae-20260805" class="date-pill">2026-08-05</a><a href="#day-uae-20260804" class="date-pill">2026-08-04</a></div>
+      
+  <details open id="day-uae-20260811">
     <summary>
       <span class="date">2026-08-11</span>
-      <span class="summary-meta">raw: 588 &middot; unseen: 80 &middot; deduped: 444 &middot; relevant: 46</span>
+      <span class="summary-meta">raw: 1615 &middot; unseen: 479 &middot; deduped: 1234 &middot; relevant: 282</span>
       
     </summary>
     <div class="day-body">
       <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
       <h3 class="section-high">High NOMOS Relevance</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/newsroom/news/digital-dubai-launches-ai-integration-matrix-framework-to-accelerate-ai-adoption-across-government" target="_blank" rel="noopener">Digital Dubai launches AI Integration Matrix Framework to ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Digital Dubai Chief Technology Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Digital Dubai has released an AI Integration Matrix Framework to standardize AI deployment governance across government entities.</div>
+      <div class="reason">Named institutional framework for AI governance across government — direct need for executable policy verification and audit artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/showcase/dubai-centre-for-artificial-intelligence-dcai/" target="_blank" rel="noopener">Dubai Centre for Artificial Intelligence (DCAI)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Director of Strategy / Head of AI Governance, DCAI</span>
+      </div>
+      <div class="why">Dubai Centre for Artificial Intelligence is a key UAE government AI institution setting strategic direction for AI implementation in Dubai governance.</div>
+      <div class="reason">Direct institutional touchpoint for NOMOS; DCAI is actively positioning Dubai as AI leader in government implementation, creating natural demand for governance verification and auditable policy-to-execution artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/pulse/ai-governance-ethics-uae-act-2026-strategy-compliance-syed-haider-ali-3kanf" target="_blank" rel="noopener">AI Governance &amp; Ethics, The UAE AI Act 2026</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Head of AI Regulation / Compliance Officer, UAE Government (likely Ministry of AI or equivalent)</span>
+      </div>
+      <div class="why">UAE AI Act 2026 and Regulatory Intelligence Ecosystem represent nascent UAE AI regulation and governance infrastructure requiring implementation, compliance mechanisms, and auditable enforcement.</div>
+      <div class="reason">Direct regulatory trigger: new 2026 UAE AI Act combined with stated 'Regulatory Intelligence Ecosystem' signals urgent need for policy-to-machine-executable governance artifacts; this is NOMOS's core value prop for a named jurisdiction with active rule-making.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://apps.apple.com/am/app/dewa/id364928325" target="_blank" rel="noopener">DEWA - App Store - Apple</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: DEWA Chief Digital Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">DEWA is deploying an agentic AI assistant for customer-facing Move-In services, a decision-making autonomous system requiring auditability and policy binding.</div>
+      <div class="reason">Named entity (DEWA) deploying agentic AI that makes/influences autonomous decisions for citizen services; direct governance verification opportunity for policy-to-execution artifact binding.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://aibc.world/news/uae-expands-agentic-ai-across-government/" target="_blank" rel="noopener">UAE scales Agentic AI implementation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Ministry of Artificial Intelligence or Cabinet Office AI Strategy Lead</span>
+      </div>
+      <div class="why">UAE federal government is scaling agentic AI across 50% of government services within two years, requiring comprehensive governance and auditability infrastructure.</div>
+      <div class="reason">Massive national-scale agentic AI rollout creates urgent need for machine-executable governance frameworks and audit trails; direct fit for NOMOS verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.instagram.com/dubaitimebillionaires/reel/Db2TPd7z9BJ/" target="_blank" rel="noopener">The UAE is accelerating its Agentic AI strategy, targeting ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Ministry of Artificial Intelligence or Cabinet Office AI Strategy Lead</span>
+      </div>
+      <div class="why">Reiterates UAE's 50% government agentic AI target with emphasis on autonomous decision-making and process improvement across sectors.</div>
+      <div class="reason">Same strategic initiative as #3; reinforces scale and urgency of governance verification need across autonomous systems.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/adamdanyal_the-uae-wants-ai-to-power-50-of-government-activity-7459742110418780162-nQ7T" target="_blank" rel="noopener">UAE Aims for 50% Government Services Powered by AI in ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: UAE Ministry of Artificial Intelligence or Cabinet Office AI Strategy Lead</span>
+      </div>
+      <div class="why">Clarifies that UAE agentic AI deployment means autonomous systems that analyze, decide, act, and improve—systems requiring policy binding and auditability.</div>
+      <div class="reason">Explicit definition of agentic AI as autonomous decision-making systems; confirms governance/verification necessity for the UAE's 50% rollout target.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/department-of-government-enablement_abudhabi-artificialintelligence-digitaltransformation-activity-7318660689189863425-QiQ5" target="_blank" rel="noopener">Abu Dhabi to build AI-native government by 2027</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Abu Dhabi Department of Government Enablement CIO or AI Strategy Lead</span>
+      </div>
+      <div class="why">Abu Dhabi is building an AI-native government by 2027 in partnership with Microsoft and Core42, requiring governance frameworks for autonomous systems at scale.</div>
+      <div class="reason">Named entity (Abu Dhabi Department of Government Enablement) with explicit timeline and strategic partners; clear need for machine-executable policy verification to operationalize 'AI-native' systems.</div>
+    </div>
     <div class="item">
       <div class="item-title"><a href="https://www.worldgovernmentssummit.org/observer/reports/detail/the-future-of-ai-governance-the-uae-charter-and-global-perspectives" target="_blank" rel="noopener">The Future of AI Governance: The UAE Charter and Global ...</a></div>
       <div class="item-meta">
@@ -119,6 +211,24 @@
       <div class="reason">Named UAE government entity operating AI-driven emergency response and ML analytics in transportation; autonomous decision systems require governance, audit trail, and accountability verification.</div>
     </div><h3>AI Deployment</h3>
     <div class="item">
+      <div class="item-title"><a href="https://www.khaleejtimes.com/lifestyle/health/dubai-municipality-home-water-testing-using-ai-public-health" target="_blank" rel="noopener">Dubai Municipality uses AI to test water quality at homes</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Dubai Municipality CIO or Digital Transformation Head</span>
+      </div>
+      <div class="why">Dubai Municipality is operationalizing AI for critical public health decision-making (water quality testing), requiring governance and auditability frameworks.</div>
+      <div class="reason">Real AI deployment at a named government entity, but limited detail on governance/audit requirements; potential entry point if municipality is building compliance frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://dewa.gov.ae/en/about-us/media-publications/latest-news/2026/1/dewa-deploys-intelligence-data-modelling-software-for-faster-operational-response" target="_blank" rel="noopener">DEWA deploys Intelligence Data Modelling Software for ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: DEWA Chief Technology Officer or Operations AI Lead</span>
+      </div>
+      <div class="why">DEWA is deploying Intelligence Data Modelling Software to shift toward AI/ML-driven big data analysis and operational decision-making.</div>
+      <div class="reason">Named entity (DEWA) implementing AI system for operational decisions; potential governance verification need if system requires auditability and policy compliance.</div>
+    </div>
+    <div class="item">
       <div class="item-title"><a href="https://gulfnews.com/uae/government/tdra-unveils-ai-powered-digital-fraud-hunter-to-combat-online-scams-1.500230412" target="_blank" rel="noopener">TDRA unveils AI-powered 'digital fraud hunter' to combat ...</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#b8860b">Medium</span>
@@ -155,6 +265,15 @@
       <div class="reason">RTA fleet AI involves compliance and auditable decision-making, but snippet lacks detail on governance/verification requirements or policy oversight.</div>
     </div><h3>AI Governance</h3>
     <div class="item">
+      <div class="item-title"><a href="https://www.digitaldubai.ae/self-assessment" target="_blank" rel="noopener">AI System Ethics Self-Assessment Tool</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Digital Dubai or Dubai Digital Authority Governance Lead</span>
+      </div>
+      <div class="why">Dubai has deployed a self-assessment tool for AI system ethics, indicating institutional commitment to AI governance frameworks and potential need for machine-executable verification.</div>
+      <div class="reason">Existing governance tool suggests receptiveness to AI verification/audit frameworks; potential partnership or integration opportunity, but no indication of current gaps.</div>
+    </div>
+    <div class="item">
       <div class="item-title"><a href="https://aischoolscurriculum.com/khda-ai-teacher-certification/" target="_blank" rel="noopener">KHDA AI Teacher Certification in UAE | AI School Curriculum</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#b8860b">Medium</span>
@@ -163,6 +282,15 @@
       <div class="why">KHDA (Knowledge and Human Development Authority) is establishing a formal AI teacher certification program, signaling institutional AI governance in Dubai's education sector.</div>
       <div class="reason">KHDA certification implies policy frameworks for AI in education, but no indication yet of audit/verification requirements or compliance machinery that NOMOS would address.</div>
     </div><h3>AI Infrastructure</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://dubai-ai.org/" target="_blank" rel="noopener">Dubai Artificial Intelligence &amp; Robotics</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Dubai Police / Dubai Municipality AI Operations Lead</span>
+      </div>
+      <div class="why">Dubai integrates AI/robotics into policing, construction, and urban infrastructure—autonomous decision-making systems requiring governance oversight and accountability.</div>
+      <div class="reason">Identifies active UAE AI deployment in high-stakes domains (policing, infrastructure) that demand governance frameworks; however, snippet lacks detail on any current policy gaps or governance initiatives NOMOS could target.</div>
+    </div>
     <div class="item">
       <div class="item-title"><a href="https://tdra.gov.ae/en/Participation/blogs/info?id=929" target="_blank" rel="noopener">Blogs - TDRA</a></div>
       <div class="item-meta">
@@ -200,6 +328,24 @@
       <div class="reason">Confirms market momentum in agentic AI deployment; institutions deploying these systems will need governance verification and auditability frameworks.</div>
     </div><h3>Government AI</h3>
     <div class="item">
+      <div class="item-title"><a href="https://x.com/rta_dubai/status/2070138745983320168" target="_blank" rel="noopener">RTA</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: CIO / AI and Digital Transformation Lead, RTA</span>
+      </div>
+      <div class="why">RTA (Dubai Roads &amp; Transport Authority) workshop on AI-driven operational efficiency and service quality suggests AI governance and procedure streamlining initiatives.</div>
+      <div class="reason">RTA is major UAE transport/infrastructure authority deploying AI; however, snippet is vague on governance maturity; potential contact for AI governance verification post-deployment or compliance frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://government.economictimes.indiatimes.com/blog/how-dubai-is-pioneering-the-future-of-government-with-ai-a-transformative-approach-to-urban-governance/121570002" target="_blank" rel="noopener">How Dubai is Pioneering the Future of Government with AI</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Dubai Government Digital Transformation or AI Strategy Lead</span>
+      </div>
+      <div class="why">Dubai is systematically transforming government services through AI-powered agents, requiring policy-to-execution governance and audit capabilities.</div>
+      <div class="reason">Broad Dubai government AI initiative; lacks specificity on governance/audit needs, but consistent with agentic rollout requiring verification frameworks.</div>
+    </div>
+    <div class="item">
       <div class="item-title"><a href="https://www.dubaipolice.gov.ae/" target="_blank" rel="noopener">Dubai Police - Smart Secure Together</a></div>
       <div class="item-meta">
         <span class="badge" style="background:#b8860b">Medium</span>
@@ -225,10 +371,10 @@
       </div>
       <div class="why">UAE positioned as regional leader in AI regulation and setting standards for compliance alongside innovation.</div>
       <div class="reason">Confirms UAE's regulatory momentum and leadership posture; supporting institutions will need governance verification tools to maintain standards.</div>
-    </div><p class="lowcount">9 lower-relevance items also collected but not shown here — full data in the archived JSON.</p>
+    </div><p class="lowcount">13 lower-relevance items also collected but not shown here — full data in the archived JSON.</p>
     </div>
   </details>
-  <details >
+  <details  id="day-uae-20260810">
     <summary>
       <span class="date">2026-08-10</span>
       <span class="summary-meta">raw: 1077 &middot; deduped: 804 &middot; unseen: 560 &middot; relevant: 356</span>
@@ -1796,7 +1942,7 @@
     </div><p class="lowcount">89 lower-relevance items also collected but not shown here — full data in the archived JSON.</p>
     </div>
   </details>
-  <details >
+  <details  id="day-uae-20260805">
     <summary>
       <span class="date">2026-08-05</span>
       <span class="summary-meta">raw: 40 &middot; deduped: 22 &middot; unseen: 0 &middot; relevant: 0</span>
@@ -1807,7 +1953,7 @@
       <p class="empty">No new news today — everything collected was already shown in a previous run.</p>
     </div>
   </details>
-  <details >
+  <details  id="day-uae-20260804">
     <summary>
       <span class="date">2026-08-04</span>
       <span class="summary-meta">raw: 185 &middot; relevant: 12</span>
@@ -1898,11 +2044,21 @@
       <div class="reason">Useful context even though the DHA NABIDH artifact workstream is currently blocked.</div>
     </div>
     </div>
-  </details></div>
+  </details>
+    </div>
     <div class="tab-panel"><p class="dateflag">Every job ever collected, newest first, until seen — not reset daily.</p>
       <details class="date-filter" open>
-        <summary><span class="date">2026-08-11</span> <span class="summary-meta">17 jobs</span></summary>
-        <div class="day-body"><h3>Job Posting</h3>
+        <summary><span class="date">2026-08-11</span> <span class="summary-meta">26 jobs</span></summary>
+        <div class="day-body"><h3>Government AI</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://arabic.naukrigulf.com/career-tips/the-uaes-ai-revolution-human-and-artificial-intelligence-collaborate-in-the-future-job-market" target="_blank" rel="noopener">The UAE's AI Revolution: Human and Artificial Intelligence ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: UAE Ministry of State for Artificial Intelligence</span>
+      </div>
+      <div class="why">UAE National Strategy for AI 2031 is the foundational policy framework governing AI adoption across the emirates.</div>
+      <div class="reason">Strategic reference to UAE AI policy but no specific governance verification or audit requirement mentioned.</div>
+    </div><h3>Job Posting</h3>
     <div class="item">
       <div class="item-title"><a href="https://www.gulftalent.com/uae/jobs/head-of-agentic-ai-617734" target="_blank" rel="noopener">Head of Agentic AI | Jobs in UAE by Michael Page</a></div>
       <div class="item-meta">
@@ -1911,7 +2067,7 @@
       </div>
       <div class="why">Head of Agentic AI role in UAE signals growing organizational maturity in autonomous AI systems; potential governance and accountability needs emerging.</div>
       <div class="reason">Agentic AI leadership hire suggests an organization building autonomous decision systems that will require governance/verification frameworks; likely future governance client.</div>
-    </div><p class="lowcount">16 lower-relevance items also collected but not shown here — full data in the archived JSON.</p></div>
+    </div><p class="lowcount">24 lower-relevance items also collected but not shown here — full data in the archived JSON.</p></div>
       </details>
       <details class="date-filter" open>
         <summary><span class="date">2026-08-10</span> <span class="summary-meta">96 jobs</span></summary>
@@ -2106,7 +2262,1170 @@
       <div class="reason">Policy-focused role at major tech platform in Dubai; may signal increasing regulatory/compliance complexity Snap must navigate in UAE.</div>
     </div><p class="lowcount">75 lower-relevance items also collected but not shown here — full data in the archived JSON.</p></div>
       </details></div>
+  </div></div>
+    <div class="market-panel">
+  <div class="toptabs">
+    <input type="radio" name="toptabs-qatar" id="toptab-news-qatar" class="tab-input" checked>
+    <label for="toptab-news-qatar" class="tab-label">News</label>
+    <input type="radio" name="toptabs-qatar" id="toptab-jobs-qatar" class="tab-input">
+    <label for="toptab-jobs-qatar" class="tab-label">Jobs (36)</label>
+    <div class="tab-panel">
+      <div class="date-picker">Jump to: <a href="#day-qatar-20260811" class="date-pill">2026-08-11</a><a href="#day-qatar-20260810" class="date-pill">2026-08-10</a><a href="#day-qatar-20260805" class="date-pill">2026-08-05</a><a href="#day-qatar-20260804" class="date-pill">2026-08-04</a></div>
+      
+  <details open id="day-qatar-20260811">
+    <summary>
+      <span class="date">2026-08-11</span>
+      <span class="summary-meta">raw: 1615 &middot; unseen: 479 &middot; deduped: 1234 &middot; relevant: 282</span>
+      
+    </summary>
+    <div class="day-body">
+      <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
+      <h3 class="section-high">High NOMOS Relevance</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.globenewswire.com/news-release/2026/08/06/3340252/0/en/Veterinary-Artificial-Insemination-Market-Size-to-Reach-USD-15-58-Billion-by-2035-SNS-Insider.html" target="_blank" rel="noopener">Veterinary Artificial Insemination Market Size to Reach USD 15.58 Billion by 2035 | SNS Insider</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Chief Technology Officer or Chief Governance Officer at Ooredoo; Qatar Telecom Regulatory Authority</span> &middot; <span class="pubdate">2026-08-06</span>
+      </div>
+      <div class="why">Qatar's Ooredoo launches multi-billion-dollar AI compute platform with Nvidia and Nokia, expanding digital infrastructure and creating AI deployment/governance implications.</div>
+      <div class="reason">Named Qatar entity (Ooredoo) deploying significant AI infrastructure at scale creates immediate need for AI governance, compliance, and verification frameworks for a critical telecom/digital asset.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.pinsentmasons.com/out-law/news/qatar-central-bank-guidelines-ethical--ai-financial-sector" target="_blank" rel="noopener">Qatar Central Bank issues guidelines to ensure ethical use ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar Central Bank Regulatory Affairs Director</span>
+      </div>
+      <div class="why">Qatar Central Bank AI Guideline (Sept 2024) mandates ethical AI use and compliance in the financial sector.</div>
+      <div class="reason">Formal regulation creating explicit compliance obligation for QCB-licensed entities — direct demand for governance verification and audit mechanisms.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://regulations.ai/regulations/RAI-QA-NA-QCBAIXX-2024" target="_blank" rel="noopener">Qatar Central Bank Artificial Intelligence Guideline for QCB ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar Central Bank Compliance or Regulatory Technology Lead</span>
+      </div>
+      <div class="why">Qatar Central Bank AI Guidelines address corporate governance, risk, and transparent AI use in financial services.</div>
+      <div class="reason">Compliance guideline with governance focus; financial institutions need machine-executable verification of policy adherence.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.dentons.com/en/insights/alerts/2026/july/13/qatar-central-bank-fintech-strategy-x-qai" target="_blank" rel="noopener">Qatar Central Bank FinTech Strategy x Qai: what Qatar's AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar Central Bank Chief Compliance Officer</span>
+      </div>
+      <div class="why">Qatar Central Bank AI Guidelines mandate safe, efficient, and transparent AI deployment with corporate governance requirements.</div>
+      <div class="reason">Regulatory compliance framework with explicit governance and transparency mandates — institutions need auditable policy execution.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qatarlaw.com/news/qatar-central-bank-issues-artificial-intelligence-guidelines" target="_blank" rel="noopener">Qatar Central Bank Issues Artificial Intelligence Guidelines</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar Central Bank Regulatory Affairs Director</span>
+      </div>
+      <div class="why">Comprehensive mapping of Qatar's AI regulatory landscape including QCB AI Guideline applied to all QCB-licensed entities.</div>
+      <div class="reason">Regulatory scope clarification shows broad application to regulated entities; verification and audit infrastructure critical for compliance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.eversheds-sutherland.com/en/qatar/insights/mapping-qatars-regulatory-landscape-for-artificial-intelligence-november-2025" target="_blank" rel="noopener">Mapping Qatar's Regulatory Landscape for Artificial ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar Central Bank Risk Management or Supervision Division</span>
+      </div>
+      <div class="why">Qatar Central Bank AI Guideline mandates ongoing monitoring and evaluation of AI systems in regulated financial entities.</div>
+      <div class="reason">Explicit requirement for AI monitoring and evaluation — core use case for machine-executable governance artifacts and continuous audit.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://regulations.ai/regulations/RAI-QA-DO-CBAGXXX-2024" target="_blank" rel="noopener">Central Bank AI Guidelines - Qatar | Regulations.AI</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Qatar Ministry of Communications and Information Technology or relevant entity overseeing AI Agent Factory</span>
+      </div>
+      <div class="why">Qatar ministry launches AI Agent Factory platform for production, management, and deployment of autonomous AI solutions.</div>
+      <div class="reason">Named government platform for autonomous AI agents — critical governance risk requiring policy verification, decision-making audit, and compliance monitoring.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://regulations.ai/regulations/RAI-QA-NA-SUMMARY-2026" target="_blank" rel="noopener">Qatar AI Regulation Overview</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: AI Regulation Officer or Chief Compliance Officer at Qatar's Ministry of Communications &amp; IT or MADA</span>
+      </div>
+      <div class="why">Overview of Qatar's AI regulatory framework spanning ethics, data privacy, and sector-specific mandates.</div>
+      <div class="reason">Direct reference to Qatar's national ethical guidelines and compliance framework; clear opening for governance verification/audit tool positioning.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://digital.nemko.com/regulations/ai-regulation-in-qatar" target="_blank" rel="noopener">AI Regulation in Qatar 2025: Strategy, Compliance &amp; Insights</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief Compliance Officer or AI Ethics Lead at entity subject to Qatar's AI regulatory framework</span>
+      </div>
+      <div class="why">Detailed overview of Qatar's 2025 AI regulation framework with 6 pillars and compliance steps.</div>
+      <div class="reason">Explicitly covers compliance, data security, and responsible AI deployment; direct fit for governance verification and auditable policy artifact positioning.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/pulse/quiet-power-how-qatar-approaching-ai-governance-thomas-vanbuskirk-9grsc" target="_blank" rel="noopener">Quiet Power: How Qatar Is Approaching AI Governance ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Director of AI Governance or Chief Legal Advisor at Qatar's digital transformation authority</span>
+      </div>
+      <div class="why">Qatar harmonizing AI regulations with US and EU frameworks to maintain cross-border trade stability and attract foreign investment.</div>
+      <div class="reason">Regulatory harmonization effort signals need for verifiable, auditable compliance artifacts to bridge multiple jurisdictional requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.lexismiddleeast.com/pn/Qatar/AI_Qatar_Regulatory_Landscape/en" target="_blank" rel="noopener">Artificial Intelligence: Qatar's Regulatory Landscape ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief Regulatory Officer or AI Governance Lead at relevant Qatar sector regulator (finance, healthcare, etc.)</span>
+      </div>
+      <div class="why">Qatar's AI regulation landscape operates via sector-specific frameworks rather than unified statute.</div>
+      <div class="reason">Fragmented sector-specific approach creates audit/verification complexity; NOMOS governance artifacts could unify compliance across silos.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.asiahouse.org/2024/08/26/qatars-ai-landscape-a-focus-on-data-centres-and-aligning-regulation-with-the-us-and-the-eu/" target="_blank" rel="noopener">Qatar's AI landscape: A focus on data centres and aligning ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Head of AI Policy or International Compliance Lead at Qatar's Ministry of Communications &amp; IT</span>
+      </div>
+      <div class="why">Qatar aligning AI regulations with US and EU standards to attract international investment and ensure cross-border stability.</div>
+      <div class="reason">Multi-jurisdictional alignment requirement; governance verification tool needed to ensure policy compliance across three regulatory regimes.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.twobirds.com/en/insights/2025/united-arab-emirates/gcc-navigating-ai-regulations---the-current-landscape" target="_blank" rel="noopener">GCC Navigating AI Regulations - the Current Landscape</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief AI Officer or Director of AI Ethics at Qatar's designated AI governance body (likely MADA or Ministry of Communications)</span>
+      </div>
+      <div class="why">Qatar is the only GCC nation with legally binding AI guidelines, setting it apart in regional AI governance.</div>
+      <div class="reason">Qatar's unique legally binding AI guidelines create immediate audit/verification demand; leadership position signals need for operationalizing policy into executable artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulf-times.com/article/711750/qatar/ashghal-using-ai-to-increase-efficiency-of-project-management" target="_blank" rel="noopener">Ashghal using AI to increase efficiency of project ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or AI Implementation Lead at Ashghal</span>
+      </div>
+      <div class="why">Qatar's Public Works Authority (Ashghal) deploying AI for infrastructure project efficiency and defect detection.</div>
+      <div class="reason">Named government entity (Ashghal) with active AI deployment in critical infrastructure; clear need for governance verification, safety audits, and policy compliance tracking.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/gulftimes/posts/the-public-works-authority-ashghal-is-making-use-of-ai-to-improve-the-efficiency/1241285808027109/" target="_blank" rel="noopener">The Public Works Authority (Ashghal) is making use of AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Digital Transformation Lead at Ashghal</span>
+      </div>
+      <div class="why">Ashghal using AI for infrastructure data analysis, defect detection, and automated maintenance workflows.</div>
+      <div class="reason">Operational AI deployment at government infrastructure authority; governance verification critical for safety, accountability, and regulatory compliance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/ifp-infoco_ashghal-qatar-infrastructure-activity-7380909885745537024-Yq2R" target="_blank" rel="noopener">Ashghal adopts AI and smart tech for infrastructure</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Autonomous Systems Governance Lead at Ashghal</span>
+      </div>
+      <div class="why">Ashghal adopting AI-driven asset management, autonomous inspection vehicles, and smart monitoring across infrastructure portfolio.</div>
+      <div class="reason">Government entity scaling autonomous systems for safety-critical infrastructure; requires auditable governance and policy compliance framework.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://datxoc.com/case-studies/generative-ai-iot-analytics-ashghal-qatar" target="_blank" rel="noopener">Generative AI analytics for Qatar's national infrastructure ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Data Officer or AI Governance Lead at Ashghal</span>
+      </div>
+      <div class="why">Ashghal processing 70,000+ IoT sensor tags per second with generative AI analytics for infrastructure—massive autonomous decision-making scale.</div>
+      <div class="reason">Massive autonomous infrastructure monitoring system; critical need for verifiable AI governance artifacts, audit trails, and policy compliance verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://policy.mada.org.qa/wp-content/uploads/2022/06/national_ai_strategy_-_english_0.pdf" target="_blank" rel="noopener">National Artificial Intelligence Strategy for Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Director of AI Governance or Strategy Lead at MADA or Qatar's Ministry of Communications &amp; IT</span>
+      </div>
+      <div class="why">Qatar's National AI Strategy explicitly calls for development of an 'AI Ethics and Governance' framework addressing ethical and policy questions.</div>
+      <div class="reason">Direct government policy statement on AI governance framework development; explicit mandate for ethics and governance infrastructure—textbook NOMOS opportunity.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.trade.gov/market-intelligence/qatar-artificial-intelligence-ai-and-technology-developments" target="_blank" rel="noopener">Qatar Artificial Intelligence (AI) and technology developments</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar's Ministry of Communications and Information Technology or Prime Minister's Office—AI Strategy Implementation Lead</span>
+      </div>
+      <div class="why">Qatar's National AI Strategy aligned with Vision 2030 signals government-wide AI governance framework that will require institutional compliance.</div>
+      <div class="reason">National strategy typically cascades into department-level policy and audit requirements; direct opening for governance verification services across Qatar public sector.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qna.org.qa/en/News-Area/News/2026-2/4/web-summit-qatar-2026-cra-and-qrdi-council-sign-cooperation-agreement-to-advance-digital-innovation" target="_blank" rel="noopener">Web Summit Qatar 2026, CRA and QRDI Council Sign ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar CRA—Chief Executive or Digital Innovation &amp; Regulatory Testing Lead</span>
+      </div>
+      <div class="why">Qatar CRA and QRDI Council signed cooperation agreement to test and validate generative AI solutions within regulated environment.</div>
+      <div class="reason">CRA (primary regulator) explicitly piloting generative AI validation in regulated environment; direct need for machine-executable governance artifacts and audit frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mwcdoha.com/articles/policy-to-practice-how-qatar-is-writing-the-playbook-for-agentic-ai" target="_blank" rel="noopener">Policy to practice: how Qatar is writing the playbook for ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Qatar's Ministry of Communications and Information Technology or CRA—Agentic AI Policy Lead</span>
+      </div>
+      <div class="why">Qatar market for agentic AI expected to grow 29% to $2.16bn by 2031; country positioning as regional catalyst with policy-to-practice playbook.</div>
+      <div class="reason">Explicit focus on Qatar agentic AI adoption and policy execution; signals government and enterprise readiness for governance verification and policy-machine translation services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.km.qa/MediaCenter/Pages/NewsDetails.aspx?ItemID=431" target="_blank" rel="noopener">Qatar General Electricity &amp; water Corporation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of AI Governance, KAHRAMAA</span>
+      </div>
+      <div class="why">KAHRAMAA (Qatar's sole electricity and water utility) launched an AI platform to improve operational efficiency, representing critical infrastructure AI adoption.</div>
+      <div class="reason">Critical infrastructure operator deploying AI at scale; utilities face regulatory oversight and need auditable governance frameworks for autonomous operations affecting public services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://news.microsoft.com/en-xm/2023/03/09/under-the-qatar-national-artificial-intelligence-strategy-kahramaa-launches-ai-platform-in-collaboration-with-microsoft-and-kpmg/" target="_blank" rel="noopener">Under the Qatar National Artificial Intelligence Strategy ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Governance Lead, KAHRAMAA</span>
+      </div>
+      <div class="why">KAHRAMAA's AI platform launch aligns with Qatar National AI Strategy and involved Microsoft and KPMG, indicating government-backed critical infrastructure AI initiative.</div>
+      <div class="reason">Government-aligned critical infrastructure AI deployment under national strategy; likely subject to emerging AI governance and accountability requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://imo.gov.qa/priorities/artificial-intelligence" target="_blank" rel="noopener">Artificial Intelligence (AI) in Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Ministry of Communications and Information Technology (MCIT) or Chief AI Policy Officer</span>
+      </div>
+      <div class="why">Qatar government has published national AI priorities indicating policy-level commitment to AI ecosystem development with likely governance and ethics frameworks.</div>
+      <div class="reason">Government-level AI strategy publication signals emerging policy environment; NOMOS should monitor for governance, audit, and compliance requirements being codified.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/State-of-Qatar-Announces-the-Launch-of-the-Global-Alliance-for-AI-Ethics" target="_blank" rel="noopener">State of Qatar Announces the Launch of the Global Alliance ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Ministry of Communications and Information Technology (MCIT) or Head of AI Ethics Initiative</span>
+      </div>
+      <div class="why">Qatar led the Global Alliance for AI Ethics (GAAIE), positioning itself as a standards-setter for AI governance internationally and domestically.</div>
+      <div class="reason">Government leadership in AI ethics alliance signals commitment to auditable, verifiable AI governance frameworks; NOMOS should track GAAIE standards for compliance/verification market creation.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/QatarLiving/posts/qatar-foundation-has-announced-a-new-partnership-with-global-ai-leader-scale-ai-/1349210537246991/" target="_blank" rel="noopener">Qatar Foundation has announced a new partnership ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Chief Information Officer or Head of Digital Government, Government of Qatar</span>
+      </div>
+      <div class="why">Qatar government signed five-year agreement with Scale AI to enhance government services, representing strategic AI infrastructure investment with governance implications.</div>
+      <div class="reason">Multi-year government AI procurement from US vendor; likely includes autonomous decision systems in public services requiring audit trails and compliance verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/jobs/view/4347530471/" target="_blank" rel="noopener">Qatar Foundation - Head of AI &amp; Automation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Chief Digital Officer or equivalent, Qatar Foundation</span>
+      </div>
+      <div class="why">Qatar Foundation is hiring a Head of AI &amp; Automation to govern AI strategies—a signal of imminent governance framework development.</div>
+      <div class="reason">A new executive hire for AI governance at a major institution signals active policy-to-execution work; this is a direct entry point for NOMOS governance verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/govai-program" target="_blank" rel="noopener">GovAI Program - MCIT Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Director of GovAI Program, Ministry of Communications and Information Technology</span>
+      </div>
+      <div class="why">MCIT's GovAI Program is explicitly designed to enable government entities to deploy AI for public services, creating immediate governance and accountability needs.</div>
+      <div class="reason">A government-led program to deploy AI across public sector entities will require auditable governance frameworks and policy-to-execution verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://regulations.ai/regulations/RAI-QA-NA-QNAISXX-2019" target="_blank" rel="noopener">Qatar National Artificial Intelligence Strategy</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chair, MCIT Artificial Intelligence Committee</span>
+      </div>
+      <div class="why">Qatar's National AI Strategy establishes the MCIT AI Committee as the governance authority for periodic assessment and course-correction of AI initiatives.</div>
+      <div class="reason">A formal national AI strategy naming governance structures and periodic reporting requirements is a direct signal for policy-to-auditable-artifact verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/mcit-announces-global-partnerships-to-support-ai-powered-digital-transformation" target="_blank" rel="noopener">MCIT Announces Global Partnerships to Support AI-powered ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Director, GovAI Program, Ministry of Communications and Information Technology</span>
+      </div>
+      <div class="why">MCIT's global partnerships to support the GovAI Program signal scale-up of AI deployment across Qatar's public sector with inherent governance complexity.</div>
+      <div class="reason">Multi-partner AI deployment across government entities requires coordinated governance and auditability; NOMOS can verify policy compliance across partners.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qia.qa/en/Newsroom/Pages/Brookfield-and-Qai-Form-$20-Billion-Strategic-Investment-Partnership-for-AI-Infrastructure.aspx" target="_blank" rel="noopener">Brookfield and Qai Form $20 Billion Strategic Investment ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Chief Governance Officer or equivalent, Qai / Qatar Investment Authority</span>
+      </div>
+      <div class="why">Qai, QIA's subsidiary, is building $20B AI infrastructure in Qatar, requiring governance, security, and compliance frameworks.</div>
+      <div class="reason">A sovereign-backed AI infrastructure company handling critical systems needs policy-backed governance and audit frameworks; NOMOS can verify compliance and execution.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gco.gov.qa/en/media-centre/top-news/qatar-launches-qai-to-power-its-global-ai-ambitions/" target="_blank" rel="noopener">Qatar launches Qai to power its global AI ambitions</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Chief Operating Officer or Chief Governance Officer, Qai</span>
+      </div>
+      <div class="why">Qai's mandate to develop and operate AI infrastructure and systems in Qatar creates regulatory and governance compliance requirements.</div>
+      <div class="reason">A government-backed AI infrastructure entity with operational responsibility across systems needs auditable governance and policy-to-execution verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.yash.com/campaign/agentic-ai-and-salesforce-qatar-summit" target="_blank" rel="noopener">Agentic AI &amp; Salesforce Qatar Summit</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Event organizer or industry leader attending, Yash Technologies</span>
+      </div>
+      <div class="why">A Qatar-focused summit on Agentic AI and autonomous decision-making signals demand for governance frameworks to manage agent autonomy.</div>
+      <div class="reason">Agentic AI in business automation creates accountability and decision-traceability requirements; NOMOS can verify policy-backed agent governance.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://innolight.qrdi.org.qa/innovation/p/opportunities/p/118" target="_blank" rel="noopener">Agentic Artificial Intelligence - Innolight - QRDI Council</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Program Lead, Agentic AI Call, QRDI Council / Innolight</span>
+      </div>
+      <div class="why">QRDI Council's Agentic AI initiative explicitly targets policy and regulatory frameworks for AI agents in Qatar's financial sector.</div>
+      <div class="reason">A research call aimed at strengthening policy and regulatory frameworks for agentic AI in a high-stakes sector is a direct governance need; NOMOS can deliver policy-to-verification solutions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.agenticaiforum.net/qatar/" target="_blank" rel="noopener">Middle East Agentic AI Qatar 2026</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Agentic AI</span> &middot; <span class="contact">contact: Qatar National AI Strategy lead or equivalent government AI office</span>
+      </div>
+      <div class="why">Qatar is actively integrating agentic AI into government services and infrastructure, directly relevant to NOMOS's core service area.</div>
+      <div class="reason">Government-led agentic AI integration at scale requires governance frameworks and verification; NOMOS should contact Qatar's AI governance body to position verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.reuters.com/technology/qatar-signs-deal-with-scale-ai-use-ai-boost-government-services-2025-02-23/" target="_blank" rel="noopener">Qatar signs deal with Scale AI to use AI to boost ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Qatar government AI lead or equivalent oversight body; Scale AI partnership manager</span>
+      </div>
+      <div class="why">Qatar government signed a major deal with Scale AI to develop 50+ AI use cases over five years, representing large-scale autonomous decision-making deployment.</div>
+      <div class="reason">Large government AI deployment at scale (50+ use cases) will require verification and governance frameworks; NOMOS should contact Qatar government AI leadership to position verification as mandate.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/hilal-lashuel-084a4a6_qatar-launches-qai-to-power-its-global-ai-activity-7403870429477670912-xUsV" target="_blank" rel="noopener">Qatar Launches Qai to Drive AI Ambitions</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Qai Chief Executive or equivalent governance lead</span>
+      </div>
+      <div class="why">Launch of Qai as Qatar's national AI entity signals centralized governance structure and potential audit/verification mandate.</div>
+      <div class="reason">New national AI governance entity (Qai) likely to develop verification and accountability standards; NOMOS should contact Qai leadership to position verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/mcit-npc-launch-new-initiative-to-advance-ai-powered-decision-making" target="_blank" rel="noopener">MCIT, NPC Launch New Initiative to Advance AI-Powered ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Initiative Lead, AI-Powered Decision-Making Program at MCIT or NPC</span>
+      </div>
+      <div class="why">MCIT and National Planning Council (NPC) launch joint initiative to implement AI-powered decision-making across government, requiring governance and auditability.</div>
+      <div class="reason">Explicit government mandate to deploy agentic AI in decision-making; direct governance/verification requirement—AI systems making institutional decisions need audit trails, policy compliance, and accountability frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qcb.gov.qa/PublicationFilesReportsAndStatementsGovernance/QCB-AnnualReport-2024-ENG-V15.pdf" target="_blank" rel="noopener">2024 - A NNU A LR EPO R T</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: QCB Chief Information Officer or Risk/Compliance Director</span>
+      </div>
+      <div class="why">Qatar Central Bank's 2024 Annual Report explicitly mentions use of AI and big data for credit decisions, suggesting governance-critical AI deployments in banking regulation.</div>
+      <div class="reason">QCB is deploying AI for regulated financial decisions; this signals a need for AI governance, auditability, and policy-to-artifact verification in banking supervision.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/public-register" target="_blank" rel="noopener">Public Register - Doha</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: QFC Authority Regulatory Director or Head of Service Licensing</span>
+      </div>
+      <div class="why">QFC Public Register lists AI and IoT as registered service categories, indicating QFC's framework now incorporates AI as a regulated service domain.</div>
+      <div class="reason">QFC has formally registered AI as a regulated service category, signaling demand for governance, compliance, and audit frameworks for AI-related service providers.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/mcit-launches-the-alif-program-to-build-ai-capabilities-across-government-entities-in-partnership-with-scale-ai" target="_blank" rel="noopener">MCIT Launches the ALIF Program to Build AI Capabilities ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: MCIT AI Programs Director or ALIF Program Lead</span>
+      </div>
+      <div class="why">ALIF Program trains government staff on responsible AI application across entities; direct government AI governance and implementation initiative.</div>
+      <div class="reason">Government-wide AI capability program with explicit 'responsible' AI mandate across entities; clear opening for governance verification and machine-executable policy artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qf.org.qa/research/artificial-intelligence" target="_blank" rel="noopener">Artificial Intelligence Programs in Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Director of AI Research or Chief Research Officer</span>
+      </div>
+      <div class="why">Qatar Foundation's dedicated AI research programs page signals institutional priority on homegrown AI initiatives for cybersecurity, Arabic NLP, and socio-economic development.</div>
+      <div class="reason">QF is institutionalizing AI R&amp;D with critical national applications (cybersecurity, Arabic language); high likelihood they will need policy-to-artifact verification, compliance auditing, and governance frameworks for these strategic initiatives.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qcb.gov.qa/en/News/Pages/22january25.aspx" target="_blank" rel="noopener">Qatar Central Bank Governor Meets with Scale AI Global ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Digital Officer or Chief Technology Officer at Qatar Central Bank</span>
+      </div>
+      <div class="why">Qatar Central Bank Governor meeting with Scale AI signals high-level government engagement with AI governance and technology leadership.</div>
+      <div class="reason">Central Bank (major regulatory institution) actively engaging with AI vendors and governance; critical decision-maker for AI policy and oversight frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qcb.gov.qa/en/FinancialInstrumentsAndPaymentSystems/pages/digital-currency.aspx" target="_blank" rel="noopener">Digital Currency</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of Payment Systems &amp; Digital Currency at Qatar Central Bank</span>
+      </div>
+      <div class="why">Qatar Central Bank is deploying AI (liquidity forecasting) in its wholesale CBDC project, indicating production AI use in a regulated financial institution.</div>
+      <div class="reason">Central Bank deploying AI in core financial infrastructure; governance/verification frameworks are critical for regulatory compliance and auditability of autonomous financial decisions.</div>
+    </div><h3>AI Deployment</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/thepeninsulaqatar/posts/qatars-rapidly-expanding-artificial-intelligence-ai-landscape-is-entering-a-new-/1369385611889330/" target="_blank" rel="noopener">Qatar's rapidly expanding artificial intelligence (AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Autonomous Systems Lead</span>
+      </div>
+      <div class="why">Qatar's largest transportation provider deploying autonomous vehicles, signaling major agentic AI scale-up in critical infrastructure.</div>
+      <div class="reason">Critical infrastructure autonomous deployment may require safety/accountability audit; unclear if governance framework is in place.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://thepeninsulaqatar.com/article/23/03/2026/qatar-accelerates-ai-deployment-with-focus-on-autonomous-agents" target="_blank" rel="noopener">Qatar accelerates AI deployment with focus on ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Strategy Lead at Qatar's relevant ministry</span>
+      </div>
+      <div class="why">Qatar government-level acceleration of autonomous agent deployment across sectors.</div>
+      <div class="reason">National-level AI deployment push likely to require governance/compliance frameworks, but snippet lacks specifics on regulation or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.muqawlat.com/en/news/show/1541" target="_blank" rel="noopener">Ashghal Achieves 80% Active Use of Copilot AI Technology</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or AI Governance Lead at Ashghal</span>
+      </div>
+      <div class="why">Ashghal achieved 80% active adoption of Copilot AI technology, demonstrating high-scale government AI deployment.</div>
+      <div class="reason">High-volume AI adoption at government entity signals operational governance need, but deployment status rather than compliance gap.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://x.com/AshghalQatar/status/2068627058817655166" target="_blank" rel="noopener">Post</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or AI Platform Lead at Ashghal</span>
+      </div>
+      <div class="why">Ashghal launches second version of AI Hub Mosaed platform to support internal engineers and employees.</div>
+      <div class="reason">Government entity scaling internal AI tools; governance verification relevant but unclear if platform has compliance/audit gaps.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://hamad.qa/EN/news/2022/October/Pages/NCCCR-Using-Artificial-Intelligence-to-Personalize-Treatments-for-Cancer-Patients.aspx" target="_blank" rel="noopener">NCCCR Using Artificial Intelligence to Personalize ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: National Center for Cancer Care and Research (Hamad Medical Corporation)—AI/Digital Innovation Director</span>
+      </div>
+      <div class="why">National Center for Cancer Care and Research deployed AI-driven radiotherapy planning, requiring governance and auditing of clinical decision support.</div>
+      <div class="reason">Real AI deployment in Qatar healthcare but article focuses on clinical outcomes, not governance or audit requirements; no mention of compliance framework.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.digitalhumans.com/case-studies/qatar-airways" target="_blank" rel="noopener">Qatar Airways allows innovation to soar with AI human Sama</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of Digital Innovation, Qatar Airways</span>
+      </div>
+      <div class="why">Qatar Airways deployed Sama, an AI-powered digital human for customer interaction, representing a significant autonomous decision-making system in Qatar's aviation sector.</div>
+      <div class="reason">Real AI deployment in Qatar entity but consumer-facing chatbot without obvious governance/audit requirement; governance need unclear unless Qatar Airways faces regulatory accountability mandates.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.businesstraveller.com/news/qatar-airways-using-ai/" target="_blank" rel="noopener">How Is Qatar Airways Using AI to Improve the Travel ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of AI Strategy, Qatar Airways</span>
+      </div>
+      <div class="why">Qatar Airways launched AI Skyways initiative to embed AI across airline operations, indicating systematic organizational AI transformation.</div>
+      <div class="reason">Operational AI deployment across airline but lacks specificity on governance, compliance, or audit requirements; needs deeper investigation into whether autonomous systems require verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/google-cloud_qatar-general-electricity-water-corporation-activity-7433057841013227520-1ud2" target="_blank" rel="noopener">Google Cloud's Post</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Digital Officer or Head of AI Operations, KAHRAMAA</span>
+      </div>
+      <div class="why">Google Cloud training KAHRAMAA teams on in-house AI capabilities for utilities operations, indicating hands-on AI implementation in critical infrastructure.</div>
+      <div class="reason">Operational AI upskilling at utilities entity but Google partnership suggests vendor-managed governance; NOMOS entry point depends on whether KAHRAMAA seeks independent audit/verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://innolight.qrdi.org.qa/opportunities/p/115" target="_blank" rel="noopener">Innolight - QRDI</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of Customer Service Innovation, KAHRAMAA</span>
+      </div>
+      <div class="why">KAHRAMAA deploying emotionally intelligent chatbots for customer service across multiple service streams, representing autonomous decision-making in utility interactions.</div>
+      <div class="reason">Consumer-facing AI system in regulated utility; governance need exists if Qatar requires utilities to verify chatbot fairness/bias, but specificity unclear.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://reports.qf.org.qa/2024-year-in-review/artificial-intelligence/impact" target="_blank" rel="noopener">Artificial Intelligence</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Technology Officer or Head of AI Governance, Qatar Foundation</span>
+      </div>
+      <div class="why">Qatar Foundation research institutes using AI to advance healthcare, indicating governance needs in health-sector AI deployments.</div>
+      <div class="reason">Healthcare AI deployments at Qatar Foundation; medical AI typically faces strict compliance/audit requirements but no specific governance framework mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/media-centre/community-newsletter/july-august-2025" target="_blank" rel="noopener">Community Newsletter | July - August 2025</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Qatar Development Bank Chief Strategy Officer or Innovation Lead</span>
+      </div>
+      <div class="why">Qatar Development Bank reports strong AI potential in healthcare and other sectors, with AI moving into Qatar's business landscape institutionally.</div>
+      <div class="reason">Signals broader institutional AI adoption across sectors; suggests future demand for governance, but no specific regulatory or audit mandate yet evident.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/media-centre/news/list/qfc-welcomes-nebix" target="_blank" rel="noopener">QFC Welcomes NEBIX To Create the Region's First Trade ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: QFC Authority Chief Executive Officer or Head of Innovation</span>
+      </div>
+      <div class="why">QFC is welcoming NEBIX to establish the region's first AI-enabled trade platform, indicating critical infrastructure AI deployment in financial services.</div>
+      <div class="reason">New AI platform for regulated financial infrastructure; likely to require governance and auditability, but no explicit regulatory mandate mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.hamad.qa/EN/Hospitals-and-services/NCCCR/Publications/Documents/NCCR-News-Views-Dec2024-Vol8-EN.pdf" target="_blank" rel="noopener">TREE OF HOPE</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Hamad Cancer Center Medical Director or Head of Innovation/Technology</span>
+      </div>
+      <div class="why">Hamad Cancer Center deploying AI-powered diagnostic imaging (noise reduction, artifact mitigation); operational AI system requiring governance/audit framework.</div>
+      <div class="reason">Active AI deployment in clinical diagnostics; potential pitch for machine-executable governance artifacts and auditability of AI-assisted medical decisions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/mcit-moehe-launch-the-national-ai-powered-learning-platform" target="_blank" rel="noopener">MCIT, MOEHE Launch the National AI-Powered Learning ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: MCIT or MOEHE (Ministry of Education) AI/Digital Transformation Lead</span>
+      </div>
+      <div class="why">MCIT and Ministry of Education launch AI-powered personalized learning platform; government-scale AI system requiring governance/auditability.</div>
+      <div class="reason">Large-scale government AI deployment in education; potential pitch for governance framework and audit verification of AI-driven personalization decisions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://hamad.qa/EN/Hospitals-and-services/NCCCR/Hospital%20and%20Services/Clinical%20Departments/Pages/Radiation-Oncology-Department.aspx" target="_blank" rel="noopener">Radiation Oncology Department</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Hamad Radiation Oncology Department Head or Medical Physics Lead</span>
+      </div>
+      <div class="why">Hamad Radiation Oncology deployed Ethos LINAC AI system for adaptive therapy; operational autonomous medical AI system requiring governance.</div>
+      <div class="reason">Autonomous AI-driven medical treatment system in operation; potential pitch for governance verification and auditability of AI treatment decisions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://hamad.qa/EN/Education-and-research/Academic-Health/Pages/Oral-Health-Institute.aspx" target="_blank" rel="noopener">Oral Health Institute</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Hamad Oral Health Institute Director or Head of Innovation</span>
+      </div>
+      <div class="why">Hamad Oral Health Institute developing AI tools for personalized surgical planning; emerging AI system requiring governance frameworks.</div>
+      <div class="reason">AI in clinical treatment planning; potential pitch for governance verification of AI-assisted surgical decision-making.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.hamad.qa/EN/Hospitals-and-services/Nursing/Information-Center/Documents/IBDAA-NM-Bulletin-June2025.pdf" target="_blank" rel="noopener">IBDAA'عاﺪﺑإ</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Hamad Nursing or Psychiatry Leadership</span>
+      </div>
+      <div class="why">Hamad Nursing department researching AI for psychiatric risk detection (suicidality); emerging clinical AI application requiring governance oversight.</div>
+      <div class="reason">AI in high-stakes clinical decision-making (suicide risk); potential pitch for governance framework and auditability of AI-assisted assessments.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://reports.qf.org.qa/2023-year-in-review/artificial-intelligence" target="_blank" rel="noopener">Artificial Intelligence | The Year In Review 2023</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Chief Information Officer or Digital Transformation Lead at Qatar Foundation</span>
+      </div>
+      <div class="why">Qatar Foundation (QF) is deploying AI across career guidance, oil production, and architecture domains, signaling institutional AI adoption.</div>
+      <div class="reason">QF is a major state-backed entity deploying AI applications; governance/audit frameworks may be relevant as deployments scale.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qf.org.qa/stories/artificial-intelligence-ai" target="_blank" rel="noopener">Artificial Intelligence (AI)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Deployment</span> &middot; <span class="contact">contact: Director or Head of AI Program at Qatar Computing Research Institute</span>
+      </div>
+      <div class="why">Qatar Computing Research Institute (QCRI) is actively testing AI applications, indicating organized institutional AI R&amp;D.</div>
+      <div class="reason">QCRI is a research body creating AI systems; governance/verification frameworks could apply as applications move toward production.</div>
+    </div><h3>AI Governance</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.kenresearch.com/qatar-ai-governance-market" target="_blank" rel="noopener">Qatar AI Governance Market Share, Companies &amp; Trends ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Digital Officer at major UAE/Qatar enterprise or government entity</span>
+      </div>
+      <div class="why">Qatar's AI governance market valued at USD 560M, driven by digital transformation, ethical AI frameworks, and smart city/healthcare adoption.</div>
+      <div class="reason">Market-level signal of demand for AI governance services in Qatar; shows sector growth but lacks specific institutional implementation need.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mitsloanme.com/article/qatar-launches-global-alliance-for-ai-ethics-at-un-ai-governance-dialogue/" target="_blank" rel="noopener">Qatar Launches Global Alliance for AI Ethics at UN AI ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: AI Ethics Lead or Chief Policy Officer at Qatar's designated international AI governance representative</span>
+      </div>
+      <div class="why">Qatar launching Global Alliance for AI Ethics at UN, positioning itself as AI ethics leader and signaling commitment to international AI governance standards.</div>
+      <div class="reason">Qatar's international AI ethics leadership suggests domestic governance framework maturity, but UN initiative is diplomatic rather than operational.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/pulse/ai-governance-qatar-building-trustworthy-through-isoiec-erita-rexhepi-nokze" target="_blank" rel="noopener">AI Governance in Qatar: Building Trustworthy AI Through ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span>
+      </div>
+      <div class="why">Article explicitly addresses AI governance and trustworthiness frameworks in Qatar across healthcare, energy, transportation, and public administration.</div>
+      <div class="reason">Focuses on governance and ISO/IEC standards for AI trustworthiness; relevant to NOMOS positioning but no specific institution or new mandate identified.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/deemah-alyahya_digitalprosperity4all-digitalcooperation-activity-7367939870004109313-ahIK" target="_blank" rel="noopener">Qatar's President of CRA visits DCO HQ, discusses 6G, IoT ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Qatar CRA—Chief Executive or Policy &amp; Governance Division</span>
+      </div>
+      <div class="why">Qatar CRA (Communications Regulatory Authority) engages with Digital Cooperation Organization on 6G, IoT, and AI ethics governance.</div>
+      <div class="reason">Regulator discussing AI ethics; relevant to governance mandate but no specific new policy or audit framework indicated.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.hamad.qa/EN/Hospitals-and-services/HHQI/News-and-Events/Documents/Insights-Jan2026-Issue57.pdf" target="_blank" rel="noopener">HHQI welcomes Ms. Sahar Al Shamari</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: HHQI (Hamad Health Quality Institute) Director or AI/QI Leadership</span>
+      </div>
+      <div class="why">Hamad Medical Corporation combining generative AI with quality improvement engineering, indicating active AI deployment requiring governance oversight.</div>
+      <div class="reason">HMC is operationalizing AI in clinical QI workflows; potential pitch for AI governance verification and auditability of AI-assisted clinical decisions.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://hamad.qa/EN/All-Events/QSHRM2025/Speakers/Pages/Ram-Rimal.aspx" target="_blank" rel="noopener">Ram Rimal</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Hamad Medical Corporation Chief Medical/Digital Officer or AI Governance Lead</span>
+      </div>
+      <div class="why">Ram Rimal speaks on AI governance in healthcare; indicates Hamad Medical Corporation is actively addressing AI governance policy and implementation.</div>
+      <div class="reason">Explicit AI governance focus at major Qatar health entity; potential opening for governance verification framework pitch.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/media-centre/blog/list/building-a-future-ready-financial-sector" target="_blank" rel="noopener">Building a Future-Ready Financial Sector</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Head of Skills Development or Strategy</span>
+      </div>
+      <div class="why">QFC blog on future-ready financial sector positioning AI and automation as institutional imperatives, suggesting governance and compliance requirements will follow.</div>
+      <div class="reason">Early signal that QFC financial institutions will need AI governance frameworks; timely for positioning verification services before regulation tightens.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qf.org.qa/stories/artificial-intelligence-is-a-new-engine-of-knowledge-qfs-wise-summit-hears" target="_blank" rel="noopener">Artificial Intelligence is a 'new engine of knowledge', QF's ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Governance</span> &middot; <span class="contact">contact: Chief Strategy Officer or AI Policy Lead at Qatar Foundation</span>
+      </div>
+      <div class="why">Qatar Foundation's WISE summit addressed challenges and opportunities in AI governance at a high-level forum.</div>
+      <div class="reason">Signal of policy-level AI governance discussion in Qatar; potential opening for governance/verification frameworks.</div>
+    </div><h3>AI Infrastructure</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulf-times.com/article/730554/business/gcc-banks-enter-a-new-phase-of-technology-modernisation" target="_blank" rel="noopener">GCC banks enter a new phase of technology modernisation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Chief Risk Officer or Chief Compliance Officer at major GCC banks</span> &middot; <span class="pubdate">2026-08-05</span>
+      </div>
+      <div class="why">GCC banks entering technology modernisation phase with regulator-driven open finance initiatives suggests emerging need for AI governance and compliance frameworks.</div>
+      <div class="reason">Broad GCC region signal of fintech/open-banking regulatory expansion that could require AI governance, but lacks specificity on AI systems or named entities.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="http://foreignpolicy.com/2026/07/16/iranian-attacks-gulf-ai-ambitions/" target="_blank" rel="noopener">Iranian Attacks Need Not Change the Gulf’s AI Ambitions</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Qatar data center operators; Digital Transformation Office (government)</span> &middot; <span class="pubdate">2026-07-16</span>
+      </div>
+      <div class="why">Qatar data center market expansion driven by digital transformation initiatives directly supports AI infrastructure deployment capacity.</div>
+      <div class="reason">Qatar-specific infrastructure investment signal, but market report lacks details on AI governance requirements or regulatory frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/gopalkiran_ai-guidelines-qcb-activity-7405315998268133376-fbXE" target="_blank" rel="noopener">Qatar Central Bank AI Guidelines: Key Highlights and ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Qatar Central Bank FinTech Strategy Lead</span>
+      </div>
+      <div class="why">Qatar is building foundational AI infrastructure partnerships and digital ecosystems beyond application-level deployment.</div>
+      <div class="reason">Strategic infrastructure investment identified but no specific governance verification requirement articulated.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.instagram.com/p/DRfcqN-iHq7/" target="_blank" rel="noopener">The Communications Regulatory Authority (CRA) ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Qatar CRA—6G Testbed Platform Director</span>
+      </div>
+      <div class="why">Qatar CRA launched 6G Testbed Platform, establishing regulated environment for emerging telecom/AI technologies.</div>
+      <div class="reason">Testbed infrastructure creates demand for governance frameworks and compliance validation; potential future opening if 6G/AI integration becomes explicit.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://bam.brookfield.com/press-releases/brookfield-and-qai-form-20-billion-strategic-investment-partnership-ai" target="_blank" rel="noopener">Brookfield and Qai Form $20 Billion Strategic Investment ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span>
+      </div>
+      <div class="why">Brookfield and Qai's $20B AI infrastructure partnership involves significant capital deployment requiring governance and risk management.</div>
+      <div class="reason">Large infrastructure investment will have governance requirements, but this appears to be a private-sector partnership without obvious policy-to-execution gap.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/mustafa-peracha-20b224_brookfield-and-qatar-launch-20-billion-ai-activity-7404538438961700864-Hk-e" target="_blank" rel="noopener">Qatar's AI Ambition: QIA Partnership with Brookfield</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span>
+      </div>
+      <div class="why">Qatar's AI infrastructure ambition signaled by QIA-Brookfield partnership requires governance and compliance frameworks for secure, trusted systems.</div>
+      <div class="reason">Regional AI positioning and trust/security claims suggest governance is a concern, but no specific verification gap identified.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.trustqai.com/faq.html" target="_blank" rel="noopener">FAQ - Qai</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Chief Compliance Officer, Qai</span>
+      </div>
+      <div class="why">Qai's positioning as a secure and trusted AI company globally and in Qatar implies governance and compliance as core value propositions.</div>
+      <div class="reason">Emphasis on 'trusted' and 'secure' signals governance is important, but FAQ is marketing; no operational verification need evident.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qna.org.qa/en/news/news-details?id=brookfield-qatars-qai-forge-usd20-billion-strategic-partnership-to-bolster-ai-infrastructure&amp;date=9%2F12%2F2025" target="_blank" rel="noopener">Brookfield, Qatar's Qai Forge USD20 Billion Strategic ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span>
+      </div>
+      <div class="why">Brookfield and Qai's capital and operational expertise commitment to Qatar AI infrastructure requires governance frameworks and compliance mechanisms.</div>
+      <div class="reason">Large infrastructure deployment will need governance, but focus is on capital and operations; unclear if policy-to-verification gap exists.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/media-centre/news/list/qfc-authority-and-google-cloud-collaborate-to-build-new-innovation-platform" target="_blank" rel="noopener">QFC Authority And Google Cloud Collaborate To Build ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: QFC Authority Chief Executive Officer or Head of Innovation</span>
+      </div>
+      <div class="why">Qatar Financial Centre Authority and Google Cloud are establishing a joint innovation platform for AI, data science, and blockchain, indicating structured institutional AI adoption.</div>
+      <div class="reason">QFC/Google Cloud MoU suggests formal AI infrastructure and governance framework building, but no specific audit or verification requirement mentioned.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/resource-centre" target="_blank" rel="noopener">Resource Centre</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Infrastructure</span> &middot; <span class="contact">contact: Head of Digital Assets Lab or Chief Innovation Officer</span>
+      </div>
+      <div class="why">QFC's AI Avatar tool and resource centre suggest in-house AI capability development and potential institutional deployment.</div>
+      <div class="reason">QFC building proprietary AI tools; may require internal governance/verification frameworks or external guidance for regulated fintech ecosystem.</div>
+    </div><h3>AI Investment</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.linkedin.com/posts/mcitqatar_marking-a-milestone-in-national-research-activity-7427724019786805248-ejaf" target="_blank" rel="noopener">Ministry of Communications and Information Technology</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Program Director, Artificial Intelligence for Qatar, MCIT</span>
+      </div>
+      <div class="why">MCIT and QRDI Council's Artificial Intelligence for Qatar program represents a national research and deployment initiative requiring structured governance.</div>
+      <div class="reason">National-level AI program will need governance frameworks, but the announcement is high-level; specific verification needs unclear.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://innolight.qrdi.org.qa/innovation/p/opportunities/p/117" target="_blank" rel="noopener">Artificial Intelligence for Qatar - Innolight - QRDI Council</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span>
+      </div>
+      <div class="why">Artificial Intelligence for Qatar research initiative aims to deploy AI across sectors, creating need for verifiable governance standards.</div>
+      <div class="reason">Sector-wide AI deployment initiative will need governance, but the snippet focuses on research and economic growth rather than policy-to-execution verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qia.qa/en/Newsroom/Pages/QIA-and-Bpifrance-announce-intention-to-increase-the-size-of-their-investment-partnership-focusing-on-strategic-priorities.aspx" target="_blank" rel="noopener">QIA and Bpifrance announce intention to increase the size ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: QIA Chief Investment Officer or AI Strategy lead</span>
+      </div>
+      <div class="why">Qatar Investment Authority (QIA) partnering with Bpifrance to invest in AI technologies signals strategic national AI investment and governance focus.</div>
+      <div class="reason">National AI investment strategy suggests future governance requirements but lacks specificity on autonomous decision-making or verification mandate.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qia.qa/en/Careers/Pages/default.aspx" target="_blank" rel="noopener">Careers</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Chief Investment Officer or Head of AI/Digital Strategy (QIA)</span>
+      </div>
+      <div class="why">Qatar Investment Authority careers page indicates sovereign wealth fund actively recruiting for AI and fintech roles.</div>
+      <div class="reason">QIA is a Qatar government entity scaling AI capabilities; potential buyer, but page shows only general careers link without specific governance initiative.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/about-qfc/sectors-of-focus" target="_blank" rel="noopener">Sectors of Focus</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Head of Sectors/Innovation or Regulatory Affairs</span>
+      </div>
+      <div class="why">Qatar Financial Centre explicitly identifies AI as a sector of focus, signaling institutional support and potential regulatory/governance requirements.</div>
+      <div class="reason">QFC's strategic focus on AI governance could create demand for verification services, but sector page is generic without specific policies or use cases.</div>
+    </div><h3>AI Startups</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/Agorize/posts/-your-innovation-can-shape-qatars-futurewhether-its-ai-powered-water-intelligenc/1439945738164539/" target="_blank" rel="noopener">💡 Your Innovation Can Shape Qatar's Future! Whether it's ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Startups</span> &middot; <span class="contact">contact: Chief Procurement Officer or Head of Innovation, KAHRAMAA</span>
+      </div>
+      <div class="why">KAHRAMAA issued RFP for AI-powered smart meters and water intelligence startups, signaling procurement of autonomous monitoring infrastructure.</div>
+      <div class="reason">Public innovation call for AI systems in critical infrastructure; potential procurement requirement for governance/verification of winning solutions, but procurement terms not visible.</div>
+    </div><h3>Agentic AI</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.nobleprog.qa/agentic-ai/training/qatar" target="_blank" rel="noopener">Agentic AI Training in Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Agentic AI</span>
+      </div>
+      <div class="why">Agentic AI training in Qatar for business automation signals demand for executable governance frameworks for autonomous agents.</div>
+      <div class="reason">Training course implies emerging demand for agent governance, but this is a commercial offering; unclear if institutional policy gap exists.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bell-integration.com/agentic-ai/agentic-ai-providers-in-qatar/" target="_blank" rel="noopener">Agentic AI Providers in Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Agentic AI</span>
+      </div>
+      <div class="why">Directory of agentic AI providers in Qatar suggests market maturity and potential governance/audit demand from deploying organisations.</div>
+      <div class="reason">Identifies active agentic AI ecosystem but lacks specificity on governance gaps; useful market intelligence but no concrete decision-maker identified.</div>
+    </div><h3>Government AI</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://punchng.com/fg-urges-regional-cooperation-to-bridge-africas-digital-divide/" target="_blank" rel="noopener">FG urges regional cooperation to bridge Africa’s digital divide</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="pubdate">2026-07-16</span>
+      </div>
+      <div class="why">Explicit reference to Gulf region's AI ambitions and infrastructure resilience amid geopolitical risk signals active AI strategy in UAE/Qatar.</div>
+      <div class="reason">Confirms Gulf AI infrastructure investment but lacks specific governance, regulation, or deployment details needed to pitch NOMOS verification services.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://reports.qf.org.qa/2025-year-in-review/artificial-intelligence" target="_blank" rel="noopener">Artificial Intelligence - Qatar Foundation: The Year in ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Head of AI &amp; Automation, Qatar Foundation</span>
+      </div>
+      <div class="why">Qatar Foundation's strategic AI initiatives represent a major institutional commitment to AI that will require governance and accountability frameworks.</div>
+      <div class="reason">QF is a significant institution deploying AI but the snippet lacks specifics on governance gaps or decision-making systems that need verification.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://scale.com/blog/mcit-scale" target="_blank" rel="noopener">MCIT &amp; Scale AI: Paving the Way for Qatar's Digital Future</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Head of Digital Transformation, Ministry of Communications and Information Technology</span>
+      </div>
+      <div class="why">MCIT and Scale AI partnership targets AI personalization in education, urban planning, and financial systems—all high-risk domains requiring governance.</div>
+      <div class="reason">High-stakes sectors (education, finance, urban planning) imply governance requirements, but no evidence yet of active policy-to-verification work.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://thepeninsulaqatar.com/article/15/02/2026/qatar-unveils-national-ai-programme-to-accelerate-research-and-economic-growth" target="_blank" rel="noopener">Qatar unveils national AI programme to accelerate ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Director, MCIT</span>
+      </div>
+      <div class="why">Qatar's national AI programme coordinated by MCIT and QRDI Council signals government-wide AI governance and research acceleration requiring structured oversight.</div>
+      <div class="reason">National-level initiative implies governance need, but article is announcement-level; no specific verification requirements identified yet.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.facebook.com/QatarTribune/posts/the-ministry-of-communications-and-information-technology-mcit-announced-the-lau/830372102941119/" target="_blank" rel="noopener">Qatar Tribune</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Program Director, ALIF, Ministry of Communications and Information Technology</span>
+      </div>
+      <div class="why">MCIT's ALIF Program in collaboration with Scale AI targets AI deployment across government, requiring governance and accountability mechanisms.</div>
+      <div class="reason">Government AI program signals governance needs, but snippet is minimal; unclear if this is distinct from GovAI or a sub-initiative.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.trade.gov/market-intelligence/qatar-artificial-intelligence" target="_blank" rel="noopener">Qatar Artificial Intelligence</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Qatar government AI coordination office</span>
+      </div>
+      <div class="why">Qatar's AI initiatives spanning critical infrastructure, healthcare, education signal widespread autonomous decision-making deployment.</div>
+      <div class="reason">Broad sectoral AI deployment creates governance demand but lacks specificity on decision-making accountability or audit requirements.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/chairman-of-the-artificial-intelligence-committee-chatgpt-technology-is-an-addition-to-the-technological-development-and-its-related-concerns-are-overrated" target="_blank" rel="noopener">Chairman of the Artificial Intelligence Committee: ChatGPT ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chairman, Artificial Intelligence Committee at MCIT</span>
+      </div>
+      <div class="why">Qatar's Ministry of Communications and Information Technology (MCIT) establishes AI Committee and positions it as central to technological development strategy.</div>
+      <div class="reason">Explicit government AI governance structure at ministerial level; potential opening for policy audit/verification if MCIT moves to operationalize AI oversight frameworks.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/mcit-concludes-ai-business-strategy-and-innovation-program-in-france-with-microsoft-and-insead" target="_blank" rel="noopener">MCIT Concludes "AI Business Strategy and Innovation ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Director of AI Initiatives, MCIT</span>
+      </div>
+      <div class="why">MCIT executes executive AI strategy training with Microsoft and INSEAD, building organizational capability in AI governance and innovation.</div>
+      <div class="reason">Government capacity-building in AI strategy; suggests institutional readiness for governance frameworks and verification mechanisms.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.mcit.gov.qa/en/news/mcit-enters-a-new-era-of-digital-transformation-with-the-launch-of-the-digital-agenda-2030" target="_blank" rel="noopener">MCIT Enters a New Era of Digital Transformation with the ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Strategy Lead, Digital Agenda 2030 at MCIT</span>
+      </div>
+      <div class="why">MCIT launches Digital Agenda 2030 with explicit focus on AI and metaverse technology as drivers of job creation and transformation.</div>
+      <div class="reason">National AI strategy with measurable outcomes (26k jobs); suggests forthcoming need for governance frameworks and impact verification mechanisms.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qf.org.qa/stories/his-excellency-sheikh-mohammed-bin-abdulrahman-al-thani-inaugurates-fanar" target="_blank" rel="noopener">His Excellency Sheikh Mohammed bin Abdulrahman Al ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Government AI</span> &middot; <span class="contact">contact: Chief Digital Officer or Technology Advisor to the Deputy Prime Minister's office</span>
+      </div>
+      <div class="why">Senior Qatari government figure (Sheikh Mohammed bin Abdulrahman Al Thani) inaugurating AI-related facility (Fanar), signaling state-level AI commitment.</div>
+      <div class="reason">High-level government endorsement of AI infrastructure; potential entry point for governance/policy verification frameworks.</div>
+    </div><h3>Job Posting</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.aijobs.com/companies/hamad-medical-corporation-6541034" target="_blank" rel="noopener">Hamad Medical Corporation AI Jobs - aijobs.com</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Hamad Medical Corporation—Chief Digital Officer or AI Programme Director</span>
+      </div>
+      <div class="why">Hamad Medical Corporation actively hiring AI researchers and directors, indicating scale-up of AI governance and deployment responsibilities.</div>
+      <div class="reason">Executive AI hiring at major Qatar government entity signals AI programme maturation; potential opening for governance/verification service pitch during onboarding phase.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.indeed.com/q-agentic-ai-jobs.html" target="_blank" rel="noopener">6 Jobs, vacancies: Agentic Ai - Doha</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Multiple agentic AI roles in Doha indicate operational deployment and team-building, implying governance and audit requirements.</div>
+      <div class="reason">Job postings signal organizational capacity but don't indicate decision-making authority or budget for governance services; would require identifying hiring organization.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://careers.qatarairways.com/global/JobDetail/VP-Digital-Solutions-Corporate/63208" target="_blank" rel="noopener">VP Digital Solutions Corporate</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Chief Digital Officer or VP Digital Solutions</span>
+      </div>
+      <div class="why">VP-level digital and AI adoption role at Qatar Airways suggests enterprise-scale AI governance and platform integration needs.</div>
+      <div class="reason">Senior digital transformation role may involve AI policy and control frameworks, but not explicitly governance-focused; worth exploratory outreach.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://careers.qatarairways.com/global/JobDetail/Program-Manager-Data-Enablement/63769" target="_blank" rel="noopener">Program Manager - Data Enablement</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Chief Data Officer or VP of Data &amp; Analytics at Qatar Airways</span>
+      </div>
+      <div class="why">Qatar Airways is building an enterprise data enablement program across its group, foundational for AI governance infrastructure.</div>
+      <div class="reason">Enterprise data program at a major Qatari entity; data governance can be a wedge for AI governance/verification services.</div>
+    </div><h3>Regulation/Policy</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qcb.gov.qa/en/pages/financialtechnology.aspx" target="_blank" rel="noopener">Financial Technology</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Qatar Central Bank Regulatory Affairs or FinTech Division</span>
+      </div>
+      <div class="why">Qatar Central Bank has published AI Guidelines for regulated financial entities, establishing compliance requirements.</div>
+      <div class="reason">Regulatory document exists but snippet does not specify verification, auditability, or executable compliance artifacts.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://elmi.hbku.edu.qa/en/publications/comparative-analysis-of-ai-regulation-for-fintech-cybersecurity-a/" target="_blank" rel="noopener">Comparative analysis of AI regulation for fintech ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Chief Risk Officer or Compliance Lead at Qatar Central Bank or major fintech institution</span>
+      </div>
+      <div class="why">Academic comparative analysis of AI regulatory frameworks in EU and Qatar fintech sectors.</div>
+      <div class="reason">Shows Qatar's fintech sector is under AI regulatory scrutiny; suggests compliance/audit demand, but academic rather than institutional.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://jair.org/index.php/jair/article/download/17619/27175/45490" target="_blank" rel="noopener">AI Governance in the GCC States: A Comparative Analysis ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span>
+      </div>
+      <div class="why">Comparative analysis of AI governance frameworks across GCC including UAE and Qatar establishes regional regulatory landscape.</div>
+      <div class="reason">Academic research on GCC AI governance; useful for market intelligence but no specific mandate or implementation opening for NOMOS.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/media-centre/news/list/data-protection-age-of-ai-seminar" target="_blank" rel="noopener">QFC Hosts Seminar Highlighting Key Data Protection ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: QFC Authority Chief Regulatory Officer or Head of Policy</span>
+      </div>
+      <div class="why">Qatar Financial Centre hosted a seminar on data protection and AI convergence, indicating active policy dialogue on AI governance and compliance.</div>
+      <div class="reason">QFC is actively engaging on AI and data protection policy; potential demand for governance frameworks, but seminar alone does not confirm immediate procurement need.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.qfc.qa/en/media-centre/events/list/waifc-global-webinar" target="_blank" rel="noopener">WAIFC Global Webinar Series on AI in Finance</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Regulation/Policy</span> &middot; <span class="contact">contact: Director of Regulatory Strategy or Head of Innovation</span>
+      </div>
+      <div class="why">Global webinar series on AI in financial services signals QFC's active engagement with AI governance and compliance in finance.</div>
+      <div class="reason">Thought leadership on AI governance in finance; potential early signal of QFC developing or enforcing AI governance frameworks for regulated entities.</div>
+    </div><p class="lowcount">65 lower-relevance items also collected but not shown here — full data in the archived JSON.</p>
+    </div>
+  </details>
+  <details  id="day-qatar-20260810">
+    <summary>
+      <span class="date">2026-08-10</span>
+      <span class="summary-meta">raw: 1077 &middot; deduped: 804 &middot; unseen: 560 &middot; relevant: 356</span>
+      
+    </summary>
+    <div class="day-body">
+      <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
+      <p class="empty">No new news today — everything collected was already shown in a previous run.</p>
+    </div>
+  </details>
+  <details  id="day-qatar-20260805">
+    <summary>
+      <span class="date">2026-08-05</span>
+      <span class="summary-meta">raw: 40 &middot; deduped: 22 &middot; unseen: 0 &middot; relevant: 0</span>
+      <span class="badge" style="background:#8e44ad">MANUAL TEST DATA — manual test fixture — verifies the empty-day rendering path</span>
+    </summary>
+    <div class="day-body">
+      <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
+      <p class="empty">No new news today — everything collected was already shown in a previous run.</p>
+    </div>
+  </details>
+  <details  id="day-qatar-20260804">
+    <summary>
+      <span class="date">2026-08-04</span>
+      <span class="summary-meta">raw: 185 &middot; relevant: 12</span>
+      <span class="badge" style="background:#8e44ad">MANUAL TEST DATA — manual test pull, hand-classified — not an automated run (live Apify pull, classification done by hand instead of the Claude step to verify the pipeline before trusting the schedule)</span>
+    </summary>
+    <div class="day-body">
+      <p class="dateflag">Arranged by the day each item was first seen (new-to-us), not by original publication date.</p>
+      <p class="empty">No new news today — everything collected was already shown in a previous run.</p>
+    </div>
+  </details>
+    </div>
+    <div class="tab-panel"><p class="dateflag">Every job ever collected, newest first, until seen — not reset daily.</p>
+      <details class="date-filter" open>
+        <summary><span class="date">2026-08-11</span> <span class="summary-meta">29 jobs</span></summary>
+        <div class="day-body"><h3>AI Investment</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://arabic.naukrigulf.com/career-tips/qatar-invests-3-billion-in-ai-and-data-centers-what-it-means-for-your-career" target="_blank" rel="noopener">Qatar invests $3 billion in AI and data centers: What it means ...</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">AI Investment</span> &middot; <span class="contact">contact: Qatar Ministry of Communications and IT or Qatar Development Bank</span>
+      </div>
+      <div class="why">Qatar is committing $3 billion to AI and data center infrastructure, signaling strategic national AI adoption and governance needs.</div>
+      <div class="reason">Large-scale national AI investment suggests future demand for governance frameworks, but no immediate regulatory or audit requirement mentioned.</div>
+    </div><h3>Job Posting</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/qatar/jobs/industrial-and-functional-ai-decision-science-manager-619082" target="_blank" rel="noopener">Industrial And Functional AI Decision Science Manager</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Industrial AI decision science manager role in Qatar indicates enterprise/government AI deployment with analytics and autonomous decision-making.</div>
+      <div class="reason">Decision science manager role signals autonomous decision-making capability but hiring organization not clearly identified; would need to identify employer.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/qatar/jobs/ai-decision-science-consultant-619493" target="_blank" rel="noopener">AI Decision Science Consultant | Job in Doha, Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">AI decision science consultant role in Doha suggests Qatar entities are building AI-driven decision-making capabilities that may require governance and audit frameworks.</div>
+      <div class="reason">AI-driven decision-making in Qatar government/enterprise context implies potential need for governance verification, but posting itself contains no governance language.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/qatar/jobs/ai-evaluation-engineer-618084" target="_blank" rel="noopener">AI Evaluation Engineer | Jobs in Qatar by Global Corporation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">AI evaluation engineer role in Qatar for testing and improving AI systems indicates organizational focus on AI quality assurance and verification.</div>
+      <div class="reason">Evaluation and testing emphasis aligns with governance verification mission, but job posting alone doesn't signal new governance need or policy requirement.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.gulftalent.com/qatar/jobs/strategy-consultant-620352" target="_blank" rel="noopener">Strategy Consultant | Jobs in Qatar by Global Corporation</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Strategy consultant role in Qatar shaping AI governance at organizational level suggests active policy and governance development.</div>
+      <div class="reason">Role title suggests governance work ('shaping how AI learns'), but posting is vague and doesn't name employer or specific governance initiative.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/qatar/jobs/ai-project-jobs/" target="_blank" rel="noopener">Ai Project Jobs in Qatar (Jun 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Job listing mentioning multi-agent AI systems development in Qatar, signaling agentic AI capability building.</div>
+      <div class="reason">Multi-agent AI systems inherently require governance and audit frameworks; however, posting is aggregated and lacks employer/government context.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.bayt.com/en/qatar/jobs/ai-learning-jobs/" target="_blank" rel="noopener">Ai Learning Jobs in Qatar (Jul 2026)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span>
+      </div>
+      <div class="why">Job listing mentioning multi-agent AI systems design and development in Qatar, indicating investment in autonomous AI capability.</div>
+      <div class="reason">Multi-agent AI systems inherently require governance/audit, but posting is aggregated with no specific employer or policy mandate.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://www.naukrigulf.com/ai-applications-ops-lead-ips-jobs-in-qatar-in-scale-ai-6-to-8-years-n-cd-40003548-jid-020226501648" target="_blank" rel="noopener">AI Applications Ops Lead, IPS Scale AI - Jobs in Qatar</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Government of Qatar Chief Information Officer or AI/Digital Transformation Lead</span>
+      </div>
+      <div class="why">Government of Qatar is hiring an AI Applications Ops Lead for Scale AI, indicating direct government deployment of AI operations infrastructure.</div>
+      <div class="reason">Government of Qatar is directly hiring for AI ops roles; suggests autonomous AI systems being built, but job posting alone does not confirm governance/audit mandate.</div>
+    </div><p class="lowcount">21 lower-relevance items also collected but not shown here — full data in the archived JSON.</p></div>
+      </details>
+      <details class="date-filter" open>
+        <summary><span class="date">2026-08-10</span> <span class="summary-meta">7 jobs</span></summary>
+        <div class="day-body"><h3 class="section-high">High NOMOS Relevance</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.linkedin.com/jobs/view/product-manager-of-ai-applications-global-public-sector-at-scale-ai-4336811326?position=1&amp;pageNum=0&amp;refId=wxO8D2PXHLaI5wQgokg4Kw%3D%3D&amp;trackingId=Ml9yBEwfLpW9JwZw9izusw%3D%3D" target="_blank" rel="noopener">Product Manager of AI Applications, Global Public Sector</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Scale AI public sector leadership and Doha office</span> &middot; <span class="pubdate">2026-08-10</span>
+      </div>
+      <div class="why">Scale AI product manager for AI applications in global public sector based in Doha; direct signal of government AI system deployment.</div>
+      <div class="reason">Scale AI is productizing AI for public sector in Qatar; government clients deploying AI will need governance verification, audit trails, and policy-to-execution mapping—core NOMOS value.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.linkedin.com/jobs/view/machine-learning-engineer-global-public-sector-at-scale-ai-4196119832?position=2&amp;pageNum=0&amp;refId=wxO8D2PXHLaI5wQgokg4Kw%3D%3D&amp;trackingId=qTn9yRKBBQMmIhM7vnIcAQ%3D%3D" target="_blank" rel="noopener">Machine Learning Engineer, Global Public Sector</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#c0392b">High</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Scale AI public sector leadership and Doha office</span> &middot; <span class="pubdate">2026-08-10</span>
+      </div>
+      <div class="why">Scale AI hiring ML engineer for global public sector in Doha confirms active government AI system development.</div>
+      <div class="reason">Staffing up public sector AI teams suggests imminent or active deployments requiring governance verification, compliance tracking, and executable policy artifacts.</div>
+    </div><h3>Job Posting</h3>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.linkedin.com/jobs/view/staff-fullstack-software-engineer-forward-deployed-gps-at-scale-ai-4389961557?position=19&amp;pageNum=0&amp;refId=wxO8D2PXHLaI5wQgokg4Kw%3D%3D&amp;trackingId=RRPvG5TYqG8A1fYXOlueFQ%3D%3D" target="_blank" rel="noopener">Staff FullStack Software Engineer, (Forward Deployed), GPS</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Scale AI public sector leadership</span> &middot; <span class="pubdate">2026-08-10</span>
+      </div>
+      <div class="why">Scale AI is hiring forward-deployed software engineers in Qatar, signaling active AI deployment into public sector.</div>
+      <div class="reason">Scale AI's presence in Doha deploying AI systems to government suggests governance/audit requirements may follow; potential future customer.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.linkedin.com/jobs/view/applied-ai-engineer-global-public-sector-at-scale-ai-4274837146?position=18&amp;pageNum=0&amp;refId=wxO8D2PXHLaI5wQgokg4Kw%3D%3D&amp;trackingId=%2FfIhUVww1qS8Um6GZqkNYg%3D%3D" target="_blank" rel="noopener">Applied AI Engineer, Global Public Sector</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Scale AI public sector leadership</span> &middot; <span class="pubdate">2026-08-10</span>
+      </div>
+      <div class="why">Scale AI hiring applied AI engineer specifically for global public sector in Doha signals direct AI deployment into government.</div>
+      <div class="reason">Confirms Scale AI is building AI systems for public sector clients; governance verification could be a downstream need once systems are live.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.linkedin.com/jobs/view/senior-manager-risk-consulting-digital-risk-doha-at-ey-4439675748?position=11&amp;pageNum=0&amp;refId=wxO8D2PXHLaI5wQgokg4Kw%3D%3D&amp;trackingId=2Zx1zjJvwIIfn0vi0b7MsA%3D%3D" target="_blank" rel="noopener">Senior Manager- Risk Consulting- Digital risk- Doha</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: EY Qatar Risk &amp; Compliance leadership</span> &middot; <span class="pubdate">2026-08-10</span>
+      </div>
+      <div class="why">EY hiring senior manager for digital risk consulting in Doha signals demand for digital/AI risk frameworks in Qatar market.</div>
+      <div class="reason">Digital risk consulting at major advisory firm suggests enterprises are building governance practice; potential competitor or client pipeline.</div>
+    </div>
+    <div class="item">
+      <div class="item-title"><a href="https://qa.linkedin.com/jobs/view/customer-engineer-ai-natives-junior-talent-programme-arabic-english-at-google-4451471247?position=6&amp;pageNum=0&amp;refId=wxO8D2PXHLaI5wQgokg4Kw%3D%3D&amp;trackingId=fKjeaqAZq0V1GpOQI0gQPw%3D%3D" target="_blank" rel="noopener">Customer Engineer, AI Natives, Junior Talent Programme (Arabic, English)</a></div>
+      <div class="item-meta">
+        <span class="badge" style="background:#b8860b">Medium</span>
+        <span class="category">Job Posting</span> &middot; <span class="contact">contact: Google Qatar public sector or enterprise account leadership</span> &middot; <span class="pubdate">2026-08-10</span>
+      </div>
+      <div class="why">Google hiring customer engineers specifically for 'AI Natives' program in Doha signals pushing AI products into Qatar market.</div>
+      <div class="reason">Google's AI product rollout in Qatar may trigger regulatory or governance requirements; potential early adopter for governance verification.</div>
+    </div><p class="lowcount">1 lower-relevance item also collected but not shown here — full data in the archived JSON.</p></div>
+      </details></div>
+  </div></div>
   </div>
-  <footer>Generated 11 Aug 2026, 08:40</footer>
+  <footer>Generated 11 Aug 2026, 09:40</footer>
 </body>
 </html>
