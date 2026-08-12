@@ -7,7 +7,7 @@
     <key>ProgramArguments</key>
     <array>
         <string>/usr/bin/python3</string>
-        <string>/Users/allansendagi/Desktop/Creativity/active/uae-ai-radar/uae_ai_radar.py</string>
+        <string>/Users/allansendagi/uae-ai-radar/uae_ai_radar.py</string>
     </array>
     <key>StartCalendarInterval</key>
     <dict>
@@ -17,9 +17,9 @@
         <integer>47</integer>
     </dict>
     <key>StandardOutPath</key>
-    <string>/Users/allansendagi/Desktop/Creativity/active/uae-ai-radar/logs/launchd.out.log</string>
+    <string>/Users/allansendagi/uae-ai-radar/logs/launchd.out.log</string>
     <key>StandardErrorPath</key>
-    <string>/Users/allansendagi/Desktop/Creativity/active/uae-ai-radar/logs/launchd.err.log</string>
+    <string>/Users/allansendagi/uae-ai-radar/logs/launchd.err.log</string>
     <key>RunAtLoad</key>
     <false/>
 </dict>

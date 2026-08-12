@@ -15,6 +15,8 @@ import json
 import smtplib
 import hashlib
 import re
+import threading
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from datetime import datetime, timedelta
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
@@ -45,11 +47,15 @@ TODAY = datetime.now().strftime("%Y-%m-%d")
 LOG_FILE = LOGS_DIR / f"{TODAY}.log"
 
 
+_LOG_LOCK = threading.Lock()
+
+
 def log(msg: str):
     line = f"[{datetime.now().isoformat(timespec='seconds')}] {msg}"
-    print(line)
-    with open(LOG_FILE, "a") as f:
-        f.write(line + "\n")
+    with _LOG_LOCK:
+        print(line)
+        with open(LOG_FILE, "a") as f:
+            f.write(line + "\n")
 
 
 def require_credentials():
@@ -67,39 +73,90 @@ def require_credentials():
 
 
 # ============================================================
-# SEARCH QUERIES
+# MARKETS — UAE and Qatar run as fully parallel markets: own news
+# queries, own government/entity domains, own LinkedIn location.
+# Every collected item is tagged "market" so the site can split them
+# into separate tabs. Job-board domains are GCC-wide and shared —
+# only the query terms differ per market.
 # ============================================================
 
-NEWS_QUERIES = [
-    "UAE artificial intelligence",
-    "Dubai artificial intelligence",
-    "Abu Dhabi artificial intelligence",
-    "UAE AI government",
-    "Dubai AI government",
-    "UAE AI regulation",
-    "UAE autonomous AI agents",
-    "UAE AI governance",
-    "UAE agentic AI",
-    "UAE AI investment",
-    "DHA AI",
-    "RTA AI",
-    "DEWA AI",
-    "Digital Dubai AI",
-    "Dubai Municipality AI",
-    "KHDA AI",
-    "DGE AI",
-    "TDRA AI",
-    "UAE Ministry AI",
-]
-
-# CAIO22-style entity domains, reused for site-restricted career-page search.
-ENTITY_CAREER_DOMAINS = [
-    "digitaldubai.ae", "dewa.gov.ae", "dubaidet.ae", "dha.gov.ae",
-    "dubaipolice.gov.ae", "rta.ae", "hbmsu.ac.ae", "dm.gov.ae",
-    "dubaicustoms.gov.ae", "khda.gov.ae", "tdra.gov.ae", "dof.gov.ae",
-]
-
 JOB_BOARD_DOMAINS = ["bayt.com", "gulftalent.com", "naukrigulf.com", "indeed.com", "ae.indeed.com"]
+
+# Restricts NewsAPI's /everything search to actual Gulf-region outlets. Without this,
+# `q=` does loose full-text matching — "UAE" and "AI" only need to appear somewhere in
+# an article, anywhere in NewsAPI's global index, so broad queries return mostly unrelated
+# crypto/geopolitics/market-report noise (confirmed live 2026-08-12: 0/27 candidates were
+# real UAE/Qatar AI news once Apify's more precise Google-Search channel was unavailable —
+# the same query restricted to these domains went from 100+ noisy hits to a handful of
+# genuine regional matches). Not a fix for Apify being down — a real precision floor for
+# the NewsAPI fallback specifically, so a capped Apify account doesn't mean a silently
+# noise-only (and therefore always-empty) day.
+NEWS_DOMAINS = (
+    "thenationalnews.com,khaleejtimes.com,gulfnews.com,zawya.com,arabianbusiness.com,"
+    "gulf-times.com,thepeninsulaqatar.com,dohanews.co,wam.ae,gulfbusiness.com"
+)
+
+MARKETS = {
+    "UAE": {
+        "linkedin_location": "United Arab Emirates",
+        "news_queries": [
+            "UAE artificial intelligence",
+            "Dubai artificial intelligence",
+            "Abu Dhabi artificial intelligence",
+            "UAE AI government",
+            "Dubai AI government",
+            "UAE AI regulation",
+            "UAE autonomous AI agents",
+            "UAE AI governance",
+            "UAE agentic AI",
+            "UAE AI investment",
+            "DHA AI",
+            "RTA AI",
+            "DEWA AI",
+            "Digital Dubai AI",
+            "Dubai Municipality AI",
+            "KHDA AI",
+            "DGE AI",
+            "TDRA AI",
+            "UAE Ministry AI",
+        ],
+        # CAIO22-style entity domains, reused for site-restricted career-page search.
+        "entity_domains": [
+            "digitaldubai.ae", "dewa.gov.ae", "dubaidet.ae", "dha.gov.ae",
+            "dubaipolice.gov.ae", "rta.ae", "hbmsu.ac.ae", "dm.gov.ae",
+            "dubaicustoms.gov.ae", "khda.gov.ae", "tdra.gov.ae", "dof.gov.ae",
+        ],
+    },
+    "Qatar": {
+        "linkedin_location": "Qatar",
+        "news_queries": [
+            "Qatar artificial intelligence",
+            "Doha artificial intelligence",
+            "Qatar AI government",
+            "Qatar AI regulation",
+            "Qatar autonomous AI agents",
+            "Qatar AI governance",
+            "Qatar agentic AI",
+            "Qatar AI investment",
+            "MOI Qatar AI",
+            "Qatar Central Bank AI",
+            "Ashghal AI",
+            "Kahramaa AI",
+            "Hamad Medical AI",
+            "Qatar Foundation AI",
+            "MCIT Qatar AI",
+            "Qatar Airways AI",
+            "CRA Qatar AI",
+            "QIA AI",
+            "Qatar Ministry AI",
+        ],
+        "entity_domains": [
+            "mcit.gov.qa", "qcb.gov.qa", "qfc.qa", "moi.gov.qa", "hamad.qa",
+            "qf.org.qa", "qatarairways.com", "ashghal.gov.qa", "km.qa",
+            "qia.qa", "cra.gov.qa", "motc.gov.qa",
+        ],
+    },
+}
 
 
 # ============================================================
@@ -123,16 +180,17 @@ def run_apify_actor(actor_id: str, input_payload: dict, timeout=240) -> list:
         return []
 
 
-def collect_news() -> list:
-    log("Collecting news via Google Search...")
+def collect_news(market: str, news_queries: list) -> list:
+    log(f"[{market}] Collecting news via Google Search...")
     # NOTE: countryCode="ae" was tested live and silently returns zero results —
     # it routes requests to google.ae, which appears to get bot-blocked. Default
     # (no countryCode, uses google.com) returns real, relevant results, since the
-    # query terms themselves ("UAE", "Dubai") already do the geo-targeting.
+    # query terms themselves ("UAE", "Dubai", "Qatar", "Doha") already do the
+    # geo-targeting.
     items = run_apify_actor(
         "apify~google-search-scraper",
         {
-            "queries": "\n".join(NEWS_QUERIES),
+            "queries": "\n".join(news_queries),
             "maxPagesPerQuery": 1,
         },
     )
@@ -141,6 +199,7 @@ def collect_news() -> list:
         for r in page.get("organicResults", []):
             results.append({
                 "type": "news",
+                "market": market,
                 "title": r.get("title", ""),
                 "url": r.get("url", ""),
                 "snippet": r.get("description", ""),
@@ -153,20 +212,21 @@ def collect_news() -> list:
     return results
 
 
-def collect_news_newsapi() -> list:
+def collect_news_newsapi(market: str, news_queries: list) -> list:
     """Second, independent news source — official API, not scraping. Additive to
     collect_news(), not a replacement: Google's scraped results still catch obscure
     government pages a news-specific index misses. Skips silently if no key is set."""
     if not NEWSAPI_KEY:
         return []
-    log("Collecting news via NewsAPI.org...")
+    log(f"[{market}] Collecting news via NewsAPI.org...")
     results = []
-    for q in NEWS_QUERIES:
+    for q in news_queries:
         try:
             resp = requests.get(
                 "https://newsapi.org/v2/everything",
                 params={
                     "q": q,
+                    "domains": NEWS_DOMAINS,
                     "apiKey": NEWSAPI_KEY,
                     "language": "en",
                     "sortBy": "publishedAt",
@@ -179,6 +239,7 @@ def collect_news_newsapi() -> list:
                 published = a.get("publishedAt") or None  # real field, ISO 8601
                 results.append({
                     "type": "news",
+                    "market": market,
                     "title": a.get("title", "") or "",
                     "url": a.get("url", ""),
                     "snippet": a.get("description", "") or "",
@@ -191,13 +252,13 @@ def collect_news_newsapi() -> list:
     return results
 
 
-def collect_job_boards() -> list:
-    log("Collecting job board / career page postings via site-restricted search...")
+def collect_job_boards(market: str, entity_domains: list, location_terms: str) -> list:
+    log(f"[{market}] Collecting job board / career page postings via site-restricted search...")
     queries = []
     for domain in JOB_BOARD_DOMAINS:
-        queries.append(f"site:{domain} AI Dubai OR UAE")
+        queries.append(f"site:{domain} AI {location_terms}")
         queries.append(f"site:{domain} \"artificial intelligence\" jobs")
-    for domain in ENTITY_CAREER_DOMAINS:
+    for domain in entity_domains:
         queries.append(f"site:{domain} careers AI")
         queries.append(f"site:{domain} jobs \"artificial intelligence\"")
 
@@ -222,6 +283,7 @@ def collect_job_boards() -> list:
         for r in page.get("organicResults", []):
             results.append({
                 "type": "job_posting" if is_real_job_board else "news",
+                "market": market,
                 "title": r.get("title", ""),
                 "url": r.get("url", ""),
                 "snippet": r.get("description", ""),
@@ -232,13 +294,13 @@ def collect_job_boards() -> list:
     return results
 
 
-def collect_linkedin_jobs() -> list:
-    log("Collecting LinkedIn Jobs...")
+def collect_linkedin_jobs(market: str, linkedin_location: str) -> list:
+    log(f"[{market}] Collecting LinkedIn Jobs...")
     items = run_apify_actor(
         "curious_coder~linkedin-jobs-scraper",
         {
             "keywords": "artificial intelligence OR AI governance OR chief AI officer OR head of AI",
-            "location": "United Arab Emirates",
+            "location": linkedin_location,
             "datePosted": "past24Hours",  # actor's real enum: anyTime|past24Hours|pastWeek|pastMonth
             "limitPerSource": 30,
         },
@@ -247,6 +309,7 @@ def collect_linkedin_jobs() -> list:
     for r in items:
         results.append({
             "type": "job_posting",
+            "market": market,
             "title": r.get("title", ""),
             "url": r.get("link") or r.get("jobUrl", ""),
             "snippet": f"{r.get('companyName', '')} — {r.get('location', '')}",
@@ -322,10 +385,10 @@ def mark_seen(items: list, seen: dict):
 # RELEVANCE + CLASSIFICATION (Claude API)
 # ============================================================
 
-CLASSIFY_PROMPT = """You are screening a batch of raw search results (news articles and job postings) for a UAE-focused AI governance consultancy called NOMOS. NOMOS sells AI governance verification (turning institutional policy into machine-executable, auditable artifacts) to UAE government entities and enterprises.
+CLASSIFY_PROMPT = """You are screening a batch of raw search results (news articles and job postings) for a UAE- and Qatar-focused AI governance consultancy called NOMOS. NOMOS sells AI governance verification (turning institutional policy into machine-executable, auditable artifacts) to UAE and Qatar government entities and enterprises.
 
 For EACH item below, decide:
-1. is_relevant: true only if it's genuinely about AI in the UAE/Dubai/Abu Dhabi context (government AI, AI regulation, agentic AI, AI governance, AI deployments, AI investment, AI startups, AI infrastructure, or an AI-related job posting at a UAE entity). Discard generic/irrelevant results (unrelated jobs, non-UAE content, spam).
+1. is_relevant: true only if it's genuinely about AI in the UAE/Dubai/Abu Dhabi or Qatar/Doha context (government AI, AI regulation, agentic AI, AI governance, AI deployments, AI investment, AI startups, AI infrastructure, or an AI-related job posting at a UAE or Qatar entity). Discard generic/irrelevant results (unrelated jobs, non-UAE/non-Qatar content, spam).
 2. category: one of [Government AI, Regulation/Policy, Agentic AI, AI Governance, AI Deployment, AI Investment, AI Startups, AI Infrastructure, Job Posting]
 3. why_it_matters: one sentence, concrete, no fluff.
 4. nomos_relevance: "High", "Medium", or "Low" — plus a one-line reason. High = a real, specific opening for a governance/verification pitch (new autonomous decision-making system, new AI-related executive hire at a named entity, new regulation creating an audit/accountability requirement). Do not inflate — most items should be Medium or Low.
@@ -347,6 +410,13 @@ def classify_batch(client: Anthropic, items: list) -> list:
         {"title": it["title"], "snippet": it["snippet"], "url": it["url"], "type": it["type"]}
         for it in items
     ]
+    # Persisted BEFORE classification so a zero/low-relevant day is auditable after the
+    # fact — without this, there was no way to tell "genuinely no relevant news" apart
+    # from "the classifier silently dropped items" (found 2026-08-12: a zero-relevant
+    # day left nothing to inspect once the run finished).
+    with open(LOGS_DIR / f"{TODAY}_candidates.jsonl", "a") as f:
+        for it in batch_input:
+            f.write(json.dumps(it) + "\n")
     try:
         resp = client.messages.create(
             model="claude-haiku-4-5-20251001",
@@ -366,6 +436,14 @@ def classify_batch(client: Anthropic, items: list) -> list:
     except Exception as e:
         log(f"WARNING: classification failed: {e}")
         return []
+
+    if len(classifications) != len(items):
+        # zip() would otherwise silently pair only as many as the shorter list and drop
+        # the rest with no error at all — e.g. a response truncated at max_tokens still
+        # parses as valid (partial) JSON, so the try/except above wouldn't catch it.
+        log(f"WARNING: classification returned {len(classifications)} results for "
+            f"{len(items)} items — likely truncated. Items beyond the response length "
+            f"were NOT evaluated and are being treated as not-relevant this run.")
 
     enriched = []
     for it, cls in zip(items, classifications):
@@ -601,7 +679,14 @@ def _render_group(group_items: list, empty_msg: str) -> str:
     return "".join(sections)
 
 
-def _day_html(day: dict, open_attr: str) -> str:
+def _market_items(day: dict, market: str) -> list:
+    """Items missing a 'market' field are from before markets existed (UAE-only
+    era) — default them to UAE rather than dropping them, so old archives don't
+    silently vanish from the site."""
+    return [i for i in (day.get("items") or []) if i.get("market", "UAE") == market]
+
+
+def _day_html(day: dict, open_attr: str, market: str) -> str:
     """News only — jobs live in the separate persistent Jobs board, not nested
     per-day, since a job posting shouldn't get buried under a new day's block
     the moment it's no longer 'new'. News is naturally a daily feed; jobs are
@@ -609,8 +694,8 @@ def _day_html(day: dict, open_attr: str) -> str:
     date_str = day.get("date", "unknown")
     provenance = day.get("provenance", "automated")
     counts = day.get("counts", {}) or {}
-    items = day.get("items", []) or []
-    news_items = [i for i in items if i.get("type") != "job_posting"]
+    market_items = _market_items(day, market)
+    news_items = [i for i in market_items if i.get("type") != "job_posting"]
 
     provenance_badge = ""
     if provenance != "automated":
@@ -621,9 +706,10 @@ def _day_html(day: dict, open_attr: str) -> str:
     )
 
     body = _render_group(news_items, "No new news today — everything collected was already shown in a previous run.")
+    anchor_id = f"day-{market.lower()}-{re.sub(r'[^a-zA-Z0-9]', '', date_str)}"
 
     return f"""
-  <details {open_attr}>
+  <details {open_attr} id="{anchor_id}">
     <summary>
       <span class="date">{_esc(date_str)}</span>
       <span class="summary-meta">{count_bits}</span>
@@ -636,7 +722,7 @@ def _day_html(day: dict, open_attr: str) -> str:
   </details>"""
 
 
-def _jobs_board_html(days: list) -> str:
+def _jobs_board_html(days: list, market: str) -> str:
     """Persistent, cross-day jobs board — every job ever collected, deduped by
     URL, until it's explicitly worth pruning. Unlike news, a job posting stays
     relevant as long as it's open, so it shouldn't disappear into a collapsed
@@ -648,7 +734,7 @@ def _jobs_board_html(days: list) -> str:
     seen_urls = set()
     by_date = {}
     for day in days:  # days is newest-first
-        for it in (day.get("items") or []):
+        for it in _market_items(day, market):
             if it.get("type") != "job_posting":
                 continue
             url = it.get("url", "")
@@ -665,7 +751,6 @@ def _jobs_board_html(days: list) -> str:
     sections = []
     for date_str in sorted(by_date, reverse=True):
         jobs = by_date[date_str]
-        tab_id = re.sub(r"[^a-zA-Z0-9]", "", date_str)
         sections.append(f"""
       <details class="date-filter" open>
         <summary><span class="date">{_esc(date_str)}</span> <span class="summary-meta">{len(jobs)} job{"s" if len(jobs) != 1 else ""}</span></summary>
@@ -674,19 +759,43 @@ def _jobs_board_html(days: list) -> str:
     return "".join(sections)
 
 
+def _market_tab_html(days: list, market: str) -> str:
+    """News | Jobs sub-tabs for one market (UAE or Qatar)."""
+    m = market.lower()
+    news_blocks = [_day_html(d, "open" if i == 0 else "", market) for i, d in enumerate(days)]
+    jobs_block = _jobs_board_html(days, market)
+    total_jobs = len({
+        it.get("url") for d in days for it in _market_items(d, market)
+        if it.get("type") == "job_posting"
+    })
+    date_picker = "".join(
+        f'<a href="#day-{m}-{re.sub(r"[^a-zA-Z0-9]", "", d.get("date",""))}" class="date-pill">{_esc(d.get("date",""))}</a>'
+        for d in days
+    )
+    return f"""
+  <div class="toptabs">
+    <input type="radio" name="toptabs-{m}" id="toptab-news-{m}" class="tab-input" checked>
+    <label for="toptab-news-{m}" class="tab-label">News</label>
+    <input type="radio" name="toptabs-{m}" id="toptab-jobs-{m}" class="tab-input">
+    <label for="toptab-jobs-{m}" class="tab-label">Jobs ({total_jobs})</label>
+    <div class="tab-panel">
+      <div class="date-picker">Jump to: {date_picker}</div>
+      {"".join(news_blocks)}
+    </div>
+    <div class="tab-panel"><p class="dateflag">Every job ever collected, newest first, until seen — not reset daily.</p>{jobs_block}</div>
+  </div>"""
+
+
 def render_index_html(days: list) -> str:
     if days:
-        news_blocks = [_day_html(d, "open" if i == 0 else "") for i, d in enumerate(days)]
-        jobs_block = _jobs_board_html(days)
-        total_jobs = len({it.get("url") for d in days for it in (d.get("items") or []) if it.get("type") == "job_posting"})
         blocks = f"""
-  <div class="toptabs">
-    <input type="radio" name="toptabs" id="toptab-news" class="tab-input" checked>
-    <label for="toptab-news" class="tab-label">News</label>
-    <input type="radio" name="toptabs" id="toptab-jobs" class="tab-input">
-    <label for="toptab-jobs" class="tab-label">Jobs ({total_jobs})</label>
-    <div class="tab-panel">{"".join(news_blocks)}</div>
-    <div class="tab-panel"><p class="dateflag">Every job ever collected, newest first, until seen — not reset daily.</p>{jobs_block}</div>
+  <div class="markettabs">
+    <input type="radio" name="markettabs" id="markettab-uae" class="market-input" checked>
+    <label for="markettab-uae" class="market-label">UAE</label>
+    <input type="radio" name="markettabs" id="markettab-qatar" class="market-input">
+    <label for="markettab-qatar" class="market-label">Qatar</label>
+    <div class="market-panel">{_market_tab_html(days, "UAE")}</div>
+    <div class="market-panel">{_market_tab_html(days, "Qatar")}</div>
   </div>"""
     else:
         blocks = '<p class="empty">No briefings archived yet. Run the pipeline once (or add the seed test day) to populate this page.</p>'
@@ -726,6 +835,18 @@ def render_index_html(days: list) -> str:
   .reason {{ font-size: 12px; color: #888; margin-top: 2px; }}
   .empty {{ color: #888; font-style: italic; padding: 16px 0; }}
   .lowcount {{ font-size: 11px; color: #999; font-style: italic; margin-top: 16px; }}
+  .date-picker {{ font-size: 12px; color: #888; margin: 4px 0 16px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; }}
+  .date-pill {{ display: inline-block; padding: 3px 10px; border-radius: 12px; background: #f0f0f0; color: #14213d; text-decoration: none; font-size: 12px; font-weight: 600; }}
+  .date-pill:hover {{ background: #14213d; color: #fff; }}
+  details:target {{ outline: 2px solid #14213d; outline-offset: 4px; }}
+  .markettabs {{ margin-bottom: 8px; }}
+  .markettabs input.market-input {{ display: none; }}
+  .markettabs label.market-label {{ display: inline-block; padding: 10px 28px; margin-right: 6px; border-radius: 8px 8px 0 0; background: #e8e4da; color: #555; font-size: 15px; font-weight: 800; letter-spacing: 0.02em; cursor: pointer; }}
+  .markettabs input.market-input:first-of-type:checked ~ label.market-label:first-of-type,
+  .markettabs input.market-input:last-of-type:checked ~ label.market-label:last-of-type {{ background: #b8451f; color: #fff; }}
+  .markettabs .market-panel {{ display: none; }}
+  .markettabs input.market-input:first-of-type:checked ~ .market-panel:first-of-type,
+  .markettabs input.market-input:last-of-type:checked ~ .market-panel:last-of-type {{ display: block; }}
   .toptabs {{ margin-top: 4px; }}
   .toptabs input.tab-input {{ display: none; }}
   .toptabs label.tab-label {{ display: inline-block; padding: 8px 20px; margin-right: 4px; border-radius: 6px 6px 0 0; background: #eee; color: #666; font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.03em; cursor: pointer; }}
@@ -806,11 +927,23 @@ def main():
     require_credentials()
     log("=== UAE AI Radar run starting ===")
 
+    # All 8 collection calls (4 sources x 2 markets) are independent network I/O —
+    # run them concurrently instead of sequentially. Sequential was taking ~20min
+    # once Qatar doubled the source count; concurrent brings it back down to
+    # roughly the time of the single slowest call (~90s-2min), not the sum of all 8.
     raw_items = []
-    raw_items += collect_news()
-    raw_items += collect_news_newsapi()
-    raw_items += collect_job_boards()
-    raw_items += collect_linkedin_jobs()
+    with ThreadPoolExecutor(max_workers=8) as pool:
+        futures = []
+        for market, cfg in MARKETS.items():
+            futures.append(pool.submit(collect_news, market, cfg["news_queries"]))
+            futures.append(pool.submit(collect_news_newsapi, market, cfg["news_queries"]))
+            futures.append(pool.submit(collect_job_boards, market, cfg["entity_domains"], market))
+            futures.append(pool.submit(collect_linkedin_jobs, market, cfg["linkedin_location"]))
+        for future in as_completed(futures):
+            try:
+                raw_items += future.result()
+            except Exception as e:
+                log(f"WARNING: a collection task raised an exception: {e}")
 
     if not raw_items:
         log("No items collected at all — likely an Apify credential/connectivity issue. Aborting without sending.")
@@ -822,10 +955,18 @@ def main():
     unseen = filter_unseen(deduped, seen)
 
     client = Anthropic(api_key=ANTHROPIC_API_KEY)
-    # Classify in batches of 25 to keep prompts manageable.
+    # Classify in batches of 25, run concurrently — same rationale as collection:
+    # independent network calls, no reason to wait on them one at a time. Capped
+    # at 5 concurrent to stay well clear of API rate limits.
+    batches = [unseen[i:i + 25] for i in range(0, len(unseen), 25)]
     relevant = []
-    for i in range(0, len(unseen), 25):
-        relevant += classify_batch(client, unseen[i:i + 25])
+    with ThreadPoolExecutor(max_workers=5) as pool:
+        futures = [pool.submit(classify_batch, client, b) for b in batches]
+        for future in as_completed(futures):
+            try:
+                relevant += future.result()
+            except Exception as e:
+                log(f"WARNING: a classification batch raised an exception: {e}")
 
     briefing = compose_briefing(relevant)
     archive_briefing(briefing)
