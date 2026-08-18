@@ -1,0 +1,42 @@
+{
+  "date": "2026-08-18",
+  "provenance": "automated",
+  "counts": {
+    "unseen": 12,
+    "raw": 17,
+    "deduped": 14,
+    "relevant": 2
+  },
+  "items": [
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "Executive, Technology Investment & Ecosystem Development",
+      "url": "https://qa.linkedin.com/jobs/view/executive-technology-investment-ecosystem-development-at-confidential-4452255017?position=2&pageNum=0&refId=eCEi5REZvfE1sF7Vfa4zFg%3D%3D&trackingId=OF8A%2FtrOTYa%2FRFm5aRS3Ww%3D%3D",
+      "snippet": "Confidential \u2014 Doha, Qatar",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-17",
+      "is_relevant": true,
+      "category": "AI Investment",
+      "why_it_matters": "A confidential Doha entity is actively recruiting for technology investment and ecosystem development, suggesting active AI/tech strategy at a government or quasi-government level.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Executive role in tech investment suggests entity building AI/tech capability; potential customer for governance verification once initiatives mature, but no immediate audit/accountability mandate evident.",
+      "suggested_contact": "Chief Technology Officer or Head of Investment"
+    },
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "Principal (IT/Digital) | BCG Platinion",
+      "url": "https://qa.linkedin.com/jobs/view/principal-it-digital-bcg-platinion-at-boston-consulting-group-bcg-4427276696?position=1&pageNum=0&refId=eCEi5REZvfE1sF7Vfa4zFg%3D%3D&trackingId=ORKsgb8NSd7%2FyLlHSbsnBQ%3D%3D",
+      "snippet": "Boston Consulting Group (BCG) \u2014 Doha Metropolitan Area",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-17",
+      "is_relevant": true,
+      "category": "AI Governance",
+      "why_it_matters": "BCG Platinion (digital transformation advisory arm) hiring senior IT/digital principal in Doha indicates major organizational transformation projects underway in Qatar requiring sophisticated governance frameworks.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "BCG Platinion role suggests complex digital/AI transformation advisory engagements in Qatar; NOMOS could position as governance execution partner post-strategy, but no named client or specific regulation trigger.",
+      "suggested_contact": "Office Managing Director or Head of Digital Practice"
+    }
+  ]
+}
