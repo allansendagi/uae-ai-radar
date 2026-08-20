@@ -1,0 +1,87 @@
+{
+  "date": "2026-08-20",
+  "provenance": "automated",
+  "counts": {
+    "unseen": 6,
+    "deduped": 8,
+    "raw": 11,
+    "relevant": 5
+  },
+  "items": [
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "Engagement Manager, Global Public Sector",
+      "url": "https://qa.linkedin.com/jobs/view/engagement-manager-global-public-sector-at-scale-ai-4437777508?position=6&pageNum=0&refId=iQOwNv9OaSv5uK0%2Fb7im9w%3D%3D&trackingId=2x%2F6iNM%2FfqBddARlEy75%2BQ%3D%3D",
+      "snippet": "Scale AI \u2014 Doha, Qatar",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-19",
+      "is_relevant": true,
+      "category": "Job Posting",
+      "why_it_matters": "Scale AI is hiring for public sector engagement in Qatar, signaling data/AI service expansion into Gulf government.",
+      "nomos_relevance": "Medium",
+      "nomos_reason": "Scale AI is a data platform vendor working with public sector; potential downstream need for AI governance/audit frameworks, but no explicit governance mandate visible.",
+      "suggested_contact": "Head of Public Sector, Scale AI Qatar"
+    },
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "Senior Manager, Forensic Data Analytics - Doha",
+      "url": "https://qa.linkedin.com/jobs/view/senior-manager-forensic-data-analytics-doha-at-ey-4434501959?position=5&pageNum=0&refId=iQOwNv9OaSv5uK0%2Fb7im9w%3D%3D&trackingId=D2oj3LYmw2HgevH3fByOiw%3D%3D",
+      "snippet": "EY \u2014 Doha, Doha, Qatar",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-19",
+      "is_relevant": true,
+      "category": "Job Posting",
+      "why_it_matters": "EY is expanding forensic data analytics capability in Doha, indicating demand for compliance and audit tooling in Qatar.",
+      "nomos_relevance": "Low",
+      "nomos_reason": "Forensic analytics is adjacent to governance but not AI-specific; no indication of AI governance or autonomous system audit need.",
+      "suggested_contact": "EY Qatar AI & Data Practice Lead"
+    },
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "SR. DIGITAL ARCHITECT",
+      "url": "https://qa.linkedin.com/jobs/view/sr-digital-architect-at-qatarenergy-4436541233?position=3&pageNum=0&refId=iQOwNv9OaSv5uK0%2Fb7im9w%3D%3D&trackingId=ntSK%2Bt9SipxaLhG8sRI6Gg%3D%3D",
+      "snippet": "QatarEnergy \u2014 Doha, Doha, Qatar",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-19",
+      "is_relevant": true,
+      "category": "Job Posting",
+      "why_it_matters": "QatarEnergy seeks senior digital architect, suggesting infrastructure modernization that may involve AI and automated decision systems.",
+      "nomos_relevance": "Low",
+      "nomos_reason": "Digital architecture is foundational but no explicit AI, governance, or agentic system signal; speculative.",
+      "suggested_contact": "Chief Digital Officer, QatarEnergy"
+    },
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "AI Applications Ops Manager, GPS",
+      "url": "https://qa.linkedin.com/jobs/view/ai-applications-ops-manager-gps-at-scale-ai-4446359040?position=2&pageNum=0&refId=iQOwNv9OaSv5uK0%2Fb7im9w%3D%3D&trackingId=o%2FtR2M%2BKnnaWqqbCsSpaVg%3D%3D",
+      "snippet": "Scale AI \u2014 Doha, Qatar",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-19",
+      "is_relevant": true,
+      "category": "Job Posting",
+      "why_it_matters": "Scale AI is hiring AI ops managers in Qatar public sector context, indicating active AI deployment and operational governance build-out.",
+      "nomos_relevance": "High",
+      "nomos_reason": "Scale AI's GPS division explicitly focuses on AI operations and public sector; a direct signal of in-market AI governance/ops infrastructure demand in Qatar.",
+      "suggested_contact": "Global Public Sector Lead or AI Ops Director, Scale AI"
+    },
+    {
+      "type": "job_posting",
+      "market": "Qatar",
+      "title": "Principal AI Ops Architect, GPS",
+      "url": "https://qa.linkedin.com/jobs/view/principal-ai-ops-architect-gps-at-scale-ai-4446359038?position=1&pageNum=0&refId=iQOwNv9OaSv5uK0%2Fb7im9w%3D%3D&trackingId=MLTszh%2BE5GAMcylZBLGRWg%3D%3D",
+      "snippet": "Scale AI \u2014 Doha, Qatar",
+      "source_query": "linkedin_jobs",
+      "published_date": "2026-08-19",
+      "is_relevant": true,
+      "category": "Job Posting",
+      "why_it_matters": "Scale AI is hiring principal-level AI ops architect for Qatar public sector, indicating mature, enterprise-scale AI governance architecture being built.",
+      "nomos_relevance": "High",
+      "nomos_reason": "Principal-level AI ops architect hire at Scale AI GPS signals ongoing design of scalable AI governance and audit infrastructure for Qatar government; direct parallel to NOMOS verification offerings.",
+      "suggested_contact": "Global Public Sector Lead or VP AI Operations, Scale AI"
+    }
+  ]
+}
