@@ -1,0 +1,11 @@
+{
+  "date": "2026-10-07",
+  "provenance": "automated",
+  "counts": {
+    "raw": 501,
+    "unseen": 300,
+    "deduped": 461,
+    "relevant": 0
+  },
+  "items": []
+}
